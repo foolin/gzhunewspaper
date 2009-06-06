@@ -2911,7 +2911,7 @@ Shadow=0
 <c:Symbols>
 <o:ReferenceSymbol Id="o8">
 <a:ModificationDate>1243570848</a:ModificationDate>
-<a:Rect>((-114904,186634), (-91606,188396))</a:Rect>
+<a:Rect>((-114904,186584), (-91606,188396))</a:Rect>
 <a:ListOfPoints>((-91606,186864),(-114904,188396))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
@@ -2950,7 +2950,7 @@ CARD 0 新宋体,8,N</a:FontList>
 <o:ReferenceSymbol Id="o15">
 <a:ModificationDate>1243829042</a:ModificationDate>
 <a:CenterTextOffset>(1161, -300)</a:CenterTextOffset>
-<a:Rect>((-92032,156972), (-84158,170067))</a:Rect>
+<a:Rect>((-92031,156972), (-84157,170067))</a:Rect>
 <a:ListOfPoints>((-87490,156972),(-89256,165846),(-90129,170067))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
@@ -3300,14 +3300,14 @@ DAT 1243569689</a:History>
 <a:Code>PageName</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243846590</a:ModificationDate>
+<a:ModificationDate>1244270408</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {0609EFCF-C0B9-4D71-880A-1589C34F458B}
 DAT 1243569689
 ATT DTTP
 ATT MLEN</a:History>
-<a:DataType>varchar(20)</a:DataType>
-<a:Length>20</a:Length>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o39">
@@ -3316,14 +3316,14 @@ ATT MLEN</a:History>
 <a:Code>PageImage</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847558</a:ModificationDate>
+<a:ModificationDate>1244270408</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {265F514B-E1CC-46EC-8DA1-D085D42AF3DD}
 DAT 1243569689
 ATT DTTP
 ATT MLEN</a:History>
-<a:DataType>varchar(256)</a:DataType>
-<a:Length>256</a:Length>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 </c:Columns>
@@ -3442,13 +3442,14 @@ DAT 1243569689</a:History>
 <a:Code>Title</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847045</a:ModificationDate>
+<a:ModificationDate>1244270387</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {81938240-A34C-4BB5-A4FC-CDA705410A5D}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(256)</a:DataType>
-<a:Length>256</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o48">
@@ -3497,13 +3498,14 @@ DAT 1243569689</a:History>
 <a:Code>AddUser</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847045</a:ModificationDate>
+<a:ModificationDate>1244270387</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {F0ADA5F7-C0CB-45C6-BA27-6673B66982E8}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(50)</a:DataType>
-<a:Length>50</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(20)</a:DataType>
+<a:Length>20</a:Length>
 </o:Column>
 <o:Column Id="o52">
 <a:ObjectID>BEB5A7E9-7407-4D03-803F-928D9295902D</a:ObjectID>
@@ -3993,13 +3995,14 @@ DAT 1243569689</a:History>
 <a:Code>FavName</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847091</a:ModificationDate>
+<a:ModificationDate>1244270432</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {C5222A08-B53B-45D0-850D-BCBFB70F6BAF}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(20)</a:DataType>
-<a:Length>20</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o86">
@@ -4008,14 +4011,14 @@ ATT DTTP</a:History>
 <a:Code>FavUrl</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847284</a:ModificationDate>
+<a:ModificationDate>1244270432</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {FC243ADE-C6B5-4CF2-B57D-F385AF67DBFD}
 DAT 1243569689
 ATT DTTP
 ATT MLEN</a:History>
-<a:DataType>varchar(256)</a:DataType>
-<a:Length>256</a:Length>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o87">
@@ -4131,13 +4134,14 @@ DAT 1243569689</a:History>
 <a:Code>PaperName</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270343</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {38E39E6D-0D1B-4B86-934E-5736116F3387}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(50)</a:DataType>
-<a:Length>50</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o95">
@@ -4146,13 +4150,14 @@ ATT DTTP</a:History>
 <a:Code>SiteName</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270476</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {B3B034BF-BE0F-45B9-8A48-62AC1705A805}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(20)</a:DataType>
-<a:Length>20</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o96">
 <a:ObjectID>A76D7FA1-6E96-45B0-AD0D-37A4B0D67468</a:ObjectID>
@@ -4160,13 +4165,14 @@ ATT DTTP</a:History>
 <a:Code>SiteUrl</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270476</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {A8197828-1266-43CC-BD92-8E477007677B}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(50)</a:DataType>
-<a:Length>50</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o97">
 <a:ObjectID>64D31B53-2C6F-48C7-A44C-7FAAB67DDF44</a:ObjectID>
@@ -4174,13 +4180,13 @@ ATT DTTP</a:History>
 <a:Code>PaperInfo</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270256</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {06406A1B-BA88-4335-9BBE-364ACB695BD3}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(50)</a:DataType>
-<a:Length>50</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>text</a:DataType>
 </o:Column>
 <o:Column Id="o98">
 <a:ObjectID>AEDD521B-C094-4BAD-AAF2-23A77D5C1A4D</a:ObjectID>
@@ -4200,13 +4206,14 @@ DAT 1243569689</a:History>
 <a:Code>EditorName</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270256</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {055854FB-8CC8-4853-8450-D1DEF188F9AF}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(50)</a:DataType>
-<a:Length>50</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o100">
 <a:ObjectID>ED521246-8695-4BF0-B4C2-711F0DEC98A7</a:ObjectID>
@@ -4214,13 +4221,14 @@ ATT DTTP</a:History>
 <a:Code>EditorAddrs</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270343</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {281183D6-E769-4802-8252-E13CCD4CE304}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(50)</a:DataType>
-<a:Length>50</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(255)</a:DataType>
+<a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o101">
 <a:ObjectID>5193A77B-DD35-4168-9F99-1BC5CB20F6F5</a:ObjectID>
@@ -4228,11 +4236,12 @@ ATT DTTP</a:History>
 <a:Code>EditorPhone</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270631</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {3075F0FC-383B-4822-9C16-A3FBF3A1F345}
 DAT 1243569689
-ATT DTTP</a:History>
+ATT DTTP
+ATT MLEN</a:History>
 <a:DataType>varchar(20)</a:DataType>
 <a:Length>20</a:Length>
 </o:Column>
@@ -4242,11 +4251,12 @@ ATT DTTP</a:History>
 <a:Code>EditorFax</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244270631</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {3D333689-B63E-4FFA-9AC1-22C34D8D6142}
 DAT 1243569689
-ATT DTTP</a:History>
+ATT DTTP
+ATT MLEN</a:History>
 <a:DataType>varchar(20)</a:DataType>
 <a:Length>20</a:Length>
 </o:Column>
@@ -4256,13 +4266,14 @@ ATT DTTP</a:History>
 <a:Code>EditorEmail</a:Code>
 <a:CreationDate>1243569689</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1243847528</a:ModificationDate>
+<a:ModificationDate>1244027024</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {5895FBB7-E13E-4655-842B-DA0B8C6C003B}
 DAT 1243569689
-ATT DTTP</a:History>
-<a:DataType>varchar(20)</a:DataType>
-<a:Length>20</a:Length>
+ATT DTTP
+ATT MLEN</a:History>
+<a:DataType>varchar(50)</a:DataType>
+<a:Length>50</a:Length>
 </o:Column>
 </c:Columns>
 </o:Table>

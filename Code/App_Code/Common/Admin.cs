@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Admin
 
 using System;
+using System.Data;
 
 namespace Myweb.NewsPaper
 {
@@ -15,6 +16,17 @@ namespace Myweb.NewsPaper
     {
         public Admin()
         { }
+
+        public Admin(DataRow row)
+        {
+            this.AdminID = (int)row["AdminID"];
+            this.AdminName = (string)row["AdminName"];
+            this.Password = (string)row["Password"];
+            this.Power = (int)row["Power"];
+            this.LoginCount = (int)row["LoginCount"];
+            this.LastLoginTime = (DateTime)row["LastLoginTime"];
+            this.LastLoginIP = (string)row["LastLoginIP"];
+        }
 
         private int _adminID;
         /// <summary>
@@ -34,6 +46,16 @@ namespace Myweb.NewsPaper
         {
             get { return _adminName; }
             set { _adminName = value; }
+        }
+
+        private string _password;
+        /// <summary>
+        /// π‹¿Ì‘±√‹¬Î
+        /// </summary>
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
         }
 
 

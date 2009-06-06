@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-1 17:12:49                            */
+/* Created on:     2009-6-6 14:46:14                            */
 /*==============================================================*/
 
 
@@ -138,11 +138,11 @@ go
 create table News (
    NewsID               int                  identity,
    PageID               int                  null,
-   Title                varchar(256)         not null,
+   Title                varchar(255)         not null,
    Author               varchar(20)          null,
    Content              text                 not null,
    PositionOfPage       text                 not null,
-   AddUser              varchar(50)          null,
+   AddUser              varchar(20)          null,
    AddTime              datetime             null,
    ViewCount            int                  null,
    constraint PK_NEWS primary key nonclustered (NewsID)
@@ -184,8 +184,8 @@ create table PaperPage (
    PageID               int                  identity,
    PaperID              int                  null,
    PageNO               int                  not null,
-   PageName             varchar(20)          not null,
-   PageImage            varchar(256)         not null,
+   PageName             varchar(255)         not null,
+   PageImage            varchar(255)         not null,
    constraint PK_PAPERPAGE primary key nonclustered (PageID)
 )
 go
@@ -202,16 +202,16 @@ go
 /* Table: SystemConfig                                          */
 /*==============================================================*/
 create table SystemConfig (
-   PaperName            varchar(50)          not null,
-   SiteName             varchar(20)          null,
-   SiteUrl              varchar(50)          null,
-   PaperInfo            varchar(50)          null,
+   PaperName            varchar(255)         not null,
+   SiteName             varchar(255)         null,
+   SiteUrl              varchar(255)         null,
+   PaperInfo            text                 null,
    IsOpenRegister       bit                  null,
-   EditorName           varchar(50)          null,
-   EditorAddrs          varchar(50)          null,
+   EditorName           varchar(255)         null,
+   EditorAddrs          varchar(255)         null,
    EditorPhone          varchar(20)          null,
    EditorFax            varchar(20)          null,
-   EditorEmail          varchar(20)          null
+   EditorEmail          varchar(50)          null
 )
 go
 
@@ -221,8 +221,8 @@ go
 create table UserFavorites (
    FavID                int                  identity,
    UserID               int                  null,
-   FavName              varchar(20)          not null,
-   FavUrl               varchar(256)         not null,
+   FavName              varchar(255)         not null,
+   FavUrl               varchar(255)         not null,
    FavTime              datetime             null,
    FavType              int                  null,
    constraint PK_USERFAVORITES primary key nonclustered (FavID)
