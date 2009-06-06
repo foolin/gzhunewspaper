@@ -8,18 +8,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using Studio.Web;
-using Myweb.NewsPaper;
 
-public partial class Admin_Default : AdminBase
+public partial class Admin_MasterPage : AdminBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
-    }
-    protected override void OnPreRender(EventArgs e)
-    {
-        txtNewsPaper.DataSource = new NewsPaperAgent().GetNewsPaperList();
-        txtNewsPaper.DataBind();
     }
 }

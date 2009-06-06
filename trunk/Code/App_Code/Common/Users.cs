@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Users
 
 using System;
+using System.Data;
 
 
 namespace Myweb.NewsPaper
@@ -18,6 +19,18 @@ namespace Myweb.NewsPaper
     {
         public Users()
         { }
+
+        public Users(DataRow row)
+        {
+            this.UserID = (int)row["UserID"];
+            this.UserName = (string)row["UserName"];
+            this.Password = (string)row["Password"];
+            this.NickName = (string)row["NickName"];
+            this.Email = (string)row["Email"];
+            this.LoginCount = (int)row["LoginCount"];
+            this.LastLoginTime = (DateTime)row["LastLoginTime"];
+            this.LastLoginIP = (string)row["LastLoginIP"];
+        }
 
         private int _userID;
         /// <summary>

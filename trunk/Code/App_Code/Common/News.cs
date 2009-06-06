@@ -4,6 +4,7 @@
 // Purpose: Definition of Class News
 
 using System;
+using System.Data;
 
 namespace Myweb.NewsPaper
 {
@@ -16,6 +17,18 @@ namespace Myweb.NewsPaper
     {
         public News()
         { }
+
+        public News(DataRow row)
+        {
+            this.NewsID = (int)row["NewsID"];
+            this.PageID = (int)row["PageID"];
+            this.Title = (string)row["Title"];
+            this.Content = (string)row["Countent"];
+            this.PositionOfPage = (string)row["PositionOfPage"];
+            this.AddUser = (string)row["AddUser"];
+            this.AddTime = (DateTime)row["AddTime"];
+            this.ViewCount = (int)row["ViewCount"];
+        }
 
         private int _newsID;
         /// <summary>

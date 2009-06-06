@@ -4,6 +4,7 @@
 // Purpose: Definition of Class UserFavorites
 
 using System;
+using System.Data;
 
 
 
@@ -17,6 +18,19 @@ namespace Myweb.NewsPaper
 
     public class UserFavorites
     {
+        public UserFavorites()
+        { }
+
+        public UserFavorites(DataRow row)
+        {
+            this.FavID = (int)row["FavID"];
+            this.UserID = (int)row["UserID"];
+            this.FavName = (string)row["FavName"];
+            this.FavUrl = (string)row["FavUrl"];
+            this.FavTime = (DateTime)row["FavTime"];
+            this.FavType = (int)row["FavType"];
+        }
+
         private int _favID;
         /// <summary>
         /// ÊÕ²ØID

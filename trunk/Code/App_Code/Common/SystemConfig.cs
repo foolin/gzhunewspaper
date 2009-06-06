@@ -4,6 +4,7 @@
 // Purpose: Definition of Class SystemConfig
 
 using System;
+using System.Data;
 
 
 namespace Myweb.NewsPaper
@@ -18,6 +19,20 @@ namespace Myweb.NewsPaper
     {
         public SystemConfig()
         { }
+
+        public SystemConfig(DataRow row)
+        {
+            this.PaperName = (string)row["PaperName"];
+            this.SiteName = (string)row["SiteName"];
+            this.SiteUrl = (string)row["SiteUrl"];
+            this.PaperInfo = (string)row["PaperInfo"];
+            this.IsOpenRegister = (bool)row["IsOpenRegister"];
+            this.EditorName = (string)row["EditorName"];
+            this.EditorAddrs = (string)row["EditorAddrs"];
+            this.EditorPhone = (string)row["EditorPhone"];
+            this.EditorFax = (string)row["EditorFax"];
+            this.EditorEmail = (string)row["EditorEmail"];
+        }
 
         private string _paperName;
         /// <summary>

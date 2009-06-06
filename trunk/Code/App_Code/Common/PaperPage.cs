@@ -4,6 +4,7 @@
 // Purpose: Definition of Class PaperPage
 
 using System;
+using System.Data;
 
 
 namespace Myweb.NewsPaper
@@ -18,6 +19,15 @@ namespace Myweb.NewsPaper
     {
         public PaperPage()
         { }
+
+        public PaperPage(DataRow row)
+        {
+            this.PaperID = (int)row["PaperID"];
+            this.PageID = (int)row["PageID"];
+            this.PageNO = (int)row["PageNO"];
+            this.PageName = (string)row["PageName"];
+            this.PageImage = (string)row["PageImage"];
+        }
 
         private int _pageID;
         /// <summary>
