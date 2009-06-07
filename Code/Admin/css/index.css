@@ -1,0 +1,35 @@
+/*==============================================================*/
+/* Purpose:        Css For html style                       	*/
+/* Author:         Foolin 					                    */
+/* E-mail:         Foolin@126.com				                */
+/* Created on:     2009-6-6 16:41:32                            */
+/*==============================================================*/
+
+
+.column_A{
+	float:left;
+	width:300px;
+}
+
+.column_main{
+	float:left;
+	width:400px;
+}
+
+.column_B{
+	float:left;
+	width:260px;
+}
+
+.notice  {
+	clear:both;
+	line-height:25px;
+	padding-left:10px;
+	padding-right:10px;
+	font-size:12px;
+}
+
+.fixheight{
+	height:259px;
+	overflow:hidden;
+}
