@@ -1,0 +1,75 @@
+/*==============================================================*/
+/* Purpose:        Css For html style                       	*/
+/* Author:         Foolin 					                    */
+/* E-mail:         Foolin@126.com				                */
+/* Created on:     2009-6-6 16:41:18                            */
+/*==============================================================*/
+
+.column_side{
+	float:left;
+	width:280px;
+	font-size:14px;
+}
+
+.column_main{
+	float:left;
+	width:680px;
+}
+
+.list{
+	margin:2px 2px 5px 2px;
+	border:2px solid #ACD6FF;
+	font-size:14px;
+}
+
+.list .list_title{
+	background:url(../images/list_title_bg.jpg);
+	line-height:28px;
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:20px;
+}
+
+.list ul{
+	margin:0px;
+	padding:0px;
+}
+
+.list li{
+	margin:0px;
+	padding:0px;
+	line-height:25px;
+	border-bottom:#CCC 1px dashed;
+	list-style:url(../images/dot.jpg) inside;
+}
+
+.list table{
+	width:100%;
+	border-collapse:collapse;
+}
+.list th{
+	background:#68B4FF;
+	border-left:#FFF 1px solid;
+	border-right:#FFF 1px solid;
+	line-height:25px;
+	color:#FFF;
+}
+.list td{
+	line-height:22px;
+	border:#FFF 1px solid;
+	padding-left:5px;
+}
+.list .article{
+	background:url(../images/dot.jpg) no-repeat;
+	padding-left:18px;
+}
+
+.list .time{
+	width:15%;
+}
+
+.list .pagebar{
+	text-align:center;
+	padding:10px 0px;
+}
