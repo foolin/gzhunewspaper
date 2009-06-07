@@ -1,0 +1,90 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPage.master.cs" Inherits="Admin_AdminPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>广州大学在线校报阅读系统</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/list.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<form id="form1" runat="server">
+<div class="wraper">
+	<div class="header">
+    		<div class="logo"></div>
+            <div class="banner"></div>
+    </div>
+    
+    <div class="menu">
+            <ul>
+            <li><a href="Default.aspx">首页</a></li>
+            <li><a href="PaperList.aspx">校刊管理</a></li>
+            <li><a href="PageList.aspx">校刊版面管理</a></li>
+            <li><a href="NewsList.aspx">新闻管理</a></li>
+            <li><a href="UserList.aspx">用户管理</a></li>
+            <li><a href="AdminList.aspx">团队管理</a></li>
+            <li><a href="SystemCofig.aspx">系统配置</a></li>
+            <li><a href="Logout.aspx">注销登录</a></li>
+            </ul>
+            <div class="clear"></div>
+    </div>
+    
+    <div class="main">
+    
+            <!--notice--->
+            <div class="location"> 你现在的位置：<a href="Default.aspx">首页</a> → <asp:ContentPlaceHolder ID="Location" runat="server"></asp:ContentPlaceHolder></div>
+            
+            <div class="container">
+                    <div class="column_side">
+                        <asp:ContentPlaceHolder ID="ContentSide" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!--栏目-->
+                        <div class="box">
+                          <div class="title"><span class="titletxt">控制面板</span></div>
+                            <div class="content">
+                                <div>欢迎<asp:Label ID="labLoginAdmin" runat="server" Text="Label"></asp:Label>！
+                                </div>
+                                <ul>
+                                <li><a href="ChangePassword.aspx">修改密码</a></li>
+                                <li><a href="Logout.aspx">注销登录</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    
+                    
+                    <div class="column_main">
+                        <asp:ContentPlaceHolder ID="ContentMain" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="clear"></div>
+            </div>
+            
+	</div>
+    <div class="footer">
+            <!--底部连接：bottomlink-->
+            <div class="bottomlink">
+                <a href="#">设为首页</a> |
+                <a href="#">关于我们</a> |
+                <a href="#">网站导航</a> |
+                <a href="#">法律声明</a> |
+                <a href="#">联系我们</a> |
+            </div>
+            <!--底部版权信息：copyright-->
+            <div class="copyright">
+                    校报在线阅读系统v1.0 <br />
+                    课程：软件工程实验     版权所有：OnlineNewspaper开发小组 <br />
+                    指导老师：张为 制作：刘付灵、朱松辉 E-mail:Foolin@126.com<br />
+            </div>
+    </div>
+</div>
+</form>
+</body>
+</html>
+
+
+<!-- 系统UI设计：刘付灵(Foolin) 2009年6月6日20:48:31 -->
