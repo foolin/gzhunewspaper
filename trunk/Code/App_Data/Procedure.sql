@@ -371,13 +371,14 @@ Go
 
 CREATE PROCEDURE UpdatePaperPageInfo
 ( @PageID INT,
+  @PaperID INT,
   @PageNO INT,
   @PageName VARCHAR(255),
   @PageImage VARCHAR(256)
 )
 AS
 UPDATE PaperPage
-SET PageNO = @PageNO, PageName = @PageName, PageImage = @PageImage
+SET PaperID=@PaperID, PageNO = @PageNO, PageName = @PageName, PageImage = @PageImage
 WHERE PageID=@PageID
 GO
 
