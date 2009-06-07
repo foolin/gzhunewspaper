@@ -16,8 +16,8 @@ namespace Studio.Web
     public class PageNaver : Control, INamingContainer
     {
         string _pidKey = "pid";
-        int _pagesize = 20;
-        int _splits = 10;
+        int _pagesize = 2;
+        int _splits = 1;
         int _pageindex = -1;
         string _urlprefix = String.Empty;
         string _pageLabel = String.Empty;
