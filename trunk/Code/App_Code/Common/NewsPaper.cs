@@ -23,30 +23,18 @@ namespace Myweb.NewsPaper
         public NewsPaper(DataRow row)
         {
             this.PaperID = (int)row["PaperID"];
-            this.PaperNO = (int)row["PaperNO"];
             this.PublishDate = (DateTime)row["PublishDate"];
             this.NumOfPage = (int)row["NumOfPage"];
         }
 
         private int _paperID;
         /// <summary>
-        /// 期刊ID
+        /// 期刊ID(期刊号)
         /// </summary>
         public int PaperID
         {
             get { return _paperID; }
             set { _paperID = value; }
-        }
-
-
-        private int _paperNO;
-        /// <summary>
-        /// 期刊号
-        /// </summary>
-        public int PaperNO
-        {
-            get { return _paperNO; }
-            set { _paperNO = value; }
         }
 
         private DateTime _publishDate;
