@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-6 14:46:14                            */
+/* Created on:     2009-6-7 15:00:23                            */
 /*==============================================================*/
 
 
@@ -169,8 +169,7 @@ go
 /* Table: NewsPaper                                             */
 /*==============================================================*/
 create table NewsPaper (
-   PaperID              int                  identity,
-   PaperNO              int                  not null,
+   PaperID              int                  not null,
    PublishDate          datetime             not null,
    NumOfPage            int                  not null,
    constraint PK_NEWSPAPER primary key nonclustered (PaperID)

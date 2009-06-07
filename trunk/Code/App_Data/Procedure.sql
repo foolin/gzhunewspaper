@@ -3,7 +3,7 @@
 /* DBMS name:      Microsoft SQL Server 2000                    */
 /* Author:         Foolin (Foolin@126.com)                      */
 /* Created on:     2009-6-1 15:44:21                            */
-/* Updated on:     2009-6-3 17:07:13                            */
+/* Updated on:     2009-6-7 1:05:39                             */
 /*==============================================================*/
 
 --获取站点信息
@@ -17,7 +17,7 @@ go
 CREATE PROCEDURE GetSiteInfo
 AS
 BEGIN
-	SELECT * FROM SystemCofig
+	SELECT * FROM SystemConfig
 	SELECT * FROM Admin
 END
 Go
@@ -64,6 +64,12 @@ if exists (select 1
             and   xtype='P')
    drop procedure UpdateSystemConfig
 go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('InitSystemConfig')
+            and   xtype='P')
+   drop procedure InitSystemConfig
+go
 
 --创建存储过程--
 
@@ -91,20 +97,19 @@ UPDATE SystemConfig
 SET PaperName=@PaperName, SiteName=@SiteName, PaperInfo=@PaperInfo, IsOpenRegister=@IsOpenRegister,
     EditorName=@EditorName, EditorAddrs=@EditorAddrs, EditorPhone=@EditorPhone, EditorFax=@EditorFax, EditorEmail=@EditorEmail
 GO
-    
-DECLARE @Count INT
-SELECT @Count = COUNT(*) FROM SystemConfig
-IF @Count = 0
-  --初始化系统配置--
-  INSERT INTO SystemConfig(PaperName, SiteName, SiteUrl,PaperInfo, IsOpenRegister, EditorName, EditorAddrs, EditorPhone, EditorFax, EditorEmail)
-  VALUES('广州大学报', '广州大学报在线阅读系统',  'http://xb.gzhu.edu.cn', '中共广州大学委员会主管主办 国内统一刊号：CN44-0803/（G）',
-          'TRUE', '广州大学校报编辑部', '广州大学编辑部', '02039341141', '02039341141', 'gdnews@126.com')
-ELSE
-  EXEC UpdateSystemConfig  '广州大学报', '广州大学报在线阅读系统',  'http://xb.gzhu.edu.cn', '中共广州大学委员会主管主办 国内统一刊号：CN44-0803/（G）',
-          'TRUE', '广州大学校报编辑部', '广州大学编辑部', '02039341141', '02039341141', 'gdnews@126.com'
-
+ 
+CREATE PROCEDURE InitSystemConfig
+AS
+BEGIN
+    --初始化系统配置--
+	DELETE FROM SystemConfig
+    INSERT INTO SystemConfig(PaperName, SiteName, SiteUrl,PaperInfo, IsOpenRegister, EditorName, EditorAddrs, EditorPhone, EditorFax, EditorEmail)
+    VALUES('广州大学报', '广州大学报在线阅读系统',  'http://xb.gzhu.edu.cn', '中共广州大学委员会主管主办 国内统一刊号：CN44-0803/（G）',
+            'TRUE', '广州大学校报编辑部', '广州大学编辑部', '02039341141', '02039341141', 'gdnews@126.com')
+END
 GO
-
+EXEC InitSystemConfig
+GO
   
 /*==============================================================*/
 /* Table: Admin                                                 */
@@ -139,6 +144,11 @@ if exists (select 1
            where  id = object_id('DeleteAdmin')
             and   xtype='P')
    drop procedure DeleteAdmin
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('InitAdmin')
+            and   xtype='P')
+   drop procedure InitAdmin
 go
 
 --创建存储过程--
@@ -186,8 +196,17 @@ CREATE PROCEDURE DeleteAdmin(@AdminID INT)
 AS
 DELETE Admin WHERE AdminID = @AdminID
 GO
+
 --初始化管理员 帐号:admin,密码：123456 --
-EXEC AddAdmin 'admin','E10ADC3949BA59ABBE56',3
+CREATE PROCEDURE InitAdmin
+AS
+BEGIN
+	DELETE FROM Admin
+	EXEC AddAdmin 'admin','E10ADC3949BA59ABBE56',3
+END
+GO
+
+EXEC InitAdmin
 Go
 
 /*==============================================================*/
@@ -205,6 +224,12 @@ if exists (select 1
            where  id = object_id('GetNewsPaperInfo')
             and   xtype='P')
    drop procedure GetNewsPaperInfo
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetNewsPaperByNO')
+            and   xtype='P')
+   drop procedure GetNewsPaperByNO
 go
 if exists (select 1
             from  sysobjects
@@ -242,24 +267,23 @@ GO
 
 CREATE PROCEDURE AddNewsPaper
 (
-  @PaperNO INT,
+  @PaperID INT,
   @PublishDate DateTime,
   @NumOfPage INT
 )
 AS
-INSERT INTO NewsPaper(PaperNO, PublishDate, NumOfPage) VALUES(@PaperNO, @PublishDate, @NumOfPage)
+INSERT INTO NewsPaper(PaperID, PublishDate, NumOfPage) VALUES(@PaperID, @PublishDate, @NumOfPage)
 Go
 
 
 CREATE PROCEDURE UpdateNewsPaperInfo
 ( @PaperID INT,
-  @PaperNO INT,
   @PublishDate DateTime,
   @NumOfPage INT
 )
 AS
 UPDATE NewsPaper
-SET PaperNO = @PaperNO, PublishDate = @PublishDate, NumOfPage = @NumOfPage
+SET PublishDate = @PublishDate, NumOfPage = @NumOfPage
 WHERE PaperID=@PaperID
 GO
 
@@ -279,6 +303,12 @@ if exists (select 1
            where  id = object_id('GetPaperPageList')
             and   xtype='P')
    drop procedure GetPaperPageList
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetPaperPageListByPaperID')
+            and   xtype='P')
+   drop procedure GetPaperPageListByPaperID
 go
 if exists (select 1
             from  sysobjects
@@ -311,6 +341,13 @@ CREATE PROCEDURE GetPaperPageList
 AS
 SELECT * FROM PaperPage
 ORDER BY PageID DESC
+GO
+
+CREATE PROCEDURE GetPaperPageListByPaperID(@PaperID INT)
+AS
+SELECT * FROM PaperPage
+WHERE PaperID = @PaperID
+ORDER BY PaperID
 GO
 
 CREATE PROCEDURE GetPaperPageInfo(@PageID INT)
