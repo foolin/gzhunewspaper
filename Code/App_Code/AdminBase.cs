@@ -33,6 +33,37 @@ public class AdminBase : System.Web.UI.Page
                 ViewState["BACK"] = Request.UrlReferrer.ToString();
             }
         }
+
     }
+
+
+    /// <summary>
+    /// 获取地址栏参数
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    protected string QS(string key)
+    {
+        return Request.QueryString[key] + "";
+    }
+
+/*
+
+    protected Site SiteInfo
+    {
+        get
+        {
+            return (Site)Context.Items["Site"];
+        }
+    }
+
+    protected Admin LoginAdmin
+    {
+        get
+        {
+            return (Admin)Context.Items["LoginAdmin"];
+        }
+    }
+ */
 
 }

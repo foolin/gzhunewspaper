@@ -1,6 +1,7 @@
 ﻿// File:    NewsPaperAgent.cs
 // Author:  Foolin
 // Created: 2009年6月1日12:45:04
+// Updated: 2009-6-7 1:18:03
 // Purpose: 期刊（NewsPaper）处理逻辑类
 
 using System;
@@ -51,7 +52,7 @@ namespace Myweb.NewsPaper
 
 
         /// <summary>
-        /// 获取某期刊的信息
+        /// 通过ID获取某期刊的信息
         /// </summary>
         /// <param name="PaperID">期刊ID</param>
         /// <returns></returns>
@@ -83,7 +84,7 @@ namespace Myweb.NewsPaper
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddNewsPaper",
-                    this.NewParam("@PaperNO", paper.PaperNO),
+                    this.NewParam("@PaperID", paper.PaperID),
                     this.NewParam("@PublishDate", paper.PublishDate),
                     this.NewParam("@NumOfPage", paper.NumOfPage)) > 0;
             }
@@ -101,14 +102,13 @@ namespace Myweb.NewsPaper
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdateNewsPaperInfo",
                     this.NewParam("@PaperID", paper.PaperID),
-                    this.NewParam("@PaperNO", paper.PaperNO),
                     this.NewParam("@PublishDate", paper.PublishDate),
                     this.NewParam("@NumOfPage", paper.NumOfPage)) > 0;
             }
         }
 
         /// <summary>
-        /// 删除连接
+        /// 删除期刊
         /// </summary>
         /// <param name="LinkID"></param>
         /// <returns></returns>
