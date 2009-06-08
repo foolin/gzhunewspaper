@@ -21,11 +21,31 @@ public partial class Admin_NewsAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        ArrayList arr = new PaperPageAgent().GetPaperPageList();
-        foreach (PaperPage p in arr)
+        if (!IsPostBack)
         {
-            txtPaperID.Items.Add(p.PaperID.ToString());
-            //txtPageID.Items.Add(p.PageID.ToString());
+            txtAddUser.Text = Request.Cookies["Admin"]["AdminName"].ToString();
+            ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
+            foreach (NewsPaper p in arr)
+            {
+                txtPaperID.Items.Add(p.PaperID.ToString());
+            }
+
+            int paperID;
+            if (int.TryParse(this.txtPaperID.SelectedValue.ToString(), out paperID) == true)
+            {
+                if (paperID == 0)
+                {
+                    Response.Redirect("NewsAdd.aspx");
+                }
+                else
+                {
+                    ArrayList arr2 = new PaperPageAgent().GetPaperPageList(paperID);
+                    foreach (PaperPage p in arr2)
+                    {
+                        txtPageID.Items.Add(p.PageID.ToString());
+                    }
+                }
+            }
         }
 
     }
@@ -40,7 +60,7 @@ public partial class Admin_NewsAdd : AdminBase
         {
             WebAgent.AlertAndBack("版面数不能为空!");
         }
-        if (txtNewsName.Text == "")
+        if (txtTitle.Text == "")
         {
             WebAgent.AlertAndBack("标题不能为空!");
         }
@@ -78,8 +98,8 @@ public partial class Admin_NewsAdd : AdminBase
         news.AddTime = DateTime.Now;
         news.AddUser = this.txtAddUser.Text.ToString();
         news.Author = this.txtAuthor.Text.ToString();
+        news.Title = this.txtTitle.Text.ToString();
         news.Content = this.txtContent.Text.ToString();
-        news.Title = this.txtNewsName.Text.ToString();
         news.PositionOfPage = this.txtPosition.Text.ToString();
         NewsAgent agent = new NewsAgent();
         if (agent.AddNews(news))
@@ -98,15 +118,23 @@ public partial class Admin_NewsAdd : AdminBase
     /// <param name="e"></param>
     protected void txtPaperID_SelectedIndexChanged(object sender, EventArgs e)
     {
-        /*
-        ArrayList arr = new PaperPageAgent().GetPaperPageList();
-        string selected = txtPaperID.SelectedValue.ToString();
-        foreach (PaperPage p in arr)
+        int paperID;
+        if (int.TryParse(this.txtPaperID.SelectedValue.ToString(), out paperID) == true)
         {
-            txtPaperID.Items.Add(p.PaperID.ToString());
-            //txtPageID.Items.Add(p.PageID.ToString());
+            if (paperID == 0)
+            {
+                Response.Redirect("NewsAdd.aspx");
+            }
+            else
+            {
+                txtPageID.Items.Clear();
+                ArrayList arr = new PaperPageAgent().GetPaperPageList(paperID);
+                foreach (PaperPage p in arr)
+                {
+                    txtPageID.Items.Add(p.PageID.ToString());
+                }
+            }
         }
-        */
 
     }
 }

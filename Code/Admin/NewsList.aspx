@@ -19,23 +19,21 @@
                                 <table width="100%" cellspacing="0" border="0">
                                     <tr>
                                         <th>
-                                            新闻号</th>
+                                            ID</th>
                                         <th>
-                                            版面号</th>
+                                            期刊</th>
+                                        <th>
+                                            版面</th>
                                         <th>
                                             标题</th>
                                         <th>
                                             作者</th>
                                         <th>
-                                            内容</th>
-                                        <th>
-                                            具体位置</th>
-                                        <th>
-                                            管理员</th>
+                                            添加人</th>
                                         <th>
                                             时间</th>
                                         <th>
-                                            viewcount</th>
+                                            浏览次数</th>
                                         <th>
                                             操作</th>
                                     </tr>
@@ -43,14 +41,24 @@
                                         <ItemTemplate>
                                             <tr onmouseover="this.style.background='#FFFFFF';" onmouseout="this.style.background='#E6F2FF'">
                                                 <td>
-                                                    <%#Eval("PaperID")%></td>
+                                                    <%#Eval("NewsID")%></td>
                                                 <td>
-                                                    <%#Convert.ToDateTime(Eval("PublishDate")).ToLongDateString().ToString()%></td>
+                                                    第<%#Eval("PaperID")%>期</td>
                                                 <td>
-                                                    <%#Eval("NumOfPage") %></td>
+                                                    第<%#Eval("PageID")%>版</td>
                                                 <td>
-                                                    <a href="PaperEdit.aspx?id=<%#Eval("PaperID") %>" title="修改期刊信息">修改</a>
-                                                    <a href="PaperDel.aspx?id=<%#Eval("PaperID") %>" onclick="return confirm('注意：该期刊的所有版面和新闻数据都将会永久性删除！\n\n您确定要删除该期刊吗？')" title="删除">删除</a></td>
+                                                    <%#Eval("Title")%></td>
+                                                <td>
+                                                    <%#Eval("Author")%></td>
+                                                <td>
+                                                    <%#Eval("AddUser")%></td>
+                                                <td>
+                                                    <%#Convert.ToDateTime(Eval("AddTime")).ToShortDateString().ToString()%></td>
+                                                <td>
+                                                    <%#Eval("ViewCount") %></td>
+                                                <td>
+                                                    <a href="NewsEdit.aspx?id=<%#Eval("NewsID") %>" title="修改新闻">修改</a>
+                                                    <a href="NewsDel.aspx?id=<%#Eval("NewsID") %>" onclick="return confirm('删除新闻将不能恢复！\n\n您确定要删除该新闻吗？')" title="删除">删除</a></td>
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>
