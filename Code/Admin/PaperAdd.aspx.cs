@@ -50,9 +50,8 @@ public partial class Admin_PaperAdd : AdminBase
         else
         {
             paper.PaperID = toNum;
-            NewsPaper p = new NewsPaperAgent().GetNewsPaperInfo(paper.PaperID);
-            if (p != null)
-                WebAgent.AlertAndBack("已经存在该期刊号为[" + p.PaperID + "]的期刊，请检查");
+            if ((new NewsPaperAgent().GetNewsPaperInfo(paper.PaperID)) != null)
+                WebAgent.AlertAndBack("已经存在该期刊号为[" + paper.PaperID + "]的期刊，请检查");
         }
         paper.PublishDate = DateTime.Parse(txtPublishDate.Text);
         if (int.TryParse(this.txtNumOfPage.Text.ToString(), out toNum) == false)

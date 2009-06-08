@@ -24,7 +24,7 @@
         <tr>
             <td>期数：</td>
             <td> 
-                <asp:TextBox ID="txtPaperID" runat="server"></asp:TextBox></td>
+                <asp:TextBox ID="txtPaperID" runat="server"></asp:TextBox> （请填数字）</td>
         </tr>
         <tr>
             <td>出版日期：</td>
@@ -46,7 +46,7 @@
         <tr>
             <td>版面数：</td>
             <td>
-                <asp:TextBox ID="txtNumOfPage" runat="server">4</asp:TextBox></td>
+                <asp:TextBox ID="txtNumOfPage" runat="server">4</asp:TextBox> （请填数字）</td>
         </tr>
         <tr>
             <td></td>
