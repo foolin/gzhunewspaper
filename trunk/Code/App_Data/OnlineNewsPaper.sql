@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-8 22:42:52                            */
+/* Created on:     2009-6-8 22:52:44                            */
 /*==============================================================*/
 
 
@@ -137,8 +137,8 @@ go
 /*==============================================================*/
 create table News (
    NewsID               int                  identity,
-   PaperID              int                  null,
-   PageID               int                  null,
+   PaperID              int                  not null,
+   PageID               int                  not null,
    Title                varchar(255)         not null,
    Author               varchar(20)          null,
    Content              text                 not null,

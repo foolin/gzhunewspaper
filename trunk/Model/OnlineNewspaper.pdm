@@ -3383,11 +3383,13 @@ ATT SERIAL</a:History>
 <a:Code>PaperID</a:Code>
 <a:CreationDate>1244446697</a:CreationDate>
 <a:Creator>416</a:Creator>
-<a:ModificationDate>1244446697</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
+<a:ModificationDate>1244472732</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {8C193B4B-5989-4FAD-B695-FDB4F86F7500},{E4E7FDAA-7EA0-4AB2-98BC-9FBE7F03B3F6}
-DAT 1244446697</a:History>
+DAT 1244446697
+ATT MAND</a:History>
 <a:DataType>int</a:DataType>
+<a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o44">
 <a:ObjectID>6147893F-0892-415A-9781-917A0C447581</a:ObjectID>
@@ -3395,11 +3397,13 @@ DAT 1244446697</a:History>
 <a:Code>PageID</a:Code>
 <a:CreationDate>1244446697</a:CreationDate>
 <a:Creator>416</a:Creator>
-<a:ModificationDate>1244446697</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
+<a:ModificationDate>1244472732</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {D6E6F65F-8EA3-4095-9F8F-27C4E12B1425},{FDF1B6B7-9D66-4D66-ACC0-91A5FB6E39F2}
-DAT 1244446697</a:History>
+DAT 1244446697
+ATT MAND</a:History>
 <a:DataType>int</a:DataType>
+<a:Mandatory>1</a:Mandatory>
 </o:Column>
 <o:Column Id="o45">
 <a:ObjectID>CB9426C7-524F-42A2-B538-621C07B96086</a:ObjectID>
