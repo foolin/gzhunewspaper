@@ -8,8 +8,8 @@
       <div class="title"><span class="titletxt">新闻管理</span></div>
         <div class="content">
             <ul>
-            <li><a href="PageAdd.aspx">添加新闻</a></li>
-            <li><a href="PageList.aspx">新闻列表</a></li>
+            <li><a href="NewsAdd.aspx">添加新闻</a></li>
+            <li><a href="NewsList.aspx">新闻列表</a></li>
             </ul>
         </div>
     </div>
@@ -24,7 +24,7 @@
         <tr>
             <td style="height: 25px">版面：</td>
             <td style="height: 25px"> 
-                第<asp:DropDownList ID="txtPaperID" runat="server" OnSelectedIndexChanged="txtPaperID_SelectedIndexChanged"></asp:DropDownList>期</td>
+                第<asp:DropDownList ID="txtPaperID" runat="server" OnSelectedIndexChanged="txtPaperID_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>期</td>
         </tr>
         <tr>
             <td>版面：</td>
@@ -34,7 +34,7 @@
         <tr>
             <td>标题</td>
             <td>
-                <asp:TextBox ID="txtNewsName" runat="server"></asp:TextBox> 
+                <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox> 
             </td>
         </tr>
         <tr>
@@ -59,7 +59,7 @@
             <td>
                 添加人</td>
             <td>
-				<asp:TextBox ID="txtAddUser" runat="server"></asp:TextBox>
+				<asp:TextBox ID="txtAddUser" ReadOnly="true" runat="server"></asp:TextBox>
             </td>
         </tr>       
         <tr>
