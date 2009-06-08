@@ -73,14 +73,16 @@ namespace Myweb.NewsPaper
         /// <summary>
         /// 通过ID获取某期刊版面的信息
         /// </summary>
+        /// <param name="PaperID">期刊ID</param>
         /// <param name="PaperID">版面ID</param>
         /// <returns></returns>
-        public  PaperPage GetPaperPageInfo(int PageID)
+        public  PaperPage GetPaperPageInfo(int PaperID, int PageID)
         {
             DataSet ds;
             using (IDbExecutor db = this.NewExecutor())
             {
                 ds = db.GetDataSet(CommandType.StoredProcedure, "GetPaperPageInfo",
+                    this.NewParam("@PaperID", PaperID),
                     this.NewParam("@PageID", PageID));
             }
             if (ds.Tables[0].Rows.Count == 0)
@@ -105,7 +107,7 @@ namespace Myweb.NewsPaper
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddPaperPage",
                     this.NewParam("@PaperID", page.PaperID),
-                    this.NewParam("@PageNO", page.PageNO),
+                    this.NewParam("@PageID", page.PageID),
                     this.NewParam("@PageName", page.PageName),
                     this.NewParam("@PageImage", page.PageImage)) > 0;
             }
@@ -117,14 +119,15 @@ namespace Myweb.NewsPaper
         /// </summary>
         /// <param name="paper"></param>
         /// <returns></returns>
-        public bool UpdatePaperPageInfo(PaperPage page)
+        public bool UpdatePaperPageInfo(int oldPaperID, int oldPageID, PaperPage page)
         {
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdatePaperPageInfo",
-                    this.NewParam("@PageID", page.PageID),
+                    this.NewParam("@oldPaperID", oldPaperID),
+                    this.NewParam("@oldPageID", oldPageID),
                     this.NewParam("@PaperID", page.PaperID),
-                    this.NewParam("@PageNO", page.PageNO),
+                    this.NewParam("@PageID", page.PageID),
                     this.NewParam("@PageName", page.PageName),
                     this.NewParam("@PageImage", page.PageImage)) > 0;
             }
@@ -135,11 +138,12 @@ namespace Myweb.NewsPaper
         /// </summary>
         /// <param name="LinkID"></param>
         /// <returns></returns>
-        public int DeletePaperPage(int PageID)
+        public int DeletePaperPage(int PaperID, int PageID)
         {
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "DeletePaperPage",
+                    this.NewParam("@PaperID", PaperID),
                     this.NewParam("@PageID", PageID));
             }
         }

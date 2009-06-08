@@ -21,10 +21,10 @@ public partial class Admin_PageEdit : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
+        if (QS("PaperID") == "" || !WebAgent.IsInt32(QS("PaperID")) || QS("PageID") == "" || !WebAgent.IsInt32(QS("PageID")))
             WebAgent.AlertAndBack("参数错误");
         ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
-        PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(QS("id")));
+        PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(QS("PaperID")), int.Parse(QS("PageID")));
         if (page == null)
             WebAgent.AlertAndBack("不存在该版面");
         foreach (NewsPaper p in arr)
@@ -33,7 +33,7 @@ public partial class Admin_PageEdit : AdminBase
         }
 
         this.txtPaperID.Items.FindByValue(page.PaperID.ToString()).Selected = true;
-        this.txtPageNO.Text = page.PageNO.ToString();
+        this.txtPageID.Text = page.PageID.ToString();
         this.txtPageName.Text = page.PageName;
 
     }
@@ -42,25 +42,30 @@ public partial class Admin_PageEdit : AdminBase
     {
         if (txtPaperID.Text == "")
             WebAgent.AlertAndBack("期数不能为空");
-        if (this.txtPageNO.Text == "")
+        if (this.txtPageID.Text == "")
             WebAgent.AlertAndBack("版面不能为空");
 
-        PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(QS("id")));
+        PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(QS("PaperID")), int.Parse(QS("PageID")));
         int toNum;
         if (int.TryParse(this.txtPaperID.Text.ToString(), out toNum) == false)
             WebAgent.AlertAndBack("期刊必须为数字");
         else
             page.PaperID = toNum;
-        if (int.TryParse(this.txtPageNO.Text.ToString(), out toNum) == false)
+        if (int.TryParse(this.txtPageID.Text.ToString(), out toNum) == false)
             WebAgent.AlertAndBack("版面必须为数字");
-        page.PageNO = toNum;
+        page.PageID = toNum;
+        if (page.PaperID != int.Parse(QS("PaperID")) || page.PaperID != int.Parse(QS("PaperID")))
+        {
+            if ((new PaperPageAgent().GetPaperPageInfo(page.PaperID, page.PageID)) != null)
+                WebAgent.AlertAndBack("该期刊号[" + page.PaperID + "]已经存在版面号[" + page.PageID + "]的版面，请检查");
+        }
         page.PageName = this.txtPageName.Text;
         if (this.txtPageImage.PostedFile.ContentLength > 0)
         {
             page.PageImage = UploadImage();
         }
         PaperPageAgent agent = new PaperPageAgent();
-        if (agent.UpdatePaperPageInfo(page))
+        if (agent.UpdatePaperPageInfo(int.Parse(QS("PaperID")), int.Parse(QS("PageID")), page))
         {
             WebAgent.SuccAndGo("更新版面成功", "PageList.aspx");
         }

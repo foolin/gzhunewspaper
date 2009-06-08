@@ -34,7 +34,7 @@ public partial class Admin_PageAdd : AdminBase
 
         if (txtPaperID.Text == "")
             WebAgent.AlertAndBack("期数不能为空");
-        if (this.txtPageNO.Text == "")
+        if (this.txtPageID.Text == "")
             WebAgent.AlertAndBack("版面不能为空");
 
         PaperPage page = new PaperPage();
@@ -43,11 +43,14 @@ public partial class Admin_PageAdd : AdminBase
             WebAgent.AlertAndBack("期刊必须为数字");
         else
             page.PaperID = toNum;
-        if (int.TryParse(this.txtPageNO.Text.ToString(), out toNum) == false)
+        if (int.TryParse(this.txtPageID.Text.ToString(), out toNum) == false)
             WebAgent.AlertAndBack("版面必须为数字");
-        page.PageNO = toNum;
+        page.PageID = toNum;
+        if ((new PaperPageAgent().GetPaperPageInfo(page.PaperID, page.PageID)) != null)
+            WebAgent.AlertAndBack("该期刊号[" + page.PaperID + "]已经存在版面号[" + page.PageID + "]的版面，请检查");
         page.PageName = this.txtPageName.Text;
         page.PageImage = UploadImage();
+
 
         PaperPageAgent agent = new PaperPageAgent();
         if (agent.AddPaperPage(page))

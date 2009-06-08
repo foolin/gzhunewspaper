@@ -340,7 +340,7 @@ go
 CREATE PROCEDURE GetPaperPageList
 AS
 SELECT * FROM PaperPage
-ORDER BY PageID DESC
+ORDER BY PaperID DESC,PageID
 GO
 
 CREATE PROCEDURE GetPaperPageListByPaperID(@PaperID INT)
@@ -350,42 +350,44 @@ WHERE PaperID = @PaperID
 ORDER BY PaperID
 GO
 
-CREATE PROCEDURE GetPaperPageInfo(@PageID INT)
+CREATE PROCEDURE GetPaperPageInfo(@PaperID INT, @PageID INT)
 AS
 SELECT * FROM PaperPage
-WHERE PageID = @PageID
+WHERE PaperID = @PaperID AND PageID = @PageID
 GO
 
 
 CREATE PROCEDURE AddPaperPage
 (
   @PaperID INT,
-  @PageNO INT,
+  @PageID INT,
   @PageName VARCHAR(255),
   @PageImage VARCHAR(255)
 )
 AS
-INSERT INTO PaperPage(PaperID, PageNO, PageName, PageImage) VALUES(@PaperID, @PageNO, @PageName, @PageImage)
+INSERT INTO PaperPage(PaperID, PageID, PageName, PageImage) VALUES(@PaperID, @PageID, @PageName, @PageImage)
 Go
 
 
 CREATE PROCEDURE UpdatePaperPageInfo
-( @PageID INT,
+(
+  @oldPaperID INT,
+  @oldPageID INT,
   @PaperID INT,
-  @PageNO INT,
+  @PageID INT,
   @PageName VARCHAR(255),
   @PageImage VARCHAR(256)
 )
 AS
 UPDATE PaperPage
-SET PaperID=@PaperID, PageNO = @PageNO, PageName = @PageName, PageImage = @PageImage
-WHERE PageID=@PageID
+SET PaperID=@PaperID, PageID = @PageID, PageName = @PageName, PageImage = @PageImage
+WHERE PaperID = @oldPaperID AND PageID = @oldPageID
 GO
 
-CREATE PROCEDURE DeletePaperPage(@PageID INT)
+CREATE PROCEDURE DeletePaperPage(@PaperID INT, @PageID INT)
 AS
-DELETE News WHERE PageID = @PageID
-DELETE PaperPage WHERE PageID = @PageID
+DELETE News WHERE PaperID = @PaperID AND PageID = @PageID
+DELETE PaperPage WHERE PaperID = @PaperID AND PageID = @PageID
 GO
 
 /*==============================================================*/
@@ -440,6 +442,7 @@ GO
 
 CREATE PROCEDURE AddNews
 (
+  @PaperID INT,
   @PageID INT,
   @Title VARCHAR(255),
   @Author VARCHAR(20),
@@ -449,14 +452,15 @@ CREATE PROCEDURE AddNews
   @AddTime DATETIME
 )
 AS
-INSERT INTO News(PageID, Title, Author, Content, PositionOfPage, AddUser, AddTime, ViewCount)
-VALUES(@PageID, @Title, @Author, @Content, @PositionOfPage, @AddUser, @AddTime, 0)
+INSERT INTO News(PaperID, PageID, Title, Author, Content, PositionOfPage, AddUser, AddTime, ViewCount)
+VALUES(@PaperID, @PageID, @Title, @Author, @Content, @PositionOfPage, @AddUser, @AddTime, 0)
 Go
 
 
 CREATE PROCEDURE UpdateNewsInfo
 (
   @NewsID INT,
+  @PaperID INT,
   @PageID INT,
   @Title VARCHAR(255),
   @Author VARCHAR(20),
@@ -466,7 +470,7 @@ CREATE PROCEDURE UpdateNewsInfo
 )
 AS
 UPDATE News
-SET PageID = @PageID, Title = @Title, Author = @Author, Content = @Content, PositionOfPage = @PositionOfPage, ViewCount = @ViewCount
+SET PaperID = @PaperID, PageID = @PageID, Title = @Title, Author = @Author, Content = @Content, PositionOfPage = @PositionOfPage, ViewCount = @ViewCount
 WHERE NewsID=@NewsID
 GO
 

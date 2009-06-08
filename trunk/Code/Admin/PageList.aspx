@@ -35,16 +35,16 @@
                                         <ItemTemplate>
                                             <tr onmouseover="this.style.background='#FFFFFF';" onmouseout="this.style.background='#E6F2FF'">
                                                 <td>
-                                                    <%#Eval("PaperID")%></td>
+                                                    第<%#Eval("PaperID")%>期</td>
                                                 <td>
-                                                    第<%#Eval("PageNO") %>版</td>
+                                                    第<%#Eval("PageID") %>版</td>
                                                 <td>
                                                     <%#Eval("PageName") %></td>
                                                 <td>
                                                     <img src="<%#"../" + Eval("PageImage") %> " alt="" width="120" height="100" /></td>
                                                 <td>
-                                                    <a href="PageEdit.aspx?id=<%#Eval("PageID") %>" title="修改信息">修改</a>
-                                                    <a href="PageDel.aspx?id=<%#Eval("PageID") %>" onclick="return confirm('注意：该版面的新闻数据都将会永久性删除！\n\n您确定要删除该期刊吗？')" title="删除">删除</a></td>
+                                                    <a href="PageEdit.aspx?PaperID=<%#Eval("PaperID") %>&PageID=<%#Eval("PageID") %>" title="修改信息">修改</a>
+                                                    <a href="PageDel.aspx?PaperID=<%#Eval("PaperID") %>&PageID=<%#Eval("PageID") %>" onclick="return confirm('注意：该版面的新闻数据都将会永久性删除！\n\n您确定要删除该期刊吗？')" title="删除">删除</a></td>
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>

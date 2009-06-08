@@ -24,29 +24,18 @@ namespace Myweb.NewsPaper
         {
             this.PaperID = (int)row["PaperID"];
             this.PageID = (int)row["PageID"];
-            this.PageNO = (int)row["PageNO"];
             this.PageName = (string)row["PageName"];
             this.PageImage = (string)row["PageImage"];
         }
 
         private int _pageID;
         /// <summary>
-        /// ∞Ê√ÊID
+        /// ∞Ê√Ê∫≈ID
         /// </summary>
         public int PageID
         {
             get { return _pageID; }
             set { _pageID = value; }
-        }
-
-        private int _pageNO;
-        /// <summary>
-        /// ∞Ê√Ê∫≈
-        /// </summary>
-        public int PageNO
-        {
-            get { return _pageNO; }
-            set { _pageNO = value; }
         }
 
         private int _paperID;

@@ -32,7 +32,7 @@
                                         <ItemTemplate>
                                             <tr onmouseover="this.style.background='#FFFFFF';" onmouseout="this.style.background='#E6F2FF'">
                                                 <td>
-                                                    <%#Eval("PaperID")%></td>
+                                                    第<%#Eval("PaperID")%>期</td>
                                                 <td>
                                                     <%#Convert.ToDateTime(Eval("PublishDate")).ToLongDateString().ToString()%></td>
                                                 <td>

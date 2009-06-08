@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-7 15:00:23                            */
+/* Created on:     2009-6-8 16:55:38                            */
 /*==============================================================*/
 
 
@@ -122,7 +122,7 @@ go
 /*==============================================================*/
 create table Admin (
    AdminID              int                  identity,
-   AdminName            varchar(20)          not null,
+   AdminName            char(20)             not null,
    Password             varchar(20)          not null,
    Power                int                  null,
    LoginCount           int                  null,
@@ -136,7 +136,8 @@ go
 /* Table: News                                                  */
 /*==============================================================*/
 create table News (
-   NewsID               int                  identity,
+   NewsID               int                  not null,
+   PaperID              int                  null,
    PageID               int                  null,
    Title                varchar(255)         not null,
    Author               varchar(20)          null,
@@ -153,7 +154,8 @@ go
 /* Index: R2_FK                                                 */
 /*==============================================================*/
 create index R2_FK on News (
-PageID ASC
+PageID ASC,
+NewsID ASC
 )
 go
 
@@ -161,7 +163,7 @@ go
 /* Index: R4_FK                                                 */
 /*==============================================================*/
 create index R4_FK on News (
-PageID ASC
+PaperID ASC
 )
 go
 
@@ -180,12 +182,11 @@ go
 /* Table: PaperPage                                             */
 /*==============================================================*/
 create table PaperPage (
-   PageID               int                  identity,
-   PaperID              int                  null,
-   PageNO               int                  not null,
+   PageID               int                  not null,
+   PaperID              int                  not null,
    PageName             varchar(255)         not null,
    PageImage            varchar(255)         not null,
-   constraint PK_PAPERPAGE primary key nonclustered (PageID)
+   constraint PK_PAPERPAGE primary key nonclustered (PageID, PaperID)
 )
 go
 
@@ -201,9 +202,9 @@ go
 /* Table: SystemConfig                                          */
 /*==============================================================*/
 create table SystemConfig (
-   PaperName            varchar(255)         not null,
-   SiteName             varchar(255)         null,
-   SiteUrl              varchar(255)         null,
+   PaperName            char(255)            not null,
+   SiteName             char(255)            null,
+   SiteUrl              char(255)            null,
    PaperInfo            text                 null,
    IsOpenRegister       bit                  null,
    EditorName           varchar(255)         null,
@@ -220,8 +221,8 @@ go
 create table UserFavorites (
    FavID                int                  identity,
    UserID               int                  null,
-   FavName              varchar(255)         not null,
-   FavUrl               varchar(255)         not null,
+   FavName              char(20)             not null,
+   FavUrl               char(255)            not null,
    FavTime              datetime             null,
    FavType              int                  null,
    constraint PK_USERFAVORITES primary key nonclustered (FavID)
@@ -253,12 +254,12 @@ create table Users (
 go
 
 alter table News
-   add constraint FK_NEWS_R2_PAPERPAG foreign key (PageID)
-      references PaperPage (PageID)
+   add constraint FK_NEWS_R2_PAPERPAG foreign key (PageID, NewsID)
+      references PaperPage (PageID, PaperID)
 go
 
 alter table News
-   add constraint FK_NEWS_R4_NEWSPAPE foreign key (PageID)
+   add constraint FK_NEWS_R4_NEWSPAPE foreign key (PaperID)
       references NewsPaper (PaperID)
 go
 
