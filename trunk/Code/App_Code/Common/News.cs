@@ -21,9 +21,10 @@ namespace Myweb.NewsPaper
         public News(DataRow row)
         {
             this.NewsID = (int)row["NewsID"];
+            this.PaperID = (int)row["PaperID"];
             this.PageID = (int)row["PageID"];
             this.Title = (string)row["Title"];
-            this.Content = (string)row["Countent"];
+            this.Content = (string)row["Content"];
             this.PositionOfPage = (string)row["PositionOfPage"];
             this.AddUser = (string)row["AddUser"];
             this.AddTime = (DateTime)row["AddTime"];
@@ -40,6 +41,15 @@ namespace Myweb.NewsPaper
             set { _newsID = value; }
         }
 
+        private int _PaperID;
+        /// <summary>
+        /// ÐÂÎÅÆÚ¿¯ID
+        /// </summary>
+        public int PaperID
+        {
+            get { return _PaperID; }
+            set { _PaperID = value; }
+        }
 
         private int _pageID;
         /// <summary>
