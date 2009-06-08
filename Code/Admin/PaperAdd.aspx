@@ -39,7 +39,7 @@
             <td></td>
             <td>
 				<!--日期实例化--begin-->
-                <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" Visible="False"></asp:Calendar>
 				<!--end-->
             </td>
         </tr>
