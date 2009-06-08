@@ -24,6 +24,7 @@ namespace Myweb.NewsPaper
             this.PaperID = (int)row["PaperID"];
             this.PageID = (int)row["PageID"];
             this.Title = (string)row["Title"];
+            this.Author = (string)row["Author"];
             this.Content = (string)row["Content"];
             this.PositionOfPage = (string)row["PositionOfPage"];
             this.AddUser = (string)row["AddUser"];
