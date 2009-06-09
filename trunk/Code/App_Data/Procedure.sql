@@ -465,12 +465,11 @@ CREATE PROCEDURE UpdateNewsInfo
   @Title VARCHAR(255),
   @Author VARCHAR(20),
   @Content Text,
-  @PositionOfPage TEXT,
-  @ViewCount INT
+  @PositionOfPage TEXT
 )
 AS
 UPDATE News
-SET PaperID = @PaperID, PageID = @PageID, Title = @Title, Author = @Author, Content = @Content, PositionOfPage = @PositionOfPage, ViewCount = @ViewCount
+SET PaperID = @PaperID, PageID = @PageID, Title = @Title, Author = @Author, Content = @Content, PositionOfPage = @PositionOfPage
 WHERE NewsID=@NewsID
 GO
 

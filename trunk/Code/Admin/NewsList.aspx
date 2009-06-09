@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="NewsList.aspx.cs" Inherits="Admin_NewsList" Title="Untitled Page" %>
+<%@ Register TagPrefix="page" Namespace="Studio.Web"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="Location" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSide" Runat="Server">
@@ -62,6 +63,7 @@
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>
+                                    
                                 </table>
                                <div class="pagebar">[1] [2] ... [3]</div>
                     </div>

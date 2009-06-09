@@ -44,6 +44,28 @@ namespace Myweb.NewsPaper
             return list;
         }
 
+        /// <summary>
+        /// 通过ID获取某期刊的信息
+        /// </summary>
+        /// <param name="PaperID">期刊ID</param>
+        /// <returns></returns>
+        public NewsPaper GetNewsPaperInfo(int PaperID)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetNewsPaperInfo",
+                    this.NewParam("@PaperID", PaperID));
+            }
+            if (ds.Tables[0].Rows.Count == 0)
+                return null;
+            else
+            {
+                NewsPaper paper = new NewsPaper(ds.Tables[0].Rows[0]);
+                return paper;
+            }
+        }
+
 
         /// <summary>
         /// 通过ID获取某版面新闻的信息
@@ -101,14 +123,13 @@ namespace Myweb.NewsPaper
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdateNewsInfo",
+                    this.NewParam("@NewsID", news.NewsID),
                     this.NewParam("@PageID", news.PageID),
                     this.NewParam("@PaperID", news.PaperID),
                     this.NewParam("@Title", news.Title),
                     this.NewParam("@Author", news.Author),
                     this.NewParam("@Content", news.Content),
-                    this.NewParam("@PositionOfPage", news.PositionOfPage),
-                    this.NewParam("@AddUser", news.AddUser),
-                    this.NewParam("@AddTime", news.AddTime)) > 0;
+                    this.NewParam("@PositionOfPage", news.PositionOfPage)) > 0;
             }
         }
 
