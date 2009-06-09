@@ -19,7 +19,7 @@ public partial class Admin_Login : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         valcode = (new Random()).Next(1000, 9999).ToString();
-        imgVal.ImageUrl = "IncPages/Imageval.aspx?id=" + valcode;
+        imgVal.ImageUrl = "Inc/Imageval.aspx?id=" + valcode;
         imgVal.ImageAlign = ImageAlign.AbsBottom;
     }
 
