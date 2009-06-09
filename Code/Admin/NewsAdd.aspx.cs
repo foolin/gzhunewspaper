@@ -14,6 +14,8 @@ using System.IO;
 
 public partial class Admin_NewsAdd : AdminBase
 {
+    public string imgPageUrl = "Images/NoPageImage.jpg";    //全局变量
+
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -21,6 +23,7 @@ public partial class Admin_NewsAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
+
         if (!IsPostBack)
         {
             txtAddUser.Text = Request.Cookies["Admin"]["AdminName"].ToString();
@@ -46,7 +49,14 @@ public partial class Admin_NewsAdd : AdminBase
                     {
                         txtPageID.Items.Add(p.PageID.ToString());
                     }
+
+                    if (arr2 != null && arr2.Count > 0)
+                    {
+                        PaperPage page = new PaperPageAgent().GetPaperPageInfo(paperID, int.Parse(this.txtPageID.SelectedValue.ToString()));
+                        imgPageUrl = "../" + page.PageImage.ToString();
+                    }
                 }
+
             }
         }
 
@@ -61,7 +71,7 @@ public partial class Admin_NewsAdd : AdminBase
         if (txtPageID.Text == "")
         {
 
-            WebAgent.ConfirmGo("期刊【" + txtPaperID.Text + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
+            WebAgent.ConfirmGo("更新失败！期刊【" + txtPaperID.Text + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
         }
         if (txtTitle.Text == "")
         {
@@ -138,8 +148,18 @@ public partial class Admin_NewsAdd : AdminBase
                 {
                     txtPageID.Items.Add(p.PageID.ToString());
                 }
+                if (arr != null || arr.Count > 0)
+                {
+                    PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(this.txtPaperID.SelectedValue.ToString()), int.Parse(this.txtPageID.SelectedValue.ToString()));
+                    imgPageUrl = "../" +  page.PageImage.ToString();
+                }
             }
         }
 
+    }
+    protected void txtPageID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(this.txtPaperID.SelectedValue.ToString()), int.Parse(this.txtPageID.SelectedValue.ToString()));
+        imgPageUrl = "../"  +  page.PageImage.ToString();
     }
 }

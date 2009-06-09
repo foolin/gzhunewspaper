@@ -41,7 +41,7 @@
         <tr>
             <td>版面缩略图：</td>
             <td>
-                <asp:FileUpload ID="txtPageImage" runat="server" Width="275" /></td>
+                <asp:FileUpload ID="txtPageImage" runat="server" Width="275" /> （规格至少≥：360×500px(像素)）</td>
         </tr>
         <tr>
             <td></td>
