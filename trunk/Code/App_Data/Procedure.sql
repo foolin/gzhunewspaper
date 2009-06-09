@@ -105,7 +105,7 @@ BEGIN
 	DELETE FROM SystemConfig
     INSERT INTO SystemConfig(PaperName, SiteName, SiteUrl,PaperInfo, IsOpenRegister, EditorName, EditorAddrs, EditorPhone, EditorFax, EditorEmail)
     VALUES('广州大学报', '广州大学报在线阅读系统',  'http://xb.gzhu.edu.cn', '中共广州大学委员会主管主办 国内统一刊号：CN44-0803/（G）',
-            'TRUE', '广州大学校报编辑部', '广州大学编辑部', '02039341141', '02039341141', 'gdnews@126.com')
+            1, '广州大学校报编辑部', '广州大学编辑部', '02039341141', '02039341141', 'gdnews@126.com')
 END
 GO
 EXEC InitSystemConfig
