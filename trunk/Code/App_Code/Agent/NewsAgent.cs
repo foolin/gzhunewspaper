@@ -138,7 +138,7 @@ namespace Myweb.NewsPaper
         /// </summary>
         /// <param name="NewsID"></param>
         /// <returns></returns>
-        public int DeletePaperPage(int NewsID)
+        public int DeleteNews(int NewsID)
         {
             using (IDbExecutor db = this.NewExecutor())
             {
