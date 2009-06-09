@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="NewsAdd.aspx.cs" Inherits="Admin_NewsAdd" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="NewsAdd.aspx.cs" Inherits="Admin_NewsAdd" validateRequest="false" Title="Untitled Page" %>
+<%@ Register Assembly="FredCK.FCKeditorV2" Namespace="FredCK.FCKeditorV2" TagPrefix="FCKeditorV2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Location" Runat="Server">
 添加新闻
 </asp:Content>
@@ -15,7 +16,6 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentMain" Runat="Server">
-<div style="width:98%; margin:0px auto;">
 <div class="list">
     <table>
         <tr>
@@ -32,34 +32,39 @@
                 第<asp:DropDownList ID="txtPageID" runat="server"></asp:DropDownList>版</td>
         </tr>
         <tr>
-            <td>标题</td>
+            <td>标题：</td>
             <td>
-                <asp:TextBox ID="txtTitle" runat="server"></asp:TextBox> 
+                <asp:TextBox ID="txtTitle" Width="400" runat="server"></asp:TextBox> 
             </td>
         </tr>
         <tr>
-            <td>作者</td>
+            <td>作者：</td>
             <td>
 				<asp:TextBox ID="txtAuthor" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td>内容</td>
+            <td>新闻内容:</td>
             <td>
-				<asp:TextBox ID="txtContent" runat="server"></asp:TextBox>
+				
             </td>
         </tr>
         <tr>
-            <td>位置</td>
+            <td colspan="2">
+				<FCKeditorV2:FCKeditor ID="txtContent" ToolbarSet="MyBar" Height="500px" runat="server"> </FCKeditorV2:FCKeditor>
+            </td>
+        </tr>
+        <tr>
+            <td>位置：</td>
             <td>
 				<asp:TextBox ID="txtPosition" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
-                添加人</td>
+                添加人：</td>
             <td>
-				<asp:TextBox ID="txtAddUser" ReadOnly="true" runat="server"></asp:TextBox>
+				<asp:TextBox ID="txtAddUser" ReadOnly="true" runat="server"></asp:TextBox> （不能修改）
             </td>
         </tr>       
         <tr>
@@ -68,7 +73,6 @@
                                 <a href="PageList.aspx">取消</a> <br /></td>
         </tr>
     </table>   
-</div>
 </div>
 </asp:Content>
 

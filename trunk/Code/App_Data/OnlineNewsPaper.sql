@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-9 10:56:21                            */
+/* Created on:     2009-6-9 11:55:16                            */
 /*==============================================================*/
 
 
@@ -139,6 +139,7 @@ create table News (
    NewsID               int                  identity,
    PaperID              int                  null,
    PageID               int                  null,
+   Pap_PaperID          int                  null,
    Title                varchar(255)         not null,
    Author               varchar(20)          null,
    Content              text                 not null,
@@ -154,7 +155,8 @@ go
 /* Index: R2_FK                                                 */
 /*==============================================================*/
 create index R2_FK on News (
-PageID ASC
+PageID ASC,
+Pap_PaperID ASC
 )
 go
 
@@ -182,10 +184,10 @@ go
 /*==============================================================*/
 create table PaperPage (
    PageID               int                  not null,
-   PaperID              int                  null,
+   PaperID              int                  not null,
    PageName             varchar(255)         not null,
    PageImage            varchar(255)         not null,
-   constraint PK_PAPERPAGE primary key nonclustered (PageID)
+   constraint PK_PAPERPAGE primary key nonclustered (PageID, PaperID)
 )
 go
 
@@ -253,8 +255,8 @@ create table Users (
 go
 
 alter table News
-   add constraint FK_NEWS_R2_PAPERPAG foreign key (PageID)
-      references PaperPage (PageID)
+   add constraint FK_NEWS_R2_PAPERPAG foreign key (PageID, Pap_PaperID)
+      references PaperPage (PageID, PaperID)
 go
 
 alter table News

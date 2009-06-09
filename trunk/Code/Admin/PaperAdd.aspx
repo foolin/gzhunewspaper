@@ -19,7 +19,7 @@
 <div class="list">
     <table>
         <tr>
-            <th colspan="2">添加校报信息</th>
+            <th colspan="2">添加期刊信息</th>
         </tr>
         <tr>
             <td>期数：</td>
