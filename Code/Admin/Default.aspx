@@ -10,7 +10,7 @@
                                <asp:Label ID="labLoginAdmin" runat="server" Text="Label"></asp:Label>
                                 <ul>
                                 <li><a href="ChangePassword.aspx">修改密码</a></li>
-                                <li><a href="Logout.aspx">修改密码</a></li>
+                                <li><a href="Logout.aspx">注销登陆</a></li>
                                 </ul>
                             </div>
                         </div>
