@@ -25,6 +25,8 @@ public partial class Admin_NewsAdd : AdminBase
         {
             txtAddUser.Text = Request.Cookies["Admin"]["AdminName"].ToString();
             ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
+            if (arr == null || arr.Count < 1)
+                WebAgent.FailAndGo("期刊为空，请先添加期刊", "PaperAdd.aspx");
             foreach (NewsPaper p in arr)
             {
                 txtPaperID.Items.Add(p.PaperID.ToString());
@@ -54,11 +56,12 @@ public partial class Admin_NewsAdd : AdminBase
     {
         if (txtPaperID.Text == "")
         {
-            WebAgent.AlertAndBack("期刊数不能为空");
+            WebAgent.FailAndGo("期刊为空，请先添加期刊", "PaperAdd.aspx");
         }
         if (txtPageID.Text == "")
         {
-            WebAgent.AlertAndBack("版面数不能为空!");
+
+            WebAgent.ConfirmGo("期刊【" + txtPaperID.Text + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
         }
         if (txtTitle.Text == "")
         {
@@ -68,7 +71,7 @@ public partial class Admin_NewsAdd : AdminBase
         {
             WebAgent.AlertAndBack("作者不能为空!");
         }
-        if (txtContent.Text == "")
+        if (txtContent.Value == "")
         {
             WebAgent.AlertAndBack("内容不能为空!");
         }
@@ -99,7 +102,7 @@ public partial class Admin_NewsAdd : AdminBase
         news.AddUser = this.txtAddUser.Text.ToString();
         news.Author = this.txtAuthor.Text.ToString();
         news.Title = this.txtTitle.Text.ToString();
-        news.Content = this.txtContent.Text.ToString();
+        news.Content = this.txtContent.Value.ToString();
         news.PositionOfPage = this.txtPosition.Text.ToString();
         NewsAgent agent = new NewsAgent();
         if (agent.AddNews(news))
@@ -129,6 +132,8 @@ public partial class Admin_NewsAdd : AdminBase
             {
                 txtPageID.Items.Clear();
                 ArrayList arr = new PaperPageAgent().GetPaperPageList(paperID);
+                if (arr == null || arr.Count < 1)
+                    WebAgent.ConfirmGo("期刊【" + paperID + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
                 foreach (PaperPage p in arr)
                 {
                     txtPageID.Items.Add(p.PageID.ToString());
