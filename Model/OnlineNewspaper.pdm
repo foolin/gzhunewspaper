@@ -4096,11 +4096,12 @@ DAT 1244515667</a:History>
 <a:Code>PaperName</a:Code>
 <a:CreationDate>1244515667</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244515667</a:ModificationDate>
+<a:ModificationDate>1244649129</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {38E39E6D-0D1B-4B86-934E-5736116F3387}
-DAT 1244515667</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244515667
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
@@ -4110,11 +4111,12 @@ DAT 1244515667</a:History>
 <a:Code>SiteName</a:Code>
 <a:CreationDate>1244515667</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244515667</a:ModificationDate>
+<a:ModificationDate>1244649129</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {B3B034BF-BE0F-45B9-8A48-62AC1705A805}
-DAT 1244515667</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244515667
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o96">
@@ -4123,11 +4125,12 @@ DAT 1244515667</a:History>
 <a:Code>SiteUrl</a:Code>
 <a:CreationDate>1244515667</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244515667</a:ModificationDate>
+<a:ModificationDate>1244649129</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {A8197828-1266-43CC-BD92-8E477007677B}
-DAT 1244515667</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244515667
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o97">

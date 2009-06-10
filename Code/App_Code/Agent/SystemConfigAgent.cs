@@ -28,20 +28,20 @@ namespace Myweb.NewsPaper
         /// 获取系统配置列表
         /// </summary>
         /// <returns></returns>
-        public ArrayList GetSystemConfigList()
+        public SystemConfig GetSystemConfig()
         {
             DataSet ds;
             using (IDbExecutor db = this.NewExecutor())
             {
                 ds = db.GetDataSet(CommandType.StoredProcedure, "GetSystemConfig");
             }
-            ArrayList list = new ArrayList();
-            foreach (DataRow row in ds.Tables[0].Rows)
+            if (ds.Tables[0].Rows.Count == 0)
+                return null;
+            else
             {
-                SystemConfig systemconfig = new SystemConfig(row);
-                list.Add(systemconfig);
+                SystemConfig config = new SystemConfig(ds.Tables[0].Rows[0]);
+                return config;
             }
-            return list;
         }
 
         /// <summary>

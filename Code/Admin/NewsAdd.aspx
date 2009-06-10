@@ -95,7 +95,7 @@
                                 <div id="viewDiv" style="width:280px; height:280px;"> </div>
                                 <div class="hr"></div>
                                 <div id="picButton">
-                                    <input id="getPosition" type="button" value="确定选区该区域" />
+                                    <input id="getPosition" type="button" value="确定选该区域" />
                                 </div>
                       </td>
                       </tr>
@@ -214,8 +214,8 @@ $("idPic").onclick = function(){
 
 $("getPosition").onclick = function(){
     $("<%=txtPosition.ClientID %>").value = ic.GetPos().Left + "|" + ic.GetPos().Top + "|"  + ic.GetPos().Width + "|"  + ic.GetPos().Height;
+    $("ctrlDragPic").value = "打开操作面板";
     $("DragPicArea").style.display = "none";
-    $("DragPicArea").value = "打开操作面板";
 }
 
 $("getSize").onclick = function(){

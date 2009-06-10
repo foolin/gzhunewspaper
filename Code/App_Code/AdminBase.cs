@@ -4,6 +4,7 @@ using System.Web;
 using Studio.Web;
 using Myweb.NewsPaper;
 
+
 /// <summary>
 /// AdminBase 的摘要说明
 /// </summary>
@@ -46,6 +47,7 @@ public class AdminBase : System.Web.UI.Page
     {
         return Request.QueryString[key] + "";
     }
+
 
 /*
 
