@@ -94,7 +94,7 @@ CREATE PROCEDURE UpdateSystemConfig
 AS
 
 UPDATE SystemConfig
-SET PaperName=@PaperName, SiteName=@SiteName, PaperInfo=@PaperInfo, IsOpenRegister=@IsOpenRegister,
+SET PaperName=@PaperName, SiteName=@SiteName,SiteUrl=@SiteUrl, PaperInfo=@PaperInfo, IsOpenRegister=@IsOpenRegister,
     EditorName=@EditorName, EditorAddrs=@EditorAddrs, EditorPhone=@EditorPhone, EditorFax=@EditorFax, EditorEmail=@EditorEmail
 GO
  
@@ -173,7 +173,7 @@ CREATE PROCEDURE AddAdmin
   @Power INT
 )
 AS
-INSERT INTO Admin(AdminName, Password, Power) VALUES(@AdminName, @Password, @Power)
+INSERT INTO Admin(AdminName, Password, Power, LoginCount, LastLoginTime, LastLoginIP) VALUES(@AdminName, @Password, @Power, 0, getdate(), '127.0.0.1')
 Go
 
 
