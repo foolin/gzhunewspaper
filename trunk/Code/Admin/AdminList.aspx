@@ -48,7 +48,7 @@
                                                 <td>
                                                     <%#Eval("LastLoginIP")%></td>
                                                 <td>
-                                                    <a href="AdminEdit.aspx?id=<%#Eval("AdminID") %>" title="修改管理员">修改</a>
+                                                    <a href="AdminEdit.aspx?id=<%#Eval("AdminID") %> " title="修改管理员">修改</a>
                                                     <a href="AdminDel.aspx?id=<%#Eval("AdminID") %>" onclick="return confirm('删除管理员将不能恢复！\n\n您确定要删除该管理员吗？')" title="删除">删除</a></td>
                                             </tr>
                                         </ItemTemplate>
