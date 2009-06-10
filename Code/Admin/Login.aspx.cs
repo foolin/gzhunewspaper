@@ -43,6 +43,8 @@ public partial class Admin_Login : System.Web.UI.Page
         {
             HttpCookie co = new HttpCookie("Admin");
             co["AdminID"] = AdminID.ToString();
+            Session["AdminID"] = AdminID.ToString();
+            Session["AdminName"] = txtName.Text;
             co["AdminName"] = txtName.Text;
             Response.SetCookie(co);
             Response.Redirect("Default.aspx");
