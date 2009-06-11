@@ -148,7 +148,16 @@ namespace Myweb.NewsPaper
             }
         }
 
+        public int GetLastPageID(int PaperID)
+        {
 
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetLastPageID",
+                    this.NewParam("@PaperID", PaperID));
+            }
+
+        }
     }
 
 }

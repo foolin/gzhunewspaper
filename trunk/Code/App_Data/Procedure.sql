@@ -249,6 +249,13 @@ if exists (select 1
             and   xtype='P')
    drop procedure DeleteNewsPaper
 go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetLastPaperID')
+            and   xtype='P')
+   drop procedure GetLastPaperID
+go
+
 
 --创建存储过程--
 
@@ -294,6 +301,17 @@ DELETE NewsPaper WHERE PaperID = @PaperID
 GO
 
 
+CREATE PROCEDURE GetLastPaperID
+AS
+BEGIN
+	DECLARE @PaperID INT
+	SELECT Top 1 @PaperID=PaperID FROM NewsPaper ORDER BY PaperID DESC
+	IF(ISNULL(@PaperID, 0)=0)
+		RETURN 0
+	RETURN @PaperID
+END
+GO
+
 /*==============================================================*/
 /* Table: PaperPage                                             */
 /*==============================================================*/
@@ -333,6 +351,12 @@ if exists (select 1
            where  id = object_id('DeletePaperPage')
             and   xtype='P')
    drop procedure DeletePaperPage
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetLastPageID')
+            and   xtype='P')
+   drop procedure GetLastPageID
 go
 
 --创建存储过程--
@@ -388,6 +412,17 @@ CREATE PROCEDURE DeletePaperPage(@PaperID INT, @PageID INT)
 AS
 DELETE News WHERE PaperID = @PaperID AND PageID = @PageID
 DELETE PaperPage WHERE PaperID = @PaperID AND PageID = @PageID
+GO
+
+CREATE PROCEDURE GetLastPageID(@PaperID INT)
+AS
+BEGIN
+	DECLARE @PageID INT 
+	SELECT TOP 1 @PageID=PageID FROM PaperPage WHERE PaperID = @PaperID ORDER BY PageID DESC
+	IF(IsNull(@PageID,0) = 0)
+		RETURN 0
+	RETURN @PageID
+END
 GO
 
 /*==============================================================*/
