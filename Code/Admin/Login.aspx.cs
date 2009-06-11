@@ -45,8 +45,6 @@ public partial class Admin_Login : System.Web.UI.Page
             co["AdminID"] = AdminID.ToString();
             co["AdminName"] = txtName.Text;
             Response.SetCookie(co);
-            Session["AdminID"] = AdminID.ToString();
-            Session["AdminName"] = txtName.Text;
             Response.Redirect("Default.aspx");
         }
         else

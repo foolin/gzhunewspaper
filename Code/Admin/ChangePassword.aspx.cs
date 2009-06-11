@@ -17,12 +17,12 @@ public partial class Admin_ChangePassword : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtAdminName.Text = Session["AdminName"].ToString();
+        txtAdminName.Text = Request.Cookies["Admin"]["AdminName"].ToString();
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
         int toNum;
-        int.TryParse(Session["AdminID"].ToString(), out toNum);
+        int.TryParse(Request.Cookies["Admin"]["AdminID"].ToString(), out toNum);
         Admin admin = new AdminAgent().GetAdminInfo(toNum);
         admin.Password = Secure.Md5(txtPassword.Text);
         AdminAgent agent = new AdminAgent();

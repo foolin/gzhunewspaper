@@ -23,7 +23,7 @@ public partial class Admin_AdminDel : AdminBase
         if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
             WebAgent.AlertAndBack("参数错误");
         Admin admin = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
-        if (Session["AdminID"].ToString() == QS("id"))
+        if (Request.Cookies["Admin"]["AdminID"].ToString() == QS("id"))
             WebAgent.AlertAndBack("不能删除自己");
         if (admin == null)
             WebAgent.AlertAndBack("管理员不存在");
