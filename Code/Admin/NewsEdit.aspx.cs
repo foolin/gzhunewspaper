@@ -13,6 +13,8 @@ using Studio.Web;
 
 public partial class Admin_NewsEdit : AdminBase
 {
+    public string imgPageUrl = "Images/NoPageImage.jpg";    //全局变量
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -24,12 +26,12 @@ public partial class Admin_NewsEdit : AdminBase
         {
             if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
                 WebAgent.AlertAndBack("参数错误");
-            News paper = new NewsAgent().GetNewsInfo(int.Parse(QS("id")));
-            this.txtAddUser.Text = paper.AddUser.ToString();
-            this.txtAuthor.Text = paper.Author.ToString();
-            this.txtContent.Value = paper.Content.ToString();
-            this.txtPosition.Text = paper.PositionOfPage.ToString();
-            this.txtTitle.Text = paper.Title.ToString();
+            News news = new NewsAgent().GetNewsInfo(int.Parse(QS("id")));
+            this.txtAddUser.Text = news.AddUser.ToString();
+            this.txtAuthor.Text = news.Author.ToString();
+            this.txtContent.Value = news.Content.ToString();
+            this.txtPosition.Text = news.PositionOfPage.ToString();
+            this.txtTitle.Text = news.Title.ToString();
 
             ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
             if (arr == null || arr.Count < 1)
@@ -38,8 +40,10 @@ public partial class Admin_NewsEdit : AdminBase
             {
                 txtPaperID.Items.Add(p.PaperID.ToString());
             }
-            txtPaperID.SelectedValue = QS("PaperID");
-            txtPageID.Items.Add(QS("PageID"));
+            txtPaperID.SelectedValue = news.PaperID.ToString();
+            txtPageID.Items.Add(news.PageID.ToString());
+            PaperPage page = new PaperPageAgent().GetPaperPageInfo(news.PaperID, news.PageID);
+            imgPageUrl = "../" + page.PageImage.ToString();
 
         }
     }
