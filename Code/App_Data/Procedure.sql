@@ -358,6 +358,12 @@ if exists (select 1
             and   xtype='P')
    drop procedure GetLastPageID
 go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetFirstPageID')
+            and   xtype='P')
+   drop procedure GetFirstPageID
+go
 
 --创建存储过程--
 
@@ -412,6 +418,17 @@ CREATE PROCEDURE DeletePaperPage(@PaperID INT, @PageID INT)
 AS
 DELETE News WHERE PaperID = @PaperID AND PageID = @PageID
 DELETE PaperPage WHERE PaperID = @PaperID AND PageID = @PageID
+GO
+
+CREATE PROCEDURE GetFirstPageID(@PaperID INT)
+AS
+BEGIN
+	DECLARE @PageID INT 
+	SELECT TOP 1 @PageID=PageID FROM PaperPage WHERE PaperID = @PaperID
+	IF(IsNull(@PageID,0) = 0)
+		RETURN 0
+	RETURN @PageID
+END
 GO
 
 CREATE PROCEDURE GetLastPageID(@PaperID INT)
