@@ -27,30 +27,50 @@ public partial class Admin_AdminEdit : AdminBase
             if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
                 WebAgent.AlertAndBack("参数错误");
             ArrayList arr = new AdminAgent().GetAdminList();
-            Admin page = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
-            if (page == null)
-                WebAgent.AlertAndBack("不存在该版面");
-            this.txtAdminName.Text = page.AdminName;
-            this.txtPower.Text = page.Power.ToString();
+            Admin admin = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
+            if (admin == null)
+                WebAgent.AlertAndBack("不存在该管理员");
+            this.txtAdminName.Text = admin.AdminName;
+            this.txtPower.Text = admin.Power.ToString();
         }
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        int toNum;
-        if (int.TryParse(txtPower.Text.ToString(), out toNum) == false || toNum > 3)
-            WebAgent.AlertAndBack("权限必须为小于等于3的整数");
-        Admin admin = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
-        admin.Power = toNum;
-        admin.Password = Secure.Md5(txtPassword.Text);
-        AdminAgent agent = new AdminAgent();
-        if (agent.UpdateAdminInfo(admin))
+        if (txtPassword.Text != "")
         {
-            WebAgent.SuccAndGo("修改管理员信息成功", "AdminList.aspx");
+            int toNum;
+            if (int.TryParse(txtPower.Text.ToString(), out toNum) == false || toNum > 3)
+                WebAgent.AlertAndBack("权限必须为小于等于3的整数");
+            Admin admin = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
+            admin.Power = toNum;
+            admin.Password = Secure.Md5(txtPassword.Text);
+            AdminAgent agent = new AdminAgent();
+            if (agent.UpdateAdminInfo(admin))
+            {
+                WebAgent.SuccAndGo("修改管理员信息成功", "AdminList.aspx");
+            }
+            else
+            {
+                WebAgent.AlertAndBack("修改失败");
+            }
         }
         else
         {
-            WebAgent.AlertAndBack("修改失败");
+            Admin admin = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
+            int toNum;
+            if (int.TryParse(txtPower.Text.ToString(), out toNum) == false || toNum > 3)
+                WebAgent.AlertAndBack("权限必须为小于等于3的整数");
+            admin.Power = toNum;
+            AdminAgent agent = new AdminAgent();
+            if (agent.UpdateAdminInfo(admin))
+            {
+                WebAgent.SuccAndGo("修改管理员信息成功", "AdminList.aspx");
+            }
+            else
+            {
+                WebAgent.AlertAndBack("修改失败");
+            }
         }
 
     }

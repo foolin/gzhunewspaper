@@ -26,16 +26,16 @@ public partial class Admin_AddAdmin : AdminBase
             WebAgent.AlertAndBack("密码不能为空");
         if (txtPower.Text == "")
             WebAgent.AlertAndBack("权限不能为空");
-        Admin paper = new Admin();
+        Admin admin = new Admin();
         int toNum;
         if ((int.TryParse(this.txtPower.Text.ToString(), out toNum) == false) || toNum > 3)
             WebAgent.AlertAndBack("权限必须为数字且小于等于3");
         else
         {
-            paper.Power = toNum;
+            admin.Power = toNum;
         }
-        paper.AdminName = txtAdminName.Text;
-        paper.Password = Secure.Md5(txtPassword.Text);
+        admin.AdminName = txtAdminName.Text;
+        admin.Password = Secure.Md5(txtPassword.Text);
 
 
         //检查管理员名是否已用
@@ -59,7 +59,7 @@ public partial class Admin_AddAdmin : AdminBase
         }
 
         AdminAgent agent = new AdminAgent();
-        if (agent.AddAdmin(paper))
+        if (agent.AddAdmin(admin))
         {
             WebAgent.SuccAndGo("添加成功！","AdminList.aspx");
         }

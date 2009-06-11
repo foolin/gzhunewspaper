@@ -27,18 +27,17 @@
                 <asp:TextBox ID="txtAdminName" ReadOnly="true" runat="server" Enabled="False"></asp:TextBox> <span style="color:#666">(不能修改管理员名)</span></td>
         </tr>
         <tr>
-            <td>密码：</td>
-            <td>
+            <td style="height: 27px">密码：</td>
+            <td style="height: 27px">
                 <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPassword"
-                    ErrorMessage="密码不能为空"></asp:RequiredFieldValidator></td>
+                (为空则不修改)</td>
         </tr>
         <tr>
             <td>权限：</td>
             <td>
                 <asp:TextBox ID="txtPower" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPower"
-                    ErrorMessage="权限不能为空"></asp:RequiredFieldValidator></td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPower"
+                    ErrorMessage="必须为小于等3的正整数"></asp:RequiredFieldValidator></td>
         </tr>
         <tr>
             <td></td>

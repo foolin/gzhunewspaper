@@ -22,8 +22,10 @@ public partial class Admin_AdminDel : AdminBase
     {
         if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
             WebAgent.AlertAndBack("参数错误");
-        Admin paper = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
-        if (paper == null)
+        Admin admin = new AdminAgent().GetAdminInfo(int.Parse(QS("id")));
+        if (Session["AdminID"].ToString() == QS("id"))
+            WebAgent.AlertAndBack("不能删除自己");
+        if (admin == null)
             WebAgent.AlertAndBack("管理员不存在");
         if (new AdminAgent().DeleteAdmin(int.Parse(QS("id"))) > 0)
             WebAgent.SuccAndGo("删除管理员成功", "AdminList.aspx");
