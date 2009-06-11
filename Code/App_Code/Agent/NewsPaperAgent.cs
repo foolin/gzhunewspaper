@@ -121,6 +121,21 @@ namespace Myweb.NewsPaper
             }
         }
 
+
+        /// <summary>
+        /// 获取最新的新闻ID
+        /// </summary>
+        /// <returns></returns>
+        public int GetLastPaperID()
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetLastPaperID");
+            }
+
+        }
+
     }
 
 }
