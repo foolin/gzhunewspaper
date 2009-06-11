@@ -29,7 +29,7 @@
         <tr>
             <td>版面：</td>
             <td>
-                <asp:TextBox ID="txtPageID" runat="server"></asp:TextBox> （必须为数字）
+                <asp:TextBox ID="txtPageID" style="color:Gray" runat="server"></asp:TextBox> （请勿随意修改，必须为数字）
             </td>
         </tr>
         <tr>

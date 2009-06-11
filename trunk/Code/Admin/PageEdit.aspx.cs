@@ -54,6 +54,8 @@ public partial class Admin_PageEdit : AdminBase
         if (int.TryParse(this.txtPageID.Text.ToString(), out toNum) == false)
             WebAgent.AlertAndBack("版面必须为数字");
         page.PageID = toNum;
+        if (page.PageID > (new NewsPaperAgent().GetNewsPaperInfo(page.PaperID).NumOfPage))
+            WebAgent.AlertAndBack("版面号不能超过版面数");
         if (page.PaperID != int.Parse(QS("PaperID")) || page.PaperID != int.Parse(QS("PaperID")))
         {
             if ((new PaperPageAgent().GetPaperPageInfo(page.PaperID, page.PageID)) != null)
@@ -90,7 +92,7 @@ public partial class Admin_PageEdit : AdminBase
             if (!Directory.Exists(Server.MapPath(photo)))
                 Directory.CreateDirectory(Server.MapPath(photo));
             photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.txtPageImage.PostedFile.FileName);
-            WebAgent.SaveFile(this.txtPageImage.PostedFile, Server.MapPath(photo), 400, 500, true);
+            WebAgent.SaveFile(this.txtPageImage.PostedFile, Server.MapPath(photo), 800, 1000, true);
             return photo.Substring(3);
         }
         else
