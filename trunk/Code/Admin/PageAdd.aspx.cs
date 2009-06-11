@@ -22,6 +22,8 @@ public partial class Admin_PageAdd : AdminBase
     protected override void OnPreRender(EventArgs e)
     {
         ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
+        if (arr == null || arr.Count < 1)
+            WebAgent.FailAndGo("期刊为空，请先添加期刊", "PaperAdd.aspx");
         foreach (NewsPaper p in arr)
         {
             txtPaperID.Items.Add(p.PaperID.ToString());
