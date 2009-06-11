@@ -38,6 +38,8 @@ public partial class Admin_NewsEdit : AdminBase
             {
                 txtPaperID.Items.Add(p.PaperID.ToString());
             }
+            txtPaperID.SelectedValue = QS("PaperID");
+            txtPageID.Items.Add(QS("PageID"));
 
         }
     }

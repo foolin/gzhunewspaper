@@ -58,7 +58,7 @@
                                                 <td>
                                                     <%#Eval("ViewCount") %></td>
                                                 <td>
-                                                    <a href="NewsEdit.aspx?id=<%#Eval("NewsID") %>" title="修改新闻">修改</a>
+                                                    <a href="NewsEdit.aspx?id=<%#Eval("NewsID") %>&PaperID=<%#Eval("PaperID") %>&PageID=<%#Eval("PageID") %>" title="修改新闻">修改</a>
                                                     <a href="NewsDel.aspx?id=<%#Eval("NewsID") %>" onclick="return confirm('删除新闻将不能恢复！\n\n您确定要删除该新闻吗？')" title="删除">删除</a></td>
                                             </tr>
                                         </ItemTemplate>
