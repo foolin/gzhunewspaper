@@ -22,7 +22,8 @@
             <th colspan="2">添加新闻信息</th>
         </tr>
         <tr>
-            <td style="height: 25px">版面：</td>
+            <td style="height: 25px">
+                期刊：</td>
             <td style="height: 25px"> 
                 第<asp:DropDownList ID="txtPaperID" runat="server" OnSelectedIndexChanged="txtPaperID_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>期</td>
         </tr>

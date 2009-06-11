@@ -24,12 +24,12 @@
         <tr>
             <td>期数：</td>
             <td> 
-                第<asp:DropDownList ID="txtPaperID" runat="server"></asp:DropDownList>期</td>
+                第<asp:DropDownList ID="txtPaperID" runat="server" Enabled="False"></asp:DropDownList>期</td>
         </tr>
         <tr>
             <td>版面：</td>
             <td>
-                <asp:TextBox ID="txtPageID" style="color:Gray" runat="server"></asp:TextBox> （请勿随意修改，必须为数字）
+                <asp:TextBox ID="txtPageID" style="color:Gray" runat="server" Enabled="False"></asp:TextBox> 
             </td>
         </tr>
         <tr>
