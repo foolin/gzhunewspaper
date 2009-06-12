@@ -19,8 +19,49 @@ public partial class Admin_NewsList : AdminBase
     }
     protected override void OnPreRender(EventArgs e)
     {
-        listNews.DataSource = new NewsAgent().GetNewsList();
+        if (!IsPostBack)
+        {
+            listNews.DataSource = new NewsAgent().GetNewsList();
+            listNews.DataBind();
+
+            ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
+            foreach (NewsPaper p in arr)
+            {
+                PaperList.Items.Add(p.PaperID.ToString());
+            }
+        }
+    }
+
+    protected void PaperList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int paperID;
+        if (int.TryParse(this.PaperList.SelectedValue.ToString(), out paperID) == true)
+        {
+            if (paperID == 0)
+            {
+                Response.Redirect("NewsList.aspx");
+            }
+            else
+            {
+                PageList.Items.Clear();
+                ArrayList arr = new PaperPageAgent().GetPaperPageList(paperID);
+                if (arr == null || arr.Count < 1)
+                    WebAgent.ConfirmGo("期刊【" + paperID + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
+                foreach (PaperPage p in arr)
+                {
+                    PageList.Items.Add(p.PageID.ToString());
+                }
+            }
+
+        }
+    }
+    protected void PageList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        int toPaper, toPage;
+        int.TryParse(PaperList.SelectedValue, out toPaper);
+        int.TryParse(PageList.SelectedValue, out toPage);
+        NewsAgent agent = new NewsAgent();
+        listNews.DataSource = agent.GetNewsList(toPaper, toPage);
         listNews.DataBind();
     }
-    
 }
