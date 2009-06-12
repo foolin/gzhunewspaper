@@ -51,13 +51,6 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtEditorAddrs"
                     ErrorMessage="不能为空"></asp:RequiredFieldValidator></td>
         </tr>
-         <tr>
-            <td>编辑部地址：</td>
-            <td>
-				<asp:TextBox ID="txtEditorAddrs" runat="server" Width="330px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtEditorAddrs"
-                    ErrorMessage="不能为空"></asp:RequiredFieldValidator></td>
-        </tr>
         <tr>
             <td>编辑部电话：</td>
             <td>
@@ -77,6 +70,20 @@
             <td>
 				<asp:TextBox ID="txtEditorEmail" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtEditorEmail"
+                    ErrorMessage="不能为空"></asp:RequiredFieldValidator></td>
+        </tr>
+         <tr>
+            <td>邮政编码：</td>
+            <td>
+				<asp:TextBox ID="txtEditorPostCode" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtEditorPostCode"
+                    ErrorMessage="不能为空"></asp:RequiredFieldValidator></td>
+        </tr>
+         <tr>
+            <td>编辑部地址：</td>
+            <td>
+				<asp:TextBox ID="txtEditorAddrs" runat="server" Width="330px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtEditorAddrs"
                     ErrorMessage="不能为空"></asp:RequiredFieldValidator></td>
         </tr>
         <tr>

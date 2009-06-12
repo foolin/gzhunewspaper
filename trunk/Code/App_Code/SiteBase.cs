@@ -37,6 +37,7 @@ public class SiteBase : System.Web.UI.Page
                 Cache["EditorAddrs"] = config.EditorAddrs;
                 Cache["EditorFax"] = config.EditorFax;
                 Cache["EditorEmail"] = config.EditorEmail;
+                Cache["EditorPostCode"] = config.EditorPostCode;
                 Cache["IsHasCache"] = true;
             }
 

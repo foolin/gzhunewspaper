@@ -39,7 +39,7 @@
             <td></td>
             <td>
 				<!--日期实例化--begin-->
-                <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged" Visible="False"></asp:Calendar>
 				<!--end-->
             </td>
         </tr>
@@ -47,6 +47,12 @@
             <td>版面数：</td>
             <td>
                 <asp:TextBox ID="txtNumOfPage" runat="server">4</asp:TextBox></td>
+        </tr>
+        <tr>
+            <td>是否显示：</td>
+            <td>
+                是<asp:RadioButton ID="ShowTrue" GroupName="IsShow" runat="server" />   
+                否<asp:RadioButton ID="ShowFalse" GroupName="IsShow" runat="server" /></td>
         </tr>
         <tr>
             <td></td>

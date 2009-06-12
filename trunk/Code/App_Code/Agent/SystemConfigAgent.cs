@@ -75,7 +75,9 @@ namespace Myweb.NewsPaper
                     this.NewParam("@EditorAddrs", systemconfig.EditorAddrs),
                     this.NewParam("@EditorPhone", systemconfig.EditorPhone),
                     this.NewParam("@EditorFax", systemconfig.EditorFax),
-                    this.NewParam("@EditorEmail", systemconfig.EditorEmail)) > 0;
+                    this.NewParam("@EditorEmail", systemconfig.EditorEmail),
+                    this.NewParam("@EditorPostCode", systemconfig.EditorPostCode)
+                    ) > 0;
             }
         }
     }

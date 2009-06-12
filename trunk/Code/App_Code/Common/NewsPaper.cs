@@ -25,6 +25,7 @@ namespace Myweb.NewsPaper
             this.PaperID = (int)row["PaperID"];
             this.PublishDate = (DateTime)row["PublishDate"];
             this.NumOfPage = (int)row["NumOfPage"];
+            this.IsShow = (bool)row["IsShow"];
         }
 
         private int _paperID;
@@ -55,6 +56,17 @@ namespace Myweb.NewsPaper
         {
             get { return _numOfPage; }
             set { _numOfPage = value; }
+        }
+
+
+        private bool _isShow;
+        /// <summary>
+        ///  «∑Òœ‘ æ
+        /// </summary>
+        public bool IsShow
+        {
+            get { return _isShow; }
+            set { _isShow = value; }
         }
 
 

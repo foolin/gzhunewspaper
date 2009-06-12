@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-11 0:07:49                            */
+/* Created on:     2009-6-13 1:36:16                            */
 /*==============================================================*/
 
 
@@ -175,6 +175,7 @@ create table NewsPaper (
    PaperID              int                  not null,
    PublishDate          datetime             not null,
    NumOfPage            int                  not null,
+   IsShow               bit                  null,
    constraint PK_NEWSPAPER primary key nonclustered (PaperID)
 )
 go
@@ -203,16 +204,17 @@ go
 /* Table: SystemConfig                                          */
 /*==============================================================*/
 create table SystemConfig (
-   PaperName            varchar(255)         not null,
-   SiteName             varchar(255)         null,
-   SiteUrl              varchar(255)         null,
+   PaperName            char(255)            not null,
+   SiteName             char(255)            null,
+   SiteUrl              char(255)            null,
    PaperInfo            text                 null,
    IsOpenRegister       bit                  null,
    EditorName           varchar(255)         null,
    EditorAddrs          varchar(255)         null,
    EditorPhone          varchar(20)          null,
    EditorFax            varchar(20)          null,
-   EditorEmail          varchar(50)          null
+   EditorEmail          varchar(50)          null,
+   EditorPostCode       varchar(20)          null
 )
 go
 

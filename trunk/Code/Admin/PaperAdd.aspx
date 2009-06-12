@@ -49,6 +49,12 @@
                 <asp:TextBox ID="txtNumOfPage" runat="server">4</asp:TextBox> （请填数字）</td>
         </tr>
         <tr>
+            <td>是否显示：</td>
+            <td>
+                是<asp:RadioButton ID="ShowTrue" GroupName="IsShow" runat="server" />   
+                否<asp:RadioButton ID="ShowFalse" GroupName="IsShow" runat="server" /></td>
+        </tr>
+        <tr>
             <td></td>
             <td>  <asp:Button ID="btnSave" runat="server" Text="保存校报" OnClick="btnSave_Click"/>
                                 <a href="PaperList.aspx">取消</a> <br /></td>
