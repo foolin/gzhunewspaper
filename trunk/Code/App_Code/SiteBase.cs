@@ -20,13 +20,27 @@ public class SiteBase : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            SystemConfig config = new SystemConfigAgent().GetSystemConfig();
-            if (config == null)
+            if (Cache["IsHasCache"] == null)
             {
-                if (new SystemConfigAgent().InitSystemConfig())
-                    config = new SystemConfigAgent().GetSystemConfig();
+                SystemConfig config = new SystemConfigAgent().GetSystemConfig();
+                if (config == null)
+                {
+                    if (new SystemConfigAgent().InitSystemConfig())
+                        config = new SystemConfigAgent().GetSystemConfig();
+                }
+                Cache["PaperName"] = config.PaperName.ToString();
+                Cache["SiteName"] = config.SiteName.ToString();
+                Cache["SiteUrl"] = config.SiteUrl;
+                Cache["PaperInfo"] = config.PaperInfo;
+                Cache["EditorName"] = config.EditorName;
+                Cache["EditorPhone"] = config.EditorPhone;
+                Cache["EditorAddrs"] = config.EditorAddrs;
+                Cache["EditorFax"] = config.EditorFax;
+                Cache["EditorEmail"] = config.EditorEmail;
+                Cache["IsHasCache"] = true;
             }
 
+            /*
             HttpCookie co = new HttpCookie("Site");
             co["PaperName"] = config.PaperName.ToString();
             co["SiteName"] = config.SiteName.ToString();
@@ -38,6 +52,8 @@ public class SiteBase : System.Web.UI.Page
             co["EditorFax"] = config.EditorFax;
             co["EditorEmail"] = config.EditorEmail;
             Response.SetCookie(co);
+           */
+
         }
         
 
@@ -53,5 +69,15 @@ public class SiteBase : System.Web.UI.Page
     protected string QS(string key)
     {
         return Request.QueryString[key] + "";
+    }
+
+    /// <summary>
+    /// 读取网站信息
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    protected string Site(string key)
+    {
+        return Request.Cookies["Site"][key].ToString() + "";
     }
 }
