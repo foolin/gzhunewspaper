@@ -41,7 +41,7 @@ public partial class Admin_PageList : AdminBase
         {
             if (paperID == 0)
             {
-                Response.Redirect("PageList.aspx");
+                Response.Redirect("NewsList.aspx");
             }
             else
             {

@@ -63,7 +63,17 @@
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    
+                                    <tr>
+                                        <td colspan="9"> 
+                                        选择期刊： <asp:DropDownList ID="PaperList" runat="server"  OnSelectedIndexChanged="PaperList_SelectedIndexChanged" AutoPostBack="True">
+                                                    <asp:ListItem Value="0">请选择</asp:ListItem>
+                                                   </asp:DropDownList>
+                                       选择版面： <asp:DropDownList ID="PageList" runat="server"  OnSelectedIndexChanged="PageList_SelectedIndexChanged" AutoPostBack="True">
+                                                    <asp:ListItem Value="0">请选择</asp:ListItem>
+                                                   </asp:DropDownList>
+                                                   </td>
+                                    </tr>
+
                                 </table>
                                <div class="pagebar">[1] [2] ... [3]</div>
                     </div>
