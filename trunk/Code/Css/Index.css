@@ -137,8 +137,7 @@ a:hover{
 	color:#FFF;
 	text-align:left;
 	padding-left:30px;
-	line-height:20px;
-	padding-bottom:1px;
+	line-height:28px;
 }
 
 .search input{
@@ -151,10 +150,6 @@ a:hover{
 	background:#09C;
 	color:#FFF;
 	font-weight:bold;
-}
-
-
-.nowDate{
 }
 
 .container{

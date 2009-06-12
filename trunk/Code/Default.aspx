@@ -12,7 +12,8 @@
 <script type="text/javascript" language="javascript">
 <!--
 //时间,每秒刷新
-//setInterval("$('nowDate').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+setInterval("$('nowDate').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+
 -->
 </script>
 </head>
@@ -56,17 +57,12 @@
                 </div>
         </div>
         <div class="mainRight">
-                <!--
-        		<div class="search">
-                	<form id="so" action="" onsubmit="return KeySearch();">
+                <div class="search">
                         新闻搜索: <input type="text" id="keyword" />
-                        <input class="btnSearch" type="button" value="搜索" />
-                     <span id="nowDates">当前日期：</span>
-                     </form>
-                    
+                        <input class="btnSearch" onclick="Search()" type="button" value="搜索" />
+                        <span id="nowDate">当前日期：</span>
+
                 </div>
-                -->
-                
                 <div class="container">
                         <div class="pageNav">
                         	<span style="float:left; padding-left:10px;">版面导航：</span>
@@ -81,9 +77,9 @@
                             <div class="clear"></div>
                         </div>
                         <div id="news">
+                        
                         <!--新闻区域-->
 
-                        <!--新闻区域-->
                         </div>
                         <div class="clear"></div>
                 </div>

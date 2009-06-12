@@ -127,6 +127,18 @@ var ic = new ImgCropper("bgDiv", "dragDiv", "<%=imgPageUrl %>", {
     Preview: "viewDiv", viewWidth: 280, viewHeight: 280
 })
 
+function InitPosition(left, top, width, height){
+    var dragDiv = document.getElementById("dragDiv");
+    dragDiv.style.left = left + "px";
+    dragDiv.style.top = top + "px";
+    dragDiv.style.width = width + "px";
+    dragDiv.style.height = height + "px";
+    ic.Init();
+}
+
+//初始化位置
+InitPosition(<%=posLeft %>, <%=posTop %>, <%=posWidth %>, <%=posHeight %>);
+
 /*
 $("idSize").onclick = function(){
     if(ic.Height == 200){
