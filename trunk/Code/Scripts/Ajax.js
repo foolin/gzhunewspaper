@@ -12,7 +12,7 @@ function GetPageImage(paras){
     else if(paras["NewsID"]){
         http.onresponse = function(request){
             var p = request.responseText.split(',');
-            ShowPageImage(p[0],p[1]);
+            ShowPageImage(p[0],p[1], paras["NewsID"]);
         }
         http.send("Ajax/GetPageID.aspx?NewsID=" + paras["NewsID"]);
     }

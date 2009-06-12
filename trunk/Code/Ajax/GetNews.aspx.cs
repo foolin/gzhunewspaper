@@ -27,5 +27,8 @@ public partial class Ajax_GetNews : SiteBase
             news = new NewsAgent().GetNewsInfo(int.Parse(QS("NewsID")));
         }
 
+        Response.Cache.SetExpires(DateTime.Now);
+        Response.Cache.AppendCacheExtension("no-cache");
+
     }
 }
