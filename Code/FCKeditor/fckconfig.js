@@ -62,7 +62,7 @@ FCKConfig.AutoDetectLanguage	= true ;
 FCKConfig.DefaultLanguage		= 'zh-cn' ;
 FCKConfig.ContentLangDirection	= 'ltr' ;
 
-FCKConfig.ProcessHTMLEntities	= true ;
+FCKConfig.ProcessHTMLEntities	= false ;  //默认为true
 FCKConfig.IncludeLatinEntities	= true ;
 FCKConfig.IncludeGreekEntities	= true ;
 
@@ -72,8 +72,8 @@ FCKConfig.AdditionalNumericEntities = ''  ;		// Single Quote: "'"
 
 FCKConfig.FillEmptyBlocks	= true ;
 
-FCKConfig.FormatSource		= true ;
-FCKConfig.FormatOutput		= true ;
+FCKConfig.FormatSource		= true ;  //默认为true
+FCKConfig.FormatOutput		= true ;  //默认为true
 FCKConfig.FormatIndentator	= '    ' ;
 
 FCKConfig.EMailProtection = 'none' ; // none | encode | function
@@ -91,7 +91,7 @@ FCKConfig.ToolbarStartExpanded	= true ;
 FCKConfig.ToolbarCanCollapse	= true ;
 FCKConfig.IgnoreEmptyParagraphValue = true ;
 FCKConfig.FloatingPanelsZIndex = 10000 ;
-FCKConfig.HtmlEncodeOutput = false ;
+FCKConfig.HtmlEncodeOutput = false ;   //默认为false
 
 FCKConfig.TemplateReplaceAll = true ;
 FCKConfig.TemplateReplaceCheckbox = true ;
@@ -116,7 +116,7 @@ FCKConfig.ToolbarSets["Default"] = [
 ] ;
 
 FCKConfig.ToolbarSets["MyBar"] = [
-  ['Source','DocProps','-','Save','NewPage','Preview','-','Templates'],
+  ['Source','DocProps','-','Preview','-','Templates'],
 	['Cut','Copy','Paste'],
 	['Link','Unlink','Anchor'],
 	['Image','Flash','Table','Rule','Smiley','SpecialChar','PageBreak'],
