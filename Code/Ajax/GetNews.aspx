@@ -3,7 +3,7 @@
 <%@ Import Namespace="Studio.Web" %>
 
 
-<h3 class="title">广州大学档案馆简介</h3>
+<h3 class="title"><%=news.Title %></h3>
 <div class="info">
      期刊：<a href="#" onclick="window.location.href='#PaperID=<%=news.PaperID %>';LoadData();return false; ">第12期</a>  &nbsp;&nbsp;
 	版面：<a href="#" onclick="window.location.href='#PaperID=<%=news.PaperID %>&PageID=<%=news.PageID %>';LoadData();return false; ">第2版</a> &nbsp;&nbsp;&nbsp;
