@@ -32,7 +32,7 @@ public partial class Admin_NewsEdit : AdminBase
             this.txtContent.Value = news.Content.ToString();
             this.txtPosition.Text = news.PositionOfPage.ToString();
             this.txtTitle.Text = news.Title.ToString();
-
+            //添加期刊下拉列表框数据
             ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
             if (arr == null || arr.Count < 1)
                 WebAgent.FailAndGo("期刊为空，请先添加期刊", "PaperAdd.aspx");
@@ -41,7 +41,14 @@ public partial class Admin_NewsEdit : AdminBase
                 txtPaperID.Items.Add(p.PaperID.ToString());
             }
             txtPaperID.SelectedValue = news.PaperID.ToString();
-            txtPageID.Items.Add(news.PageID.ToString());
+            //添加版面下拉列表框数据
+            arr = new PaperPageAgent().GetPaperPageList(news.PaperID);
+            foreach (PaperPage p in arr)
+            {
+                txtPageID.Items.Add(p.PageID.ToString());
+            }
+            txtPageID.SelectedValue = news.PageID.ToString();
+            ///////
             PaperPage page = new PaperPageAgent().GetPaperPageInfo(news.PaperID, news.PageID);
             imgPageUrl = "../" + page.PageImage.ToString();
 
@@ -80,6 +87,7 @@ public partial class Admin_NewsEdit : AdminBase
         news.PositionOfPage = txtPosition.Text.ToString();
         news.Title = txtTitle.Text.ToString();
         news.Author = txtAuthor.Text.ToString();
+        news.Content = txtContent.Value;
 
         NewsAgent agent = new NewsAgent();
         if (agent.UpdateNewsInfo(news))
