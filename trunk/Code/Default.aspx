@@ -13,6 +13,10 @@
 <!--
 //Ê±¼ä,Ã¿ÃëË¢ÐÂ
 setInterval("$('nowDate').innerHTML=new Date().toLocaleString()+' ÐÇÆÚ'+'ÈÕÒ»¶þÈýËÄÎåÁù'.charAt(new Date().getDay());",1000);
+function fontZoom(size){
+	document.getElementById('content').style.fontSize=size+'px';
+
+}
 
 -->
 </script>
@@ -97,11 +101,8 @@ setInterval("$('nowDate').innerHTML=new Date().toLocaleString()+' ÐÇÆÚ'+'ÈÕÒ»¶þÈ
 </html>
 <script type="text/javascript" language="javascript">
 <!--
-LoadData();
-//Ê±¼ä,Ã¿ÃëË¢ÐÂ
-//setInterval("$('nowDate').innerHTML=new Date().toLocaleString()+' ÐÇÆÚ'+'ÈÕÒ»¶þÈýËÄÎåÁù'.charAt(new Date().getDay());",1000);
+LoadData(); //ÔØÈëÊý¾Ý
 -->
 </script>
-
-<!-- Web UIÉè¼Æ Áõ¸¶Áé E-mail:Foolin@126.com 2009Äê6ÔÂ10ÈÕ ---->
+<!-- Web UIÉè¼Æ Áõ¸¶Áé E-mail:Foolin@126.com 2009Äê6ÔÂ10ÈÕ -->
 
