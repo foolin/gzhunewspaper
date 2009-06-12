@@ -13,6 +13,10 @@ using Studio.Web;
 
 public partial class Admin_NewsEdit : AdminBase
 {
+    public int posLeft = 100;
+    public int posTop = 60;
+    public int posWidth = 50;
+    public int posHeight = 50;
     public string imgPageUrl = "Images/NoPageImage.jpg";    //全局变量
 
     protected void Page_Load(object sender, EventArgs e)
@@ -32,6 +36,11 @@ public partial class Admin_NewsEdit : AdminBase
             this.txtContent.Value = news.Content.ToString();
             this.txtPosition.Text = news.PositionOfPage.ToString();
             this.txtTitle.Text = news.Title.ToString();
+            string[] position = news.PositionOfPage.ToString().Split('|');
+            posLeft = int.Parse(position[0]);
+            posTop = int.Parse(position[1]);
+            posWidth = int.Parse(position[2]);
+            posHeight = int.Parse(position[3]);
             //添加期刊下拉列表框数据
             ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
             if (arr == null || arr.Count < 1)
