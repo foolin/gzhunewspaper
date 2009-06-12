@@ -138,6 +138,8 @@ a:hover{
 	text-align:left;
 	padding-left:30px;
 	line-height:28px;
+	height:30px;
+	overflow:hidden;
 }
 
 .search input{
@@ -174,6 +176,7 @@ a:hover{
 	padding:0px;
 	padding-left:80px;
 	list-style:none;
+	font-weight:bold;
 }
 
 .pageNav li{
