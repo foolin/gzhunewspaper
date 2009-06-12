@@ -51,6 +51,8 @@ public partial class Admin_NewsList : AdminBase
                 {
                     PageList.Items.Add(p.PageID.ToString());
                 }
+                listNews.DataSource = new NewsAgent().GetNewsList(paperID);
+                listNews.DataBind();
             }
 
         }

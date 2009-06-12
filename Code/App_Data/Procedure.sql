@@ -454,6 +454,12 @@ if exists (select 1
 go
 if exists (select 1
             from  sysobjects
+           where  id = object_id('GetNewsListByPaperID')
+            and   xtype='P')
+   drop procedure GetNewsListByPaperID
+go
+if exists (select 1
+            from  sysobjects
            where  id = object_id('GetNewsListByPID')
             and   xtype='P')
    drop procedure GetNewsListByPID
@@ -495,6 +501,15 @@ CREATE PROCEDURE GetNewsList
 AS
 SELECT * FROM News
 ORDER BY NewsID DESC
+GO
+
+CREATE PROCEDURE GetNewsListByPaperID(@PaperID INT)
+AS
+BEGIN
+	SELECT * FROM News
+	WHERE PaperID = @PaperID
+	ORDER BY NewsID DESC
+END
 GO
 
 CREATE PROCEDURE GetNewsListByPID(@PaperID INT, @PageID INT)
