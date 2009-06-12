@@ -1,0 +1,279 @@
+/*==============================================================*/
+/* Purpose:        Css For html style                       	*/
+/* Author:         Foolin 					                    */
+/* E-mail:         Foolin@126.com				                */
+/* Created on:     2009-6-10 14:10:35                            */
+/*==============================================================*/
+
+body{
+	font-size:12px;
+	margin:0px;
+	background:#FFF url(../images/body_bg.jpg) repeat-x;
+}
+a{
+	color:#000;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#F00;
+	padding:1px;
+	text-decoration:underline;
+}
+
+.clear{ clear:both;}
+
+.wrapper {
+	margin:0 auto;
+	width:960px;
+	background:#FFF;
+}
+
+.header{
+	height:85px;
+	background:#A2D0FF url(../images/topbg.jpg);
+}
+
+.headLeft{
+	float:left;
+	width:440px;
+}
+
+.headRight{
+	float:left;
+	width:520px;
+	padding:0px;
+}
+
+.loveFav{
+	clear:both;
+}
+
+.loveFav ul{
+	list-style:none;
+	margin:0px;
+	padding-top:2px;
+}
+
+.loveFav li{
+	float:left;
+	padding:5px 10px;
+}
+
+.paperInfo{
+	float:right;
+	margin-right:10px;
+	color:#FFF;
+	line-height:22px;
+}
+
+
+.paperNav{
+	margin-left:10px;
+	margin-top:20px;
+	padding-left:10px;
+	background:#ACD6FF;
+	width:370px;
+	height:30px;
+	line-height:30px;
+}
+
+.paperNav .paperNO{
+	margin-left:15px;
+}
+
+.main{
+	clear:both;
+}
+
+.mainLeft{
+	float:left;
+	width:420px;
+}
+
+.mainRight{
+	float:left;
+	width:540px;
+}
+
+.pageImageBorder{
+	margin-top:0px;
+	margin-left:10px;
+	margin-bottom:10px;
+	border:1px #CCC solid; 
+	background:#FFF; 
+	padding:3px;
+	width:366px;
+	height:510px;
+	text-align:center;
+}
+
+#pageImage{
+	margin:auto;
+	width:360px;
+	height:500px;
+}
+
+.pageImage{
+	background-repeat:no-repeat; position: relative; width: 360px; height: 500px;
+}
+.imgNewsArea{
+	cursor: pointer; position: absolute;
+}
+.imgNewsTitle{
+	position: absolute; z-index:22; display: none; font-size:12px; width:210px;	
+}
+.imgNewsTitle .tips{margin-left:15px;}
+.imgNewsTitle .text{background-color:#E8F3FF;color:#09F; border:2px solid #33b9ff; padding:8px;text-align:center;
+}
+
+
+
+
+.search{
+	margin-top:5px;
+	margin-bottom:5px;
+	background:#5AF;
+	color:#FFF;
+	text-align:left;
+	padding-left:30px;
+	line-height:20px;
+	padding-bottom:1px;
+}
+
+.search input{
+	margin-top:3px;
+}
+
+.btnSearch{
+	border:1px #55A7B0 solid;
+	padding:0px 3px;
+	background:#09C;
+	color:#FFF;
+	font-weight:bold;
+}
+
+
+.nowDate{
+}
+
+.container{
+	border:1px #88C4FF solid;
+	background:#E6F2FF;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.pageNav{
+	background:#68B4FF;
+	background:#71B8FF;
+	line-height:25px;
+	height:25px;
+	font-size:14px;
+	color:#39F;
+	color:#FFF;
+}
+
+.pageNav ul{
+	margin:0px;
+	padding:0px;
+	padding-left:80px;
+	list-style:none;
+}
+
+.pageNav li{
+	float:left;
+	margin-left:8px;
+	margin-right:8px;
+	text-align:center;
+	padding-bottom:0px;
+}
+
+.pageNav li a{color:#FFF;padding:5px;}
+
+.pageNav li a:hover{
+	background:#E6F2FF;
+	color:#39F;
+	padding:6px;
+	text-decoration:none;
+}
+
+.pageNav .on a{
+	background:#6FB7FF;
+	background:#E6F2FF;
+	color:#39F;
+	padding:6px;
+	text-decoration:none;
+}
+	
+
+#news{
+	margin:4px;
+	padding:5px;
+	font-size:14px;
+	background:#FFF;
+}
+
+#loading{
+	font-size:14px;
+	color:#09F;
+	margin-top:20px;
+	text-align:center;
+}
+
+
+#news .title{
+	margin:2px;
+	line-height:30px;
+	text-align:center;
+}
+#news .info{
+	font-size:12px;
+	font-weight:normal;
+	color:#999;
+	text-align:center;
+	margin-bottom:5px;
+	padding-bottom:2px;
+	border-bottom:1px solid #ACD6FF;
+}
+#news .content{
+	padding-left:5px;
+	padding-right:5px;
+	line-height:180%;
+	font-size:14px;
+	text-align:left;
+	font-weight:normal;
+}
+#news .content p{
+	margin-top:2px;
+	margin-bottom:5px;
+	line-height:180%;
+	text-indent: 2em;
+}
+
+#news .list{
+	margin:5px 10px 10px 20px;
+	padding:2px;
+	line-height:180%;
+	font-size:14px;
+	text-align:left;
+	font-weight:normal;
+}
+
+#news .list li{
+	padding-top:3px;
+	border-bottom: #E4E4E4 1px dashed;
+	border-bottom:#E0E0E0 1px dashed;
+}
+
+
+.footer{
+	padding:5px;
+	background:#6AB5FF;
+	color:#FFF;
+	line-height:22px;
+	text-align:center;
+}
+
+.footer a{color:#FFF;text-decoration:none;}
+.footer a:hover{color:#F00;padding:1px;text-decoration:underline;}

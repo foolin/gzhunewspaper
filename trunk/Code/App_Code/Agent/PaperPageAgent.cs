@@ -148,12 +148,34 @@ namespace Myweb.NewsPaper
             }
         }
 
+
+        /// <summary>
+        /// 获取最后的版面
+        /// </summary>
+        /// <param name="PaperID"></param>
+        /// <returns></returns>
         public int GetLastPageID(int PaperID)
         {
 
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteProcedure("GetLastPageID",
+                    this.NewParam("@PaperID", PaperID));
+            }
+
+        }
+
+        /// <summary>
+        /// 获取最前的版面
+        /// </summary>
+        /// <param name="PaperID"></param>
+        /// <returns></returns>
+        public int GetFirstPageID(int PaperID)
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetFirstPageID",
                     this.NewParam("@PaperID", PaperID));
             }
 

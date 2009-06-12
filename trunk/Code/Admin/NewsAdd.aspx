@@ -67,7 +67,7 @@
                     <script type="text/javascript" src="Inc/Resize.js"></script>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" id="DragPicArea" style="display:block;">
                       <tr>
-                        <td width="360" height="500"><div id="bgDiv">
+                        <td width="365" height="505"><div id="bgDiv">
                             <div id="dragDiv">
                               <div id="rRightDown"> </div>
                               <div id="rLeftDown"> </div>
@@ -119,7 +119,7 @@
 <script type="text/javascript" language="javascript">
 <!--
 var ic = new ImgCropper("bgDiv", "dragDiv", "<%=imgPageUrl %>", {
-    Width: 360, Height: 500, Color: "#000",
+    Width: 360, Height: 0, Color: "#000",
     Resize: true,
     Right: "rRight", Left: "rLeft", Up:	"rUp", Down: "rDown",
     RightDown: "rRightDown", LeftDown: "rLeftDown", RightUp: "rRightUp", LeftUp: "rLeftUp",
@@ -194,23 +194,6 @@ $("idView").onclick = function(){
     ic.Init();
 }
 
-/*
-$("idImg").onclick = function(){
-    if(ic.Url == "http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_xx2.jpg"){
-        ic.Url = "http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_min.jpg";
-    }else{
-        ic.Url = "http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_xx2.jpg";
-    }
-    ic.Init();
-}
-
-$("idPic").onclick = function(){
-    if($("idPicUrl").value){
-        ic.Url = $("idPicUrl").value;
-    }
-    ic.Init();
-}
-*/
 
 $("getPosition").onclick = function(){
     $("<%=txtPosition.ClientID %>").value = ic.GetPos().Left + "|" + ic.GetPos().Top + "|"  + ic.GetPos().Width + "|"  + ic.GetPos().Height;

@@ -45,6 +45,18 @@ namespace Myweb.NewsPaper
         }
 
         /// <summary>
+        /// 初始化系统配置
+        /// </summary>
+        /// <returns></returns>
+        public bool InitSystemConfig()
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteNonQuery(CommandType.StoredProcedure, "InitSystemConfig") > 0;
+            }
+        }
+
+        /// <summary>
         /// 更新系统配置信息
         /// </summary>
         /// <param name="systemconfig"></param>

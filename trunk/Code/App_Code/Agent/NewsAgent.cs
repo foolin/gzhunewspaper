@@ -45,6 +45,50 @@ namespace Myweb.NewsPaper
         }
 
         /// <summary>
+        /// 通过期刊ID，版面ID来获取新闻列表
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetNewsList(int PaperID, int PageID)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetNewsListByPID",
+                                    this.NewParam("@PaperID", PaperID),
+                                    this.NewParam("@PageID", PageID));
+            }
+            ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                News news = new News(row);
+                list.Add(news);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 搜索关键字来获取新闻列表
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetNewsList(string keyword)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetNewsListByKeyword",
+                                    this.NewParam("@keyword", keyword));
+            }
+            ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                News news = new News(row);
+                list.Add(news);
+            }
+            return list;
+        }
+
+
+        /// <summary>
         /// 通过ID获取某期刊的信息
         /// </summary>
         /// <param name="PaperID">期刊ID</param>
