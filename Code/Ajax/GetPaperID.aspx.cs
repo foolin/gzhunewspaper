@@ -29,5 +29,9 @@ public partial class Ajax_GetPaperID : SiteBase
         {
             paperID = new NewsPaperAgent().GetLastPaperID();
         }
+
+        Response.Cache.SetExpires(DateTime.Now);
+        Response.Cache.AppendCacheExtension("no-cache");
+
     }
 }

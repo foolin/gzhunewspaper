@@ -35,7 +35,7 @@
         if (QS("NewsID") != "" && WebAgent.IsInt32(QS("NewsID")))
         {   
             if(news.NewsID == int.Parse(QS("NewsID")))
-                strShow = "border:#33b9ff 2px solid;";
+                strShow = "#33b9ff 2px solid";
             else
                 strShow = "";
         }
@@ -47,11 +47,11 @@
                      <%=news.Title %>
                 </div>
         </div> 
-        <div style="left: <%=left %>px;top:<%=top %>px; width:<%=width %>px; height: <%=height %>px; <%=strShow %>" 
+        <div style="left: <%=left %>px;top:<%=top %>px; width:<%=width %>px; height: <%=height %>px; border: <%=strShow %>;" 
     	     class="imgNewsArea" 
              onmouseover="this.style.border='#33b9ff 2px solid';document.getElementById('div<%=news.NewsID %>').style.display='block';"
-             onmouseout="this.style.border='';document.getElementById('div<%=news.NewsID %>').style.display='none';"
-             onclick="window.location.href='#NewsID=<%=news.NewsID %>';LoadData()" >
+             onmouseout="this.style.border='<%=strShow %>';document.getElementById('div<%=news.NewsID %>').style.display='none';"
+             onclick="window.location.href='#NewsID=<%=news.NewsID %>';LoadData();;return false;" >
         </div> 
 <%
     }
