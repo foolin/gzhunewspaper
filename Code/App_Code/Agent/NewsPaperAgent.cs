@@ -123,7 +123,7 @@ namespace Myweb.NewsPaper
 
 
         /// <summary>
-        /// 获取最新的新闻ID
+        /// 获取最新的期刊ID
         /// </summary>
         /// <returns></returns>
         public int GetLastPaperID()

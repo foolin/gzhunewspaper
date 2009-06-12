@@ -3,7 +3,7 @@
 /* DBMS name:      Microsoft SQL Server 2000                    */
 /* Author:         Foolin (Foolin@126.com)                      */
 /* Created on:     2009-6-1 15:44:21                            */
-/* Updated on:     2009-6-7 1:05:39                             */
+/* Updated on:     2009-6-12 12:07:52                           */
 /*==============================================================*/
 
 --获取站点信息
@@ -377,7 +377,7 @@ CREATE PROCEDURE GetPaperPageListByPaperID(@PaperID INT)
 AS
 SELECT * FROM PaperPage
 WHERE PaperID = @PaperID
-ORDER BY PaperID
+ORDER BY PageID
 GO
 
 CREATE PROCEDURE GetPaperPageInfo(@PaperID INT, @PageID INT)
@@ -454,6 +454,18 @@ if exists (select 1
 go
 if exists (select 1
             from  sysobjects
+           where  id = object_id('GetNewsListByPID')
+            and   xtype='P')
+   drop procedure GetNewsListByPID
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetNewsListByKeyword')
+            and   xtype='P')
+   drop procedure GetNewsListByKeyword
+go
+if exists (select 1
+            from  sysobjects
            where  id = object_id('GetNewsInfo')
             and   xtype='P')
    drop procedure GetNewsInfo
@@ -483,6 +495,24 @@ CREATE PROCEDURE GetNewsList
 AS
 SELECT * FROM News
 ORDER BY NewsID DESC
+GO
+
+CREATE PROCEDURE GetNewsListByPID(@PaperID INT, @PageID INT)
+AS
+BEGIN
+	SELECT * FROM News
+	WHERE PaperID = @PaperID AND PageID=@PageID
+	ORDER BY NewsID DESC
+END
+GO
+
+CREATE PROCEDURE GetNewsListByKeyword(@Keyword VARCHAR(255))
+AS
+BEGIN
+	SELECT * FROM News
+	WHERE Title LIKE  '%' + @Keyword + '%'
+	ORDER BY NewsID DESC
+END
 GO
 
 CREATE PROCEDURE GetNewsInfo(@NewsID INT)

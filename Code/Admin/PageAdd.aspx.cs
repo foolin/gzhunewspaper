@@ -92,7 +92,8 @@ public partial class Admin_PageAdd : AdminBase
             if (!Directory.Exists(Server.MapPath(photo)))
                 Directory.CreateDirectory(Server.MapPath(photo));
             photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.txtPageImage.PostedFile.FileName);
-            WebAgent.SaveFile(this.txtPageImage.PostedFile, Server.MapPath(photo), 800, 1000, true);
+            //WebAgent.SaveFile(this.txtPageImage.PostedFile, Server.MapPath(photo), 360, 0, true);
+            WebAgent.SaveFile(this.txtPageImage.PostedFile,"" , Server.MapPath(photo), 360);
             return photo.Substring(3);
         }
         else
