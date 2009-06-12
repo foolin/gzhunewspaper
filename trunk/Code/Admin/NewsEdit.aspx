@@ -66,7 +66,7 @@
                     <script type="text/javascript" src="Inc/GetNewsPosition.js"></script>
                     <script type="text/javascript" src="Inc/Drag.js"></script>
                     <script type="text/javascript" src="Inc/Resize.js"></script>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="DragPicArea" style="display:none;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="DragPicArea" style="display:block;">
                       <tr>
                         <td width="360" height="500"><div id="bgDiv">
                             <div id="dragDiv">
