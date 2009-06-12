@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>广州大学校报</title>
+<title><%=Cache["SiteName"] %> - <%=Cache["SiteUrl"] %></title>
 <link href="Css/Index.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="Scripts/Base.js"></script>
 <script language="javascript" type="text/javascript" src="Scripts/Ajax.js"></script>
@@ -47,7 +47,7 @@ function fontZoom(size){
             </div>
             <div class="headRight">
                     <div class="paperInfo">
-                        中共广州大学委员会主办 国内统一刊号：CN44-0803/（G）
+                        <%=Cache["PaperInfo"] %>
                     </div>
             </div>
             <div class="clear"></div>
@@ -91,8 +91,8 @@ function fontZoom(size){
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <div class="footer">广州大学校报编辑部出版  邮箱：gdnews@126.com 电话：020-87542701  传真：020-87541544<br />
-地址：广州大学行政B后座六楼  邮编：510006<br /> 
+    <div class="footer"><%=Cache["EditorName"] %> 电话：<%=Cache["EditorPhone"] %>  传真：<%=Cache["EditorFax"] %><br />
+ 邮箱：<%=Cache["EditorEmail"] %>  地址：<%=Cache["EditorAddrs"] %><br /> 
 版权所有&copy;2009    <a href="http://www.eekku.com/" target="_blank">E酷工作室</a>   制作:刘付灵（Foolin）、朱松辉 [<a href="Admin/Login.aspx" target="_blank">管理登录</a>]
 	</div>
 </div>
