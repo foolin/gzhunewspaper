@@ -86,7 +86,8 @@ namespace Myweb.NewsPaper
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddNewsPaper",
                     this.NewParam("@PaperID", paper.PaperID),
                     this.NewParam("@PublishDate", paper.PublishDate),
-                    this.NewParam("@NumOfPage", paper.NumOfPage)) > 0;
+                    this.NewParam("@NumOfPage", paper.NumOfPage),
+                    this.NewParam("@IsShow", paper.IsShow)) > 0;
             }
         }
 
@@ -103,7 +104,8 @@ namespace Myweb.NewsPaper
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdateNewsPaperInfo",
                     this.NewParam("@PaperID", paper.PaperID),
                     this.NewParam("@PublishDate", paper.PublishDate),
-                    this.NewParam("@NumOfPage", paper.NumOfPage)) > 0;
+                    this.NewParam("@NumOfPage", paper.NumOfPage),
+                    this.NewParam("@IsShow", paper.IsShow)) > 0;
             }
         }
 

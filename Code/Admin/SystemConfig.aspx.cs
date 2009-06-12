@@ -38,6 +38,7 @@ public partial class Admin_SystemConfig : AdminBase
                 txtEditorPhone.Text = config.EditorPhone.ToString();
                 txtEditorFax.Text = config.EditorFax.ToString();
                 txtEditorEmail.Text = config.EditorEmail.ToString();
+                txtEditorPostCode.Text = config.EditorPostCode.ToString();
             }
         }
     }
@@ -51,7 +52,7 @@ public partial class Admin_SystemConfig : AdminBase
         config.SiteUrl = txtSiteUrl.Text;
         if (this.RadioButton1.Checked != true && this.RadioButton2.Checked != true)
             WebAgent.AlertAndBack("请选择是否开放用户注册与否！");
-        else if (this.RadioButton1.Checked != true)
+        else if (this.RadioButton1.Checked == true)
             config.IsOpenRegister = true;
         else
             config.IsOpenRegister = false;
@@ -60,6 +61,7 @@ public partial class Admin_SystemConfig : AdminBase
         config.EditorFax = txtEditorFax.Text;
         config.EditorName = txtEditorName.Text;
         config.EditorPhone = txtEditorPhone.Text;
+        config.EditorPostCode = txtEditorPostCode.Text;
         SystemConfigAgent agent = new SystemConfigAgent();
         if (agent.UpdateSystemConfigInfo(config))
         {

@@ -49,9 +49,9 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <tr><td colspan="5"> 
-                                        选择期刊： <asp:DropDownList ID="PaperList" runat="server"  OnSelectedIndexChanged="PaperList_SelectedIndexChanged" AutoPostBack="True">
-                                                    <asp:ListItem Value="0">请选择</asp:ListItem>
-                                                   </asp:DropDownList>
+                                        选择期刊： 第<asp:DropDownList ID="PaperList" runat="server"  OnSelectedIndexChanged="PaperList_SelectedIndexChanged" AutoPostBack="True">
+                                                     <asp:ListItem Value="0">请选择</asp:ListItem>
+                                                   </asp:DropDownList>期
                                                    
                                        <page:PageNaver ID="PageBar1" runat="server" StyleID="2"></page:PageNaver>
                                                    

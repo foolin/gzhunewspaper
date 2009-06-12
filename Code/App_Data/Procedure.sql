@@ -89,13 +89,14 @@ CREATE PROCEDURE UpdateSystemConfig
   @EditorAddrs VARCHAR(255),
   @EditorPhone VARCHAR(20),
   @EditorFax VARCHAR(20),
-  @EditorEmail VARCHAR(50)
+  @EditorEmail VARCHAR(50),
+  @EditorPostCode VARCHAR(20)
 )
 AS
 
 UPDATE SystemConfig
 SET PaperName=@PaperName, SiteName=@SiteName,SiteUrl=@SiteUrl, PaperInfo=@PaperInfo, IsOpenRegister=@IsOpenRegister,
-    EditorName=@EditorName, EditorAddrs=@EditorAddrs, EditorPhone=@EditorPhone, EditorFax=@EditorFax, EditorEmail=@EditorEmail
+    EditorName=@EditorName, EditorAddrs=@EditorAddrs, EditorPhone=@EditorPhone, EditorFax=@EditorFax, EditorEmail=@EditorEmail, EditorPostCode=@EditorPostCode
 GO
  
 CREATE PROCEDURE InitSystemConfig
@@ -103,9 +104,9 @@ AS
 BEGIN
     --初始化系统配置--
 	DELETE FROM SystemConfig
-    INSERT INTO SystemConfig(PaperName, SiteName, SiteUrl,PaperInfo, IsOpenRegister, EditorName, EditorAddrs, EditorPhone, EditorFax, EditorEmail)
+    INSERT INTO SystemConfig(PaperName, SiteName, SiteUrl,PaperInfo, IsOpenRegister, EditorName, EditorAddrs, EditorPhone, EditorFax, EditorEmail, EditorPostCode)
     VALUES('广州大学报', '广州大学报在线阅读系统',  'http://xb.gzhu.edu.cn', '中共广州大学委员会主管主办 国内统一刊号：CN44-0803/（G）',
-            1, '广州大学校报编辑部', '广州大学编辑部', '02039341141', '02039341141', 'gdnews@126.com')
+            0, '广州大学校报编辑部', '广州大学行政A楼后座612室', '02039341141', '02039341141', 'gdnews@126.com', '51006')
 END
 GO
 EXEC InitSystemConfig
@@ -276,21 +277,23 @@ CREATE PROCEDURE AddNewsPaper
 (
   @PaperID INT,
   @PublishDate DateTime,
-  @NumOfPage INT
+  @NumOfPage INT,
+  @IsShow BIT
 )
 AS
-INSERT INTO NewsPaper(PaperID, PublishDate, NumOfPage) VALUES(@PaperID, @PublishDate, @NumOfPage)
+INSERT INTO NewsPaper(PaperID, PublishDate, NumOfPage, IsShow) VALUES(@PaperID, @PublishDate, @NumOfPage, @IsShow)
 Go
 
 
 CREATE PROCEDURE UpdateNewsPaperInfo
 ( @PaperID INT,
   @PublishDate DateTime,
-  @NumOfPage INT
+  @NumOfPage INT,
+  @IsShow BIT
 )
 AS
 UPDATE NewsPaper
-SET PublishDate = @PublishDate, NumOfPage = @NumOfPage
+SET PublishDate = @PublishDate, NumOfPage = @NumOfPage,IsShow = @IsShow
 WHERE PaperID=@PaperID
 GO
 

@@ -32,6 +32,7 @@ namespace Myweb.NewsPaper
             this.EditorPhone = (string)row["EditorPhone"];
             this.EditorFax = (string)row["EditorFax"];
             this.EditorEmail = (string)row["EditorEmail"];
+            this.EditorPostCode = (string)row["EditorPostCode"];
         }
 
         private string _paperName;
@@ -139,6 +140,18 @@ namespace Myweb.NewsPaper
             get { return _editorEmail; }
             set { _editorEmail = value; }
         }
+
+        private string _editorPostCode;
+        /// <summary>
+        /// ” ±‡
+        /// </summary>
+        public string EditorPostCode
+        {
+            get { return _editorPostCode; }
+            set { _editorPostCode = value; }
+        }
+
+	
 
     }
 

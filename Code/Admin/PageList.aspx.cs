@@ -22,13 +22,16 @@ public partial class Admin_PageList : AdminBase
     {
         if (!IsPostBack)
         {
-            listPage.DataSource = new PaperPageAgent().GetPaperPageList();
+            //listPage.DataSource = new PaperPageAgent().GetPaperPageList();
+            int paperID = new NewsPaperAgent().GetLastPaperID();
+            listPage.DataSource = new PaperPageAgent().GetPaperPageList(paperID);
             listPage.DataBind();
             ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
             foreach (NewsPaper p in arr)
             {
                 PaperList.Items.Add(p.PaperID.ToString());
             }
+            this.PaperList.Items.FindByValue(paperID.ToString()).Selected = true;
         }
 
     }
@@ -41,7 +44,9 @@ public partial class Admin_PageList : AdminBase
         {
             if (paperID == 0)
             {
-                Response.Redirect("NewsList.aspx");
+                listPage.DataSource = new PaperPageAgent().GetPaperPageList();
+                listPage.DataBind();
+                //Response.Redirect("NewsList.aspx");
             }
             else
             {

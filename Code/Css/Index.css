@@ -47,6 +47,11 @@ a:hover{
 
 .loveFav{
 	clear:both;
+	color:#FFF;
+}
+
+.loveFav a{
+	color:#FFF;
 }
 
 .loveFav ul{

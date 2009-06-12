@@ -20,6 +20,7 @@ public partial class Admin_PaperAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
+        this.ShowFalse.Checked = true;
     }
 
 
@@ -57,6 +58,12 @@ public partial class Admin_PaperAdd : AdminBase
         if (int.TryParse(this.txtNumOfPage.Text.ToString(), out toNum) == false)
             WebAgent.AlertAndBack("版面数必须为数字");
         paper.NumOfPage = toNum;
+        if (this.ShowTrue.Checked != true && this.ShowFalse.Checked != true)
+            WebAgent.AlertAndBack("请选择是否显示！");
+        else if (this.ShowTrue.Checked == true)
+            paper.IsShow = true;
+        else
+            paper.IsShow = false;
         NewsPaperAgent agent = new NewsPaperAgent();
         if (agent.AddNewsPaper(paper))
         {
