@@ -49,10 +49,10 @@
                 <asp:TextBox ID="txtNumOfPage" runat="server">4</asp:TextBox> （请填数字）</td>
         </tr>
         <tr>
-            <td>是否显示：</td>
+            <td>立刻发布：</td>
             <td>
                 是<asp:RadioButton ID="ShowTrue" GroupName="IsShow" runat="server" />   
-                否<asp:RadioButton ID="ShowFalse" GroupName="IsShow" runat="server" /></td>
+                否<asp:RadioButton ID="ShowFalse" GroupName="IsShow" runat="server" /> （此功能是方便您添加完期刊新闻之后，然后再选择是否发布）</td>
         </tr>
         <tr>
             <td></td>
