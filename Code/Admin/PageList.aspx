@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="PageList.aspx.cs" Inherits="Admin_PageList" Title="Untitled Page" %>
-<%@ Register TagPrefix="page" Namespace="Studio.Web"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="Location" Runat="Server">
     校刊版面管理
 </asp:Content>
@@ -48,22 +47,26 @@
                                             </tr>
                                         </ItemTemplate>
                                     </asp:Repeater>
-                                    <tr><td colspan="5"> 
-                                        选择期刊： 第<asp:DropDownList ID="PaperList" runat="server"  OnSelectedIndexChanged="PaperList_SelectedIndexChanged" AutoPostBack="True">
+                                    <tr>
+                                        <td colspan="9"> 
+                                 第<asp:DropDownList ID="PaperList" runat="server"  OnSelectedIndexChanged="PaperList_SelectedIndexChanged" AutoPostBack="True">
                                                      <asp:ListItem Value="0">请选择</asp:ListItem>
-                                                   </asp:DropDownList>期
-                                                   
-                                       <page:PageNaver ID="PageBar1" runat="server" StyleID="2"></page:PageNaver>
-                                                   
+                                                   </asp:DropDownList>期 &nbsp;&nbsp;
+                                            当前是第<%= currentPaperID %>期：
+                                           【<a href="?PaperID=<%= firstPaperID %>">最前一期</a>】
+                                           【<a href="?PaperID=<%= prePaperID %>">上一期</a>】
+                                           【<a href="?PaperID=<%= nextPaperID %>">下一期</a>】
+                                           【<a href="?PaperID=<%= lastPaperID %>">最新一期</a>】
+                                           
                                                    </td>
                                     </tr>
-                                    <tr>
-                                        <td colspan="5"> 
-                                        <div style="color:red; font-size:14px; padding:3px;">温馨提示：请选择相应的期刊，才会显示相应的版面哦。</div>
-                                        </td>
-                                    </tr>
+
                                 </table>
+                             <div style="color:green; font-size:14px; padding:3px;">温馨提示：请选择相应的期刊，才会显示相应的版面哦。</div>   
+                                 
                     </div>
+                    
+                    
                     
 </asp:Content>
 

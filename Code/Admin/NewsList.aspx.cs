@@ -13,15 +13,30 @@ using Studio.Web;
 
 public partial class Admin_NewsList : AdminBase
 {
+    public int currentPaperID = new NewsPaperAgent().GetLastPaperID();  //全局变量
+    public int firstPaperID = new NewsPaperAgent().GetFirstPaperID();
+    public int lastPaperID = new NewsPaperAgent().GetLastPaperID();
+    public int prePaperID = 0;
+    public int nextPaperID = 0;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
     protected override void OnPreRender(EventArgs e)
     {
+        if ((QS("PaperID") != "" && WebAgent.IsInt32(QS("PaperID"))))
+        {
+            ChangePaperID(int.Parse(QS("PaperID")));
+
+        }
+        else
+        {
+            ChangePaperID(currentPaperID);
+        }
         if (!IsPostBack)
         {
-            listNews.DataSource = new NewsAgent().GetNewsList();
+            listNews.DataSource = new NewsAgent().GetNewsList(currentPaperID);
             listNews.DataBind();
 
             ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
@@ -29,7 +44,9 @@ public partial class Admin_NewsList : AdminBase
             {
                 PaperList.Items.Add(p.PaperID.ToString());
             }
+            this.PaperList.Items.FindByValue(currentPaperID.ToString()).Selected = true;
         }
+
     }
 
     protected void PaperList_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,7 +63,7 @@ public partial class Admin_NewsList : AdminBase
                 PageList.Items.Clear();
                 ArrayList arr = new PaperPageAgent().GetPaperPageList(paperID);
                 if (arr == null || arr.Count < 1)
-                    WebAgent.ConfirmGo("期刊【" + paperID + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
+                    WebAgent.ConfirmGo("期刊【" + paperID + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsList.aspx");
                 PageList.Items.Add("请选择");
                 foreach (PaperPage p in arr)
                 {
@@ -54,6 +71,7 @@ public partial class Admin_NewsList : AdminBase
                 }
                 listNews.DataSource = new NewsAgent().GetNewsList(paperID);
                 listNews.DataBind();
+                ChangePaperID(paperID);
             }
 
         }
@@ -69,5 +87,18 @@ public partial class Admin_NewsList : AdminBase
         else
             listNews.DataSource = news.GetNewsList(toPaper, toPage);
         listNews.DataBind();
+        ChangePaperID(toPaper);
+    }
+
+    protected void ChangePaperID(int paperID)
+    {
+        currentPaperID = paperID;
+        prePaperID = new NewsPaperAgent().GetPrePaperID(paperID);
+        if (prePaperID == 0)
+            prePaperID = firstPaperID;
+        nextPaperID = new NewsPaperAgent().GetNextPaperID(paperID);
+        if (nextPaperID == 0)
+            nextPaperID = lastPaperID;
+        
     }
 }
