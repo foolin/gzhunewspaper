@@ -72,7 +72,7 @@
         <div id="login">
             <div id="loginForm">
                 <div id="loginTitle">
-                    在线校报后台管理系统V0.1</div>
+                    在线校报后台管理系统V1.0</div>
                 <table>
                     <tr>
                        <td>用户名：</td>

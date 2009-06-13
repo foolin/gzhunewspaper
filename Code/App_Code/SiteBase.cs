@@ -20,7 +20,7 @@ public class SiteBase : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Cache["IsHasCache"] == null)
+            if (Cache["IsHasCache"] == null || Cache["IsHasCache"].ToString() != "true")
             {
                 SystemConfig config = new SystemConfigAgent().GetSystemConfig();
                 if (config == null)
@@ -38,24 +38,25 @@ public class SiteBase : System.Web.UI.Page
                 Cache["EditorFax"] = config.EditorFax;
                 Cache["EditorEmail"] = config.EditorEmail;
                 Cache["EditorPostCode"] = config.EditorPostCode;
-                Cache["IsHasCache"] = true;
+                Cache["IsHasCache"] = "true";
             }
-
-            /*
-            HttpCookie co = new HttpCookie("Site");
-            co["PaperName"] = config.PaperName.ToString();
-            co["SiteName"] = config.SiteName.ToString();
-            co["SiteUrl"] = config.SiteUrl;
-            co["PaperInfo"] = config.PaperInfo;
-            co["EditorName"] = config.EditorName;
-            co["EditorPhone"] = config.EditorPhone;
-            co["EditorAddrs"] = config.EditorAddrs;
-            co["EditorFax"] = config.EditorFax;
-            co["EditorEmail"] = config.EditorEmail;
-            Response.SetCookie(co);
-           */
-
         }
+
+        /*
+        HttpCookie co = new HttpCookie("Site");
+        co["PaperName"] = config.PaperName.ToString();
+        co["SiteName"] = config.SiteName.ToString();
+        co["SiteUrl"] = config.SiteUrl;
+        co["PaperInfo"] = config.PaperInfo;
+        co["EditorName"] = config.EditorName;
+        co["EditorPhone"] = config.EditorPhone;
+        co["EditorAddrs"] = config.EditorAddrs;
+        co["EditorFax"] = config.EditorFax;
+        co["EditorEmail"] = config.EditorEmail;
+        Response.SetCookie(co);
+       */
+
+
         
 
 

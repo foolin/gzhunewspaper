@@ -57,7 +57,13 @@
                                                    
                                                    </td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="5"> 
+                                        <div style="color:red; font-size:14px; padding:3px;">温馨提示：请选择相应的期刊，才会显示相应的版面哦。</div>
+                                        </td>
+                                    </tr>
                                 </table>
                     </div>
+                    
 </asp:Content>
 

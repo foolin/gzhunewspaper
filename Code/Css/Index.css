@@ -129,7 +129,7 @@ a:hover{
 .imgNewsTitle{
 	position: absolute; z-index:22; display: none; font-size:12px; width:210px;	
 }
-.imgNewsTitle .tips{margin-left:15px;}
+.imgNewsTitle .tips{margin-left:15px; text-align:left;}
 .imgNewsTitle .text{background-color:#E8F3FF;color:#09F; border:2px solid #33b9ff; padding:8px;text-align:center;
 }
 
@@ -167,12 +167,19 @@ a:hover{
 	margin-bottom:5px;
 }
 
+#currentPaperID{
+	float:left; 
+	margin-left:20px; 
+	padding-left: 5px; 
+	padding-right:5px;
+}
+
 .pageNav{
-	background:#68B4FF;
 	background:#71B8FF;
 	line-height:25px;
 	height:25px;
 	font-size:14px;
+	font-weight:bold;
 	color:#39F;
 	color:#FFF;
 }
@@ -182,7 +189,6 @@ a:hover{
 	padding:0px;
 	padding-left:80px;
 	list-style:none;
-	font-weight:bold;
 }
 
 .pageNav li{
@@ -253,7 +259,6 @@ a:hover{
 	margin-top:2px;
 	margin-bottom:5px;
 	line-height:180%;
-	text-indent: 2em;
 }
 
 #news .list{

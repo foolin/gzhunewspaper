@@ -69,14 +69,9 @@ function fontZoom(size){
                 </div>
                 <div class="container">
                         <div class="pageNav">
-                        	<span style="float:left; padding-left:10px;">版面导航：</span>
+                            <span id="currentPaperID">版面导航：</span>
                             <span id="pageNav">
-                                    <ul>
-                                    <li class="on"><a href="#">第一版</a></li> 
-                                    <li><a href="#">第二版</a></li>
-                                    <li><a href="#">第三版</a></li>
-                                    <li><a href="#">第四版</a></li>
-                                    </ul>
+                            	<!--版面导航-->
                             </span>
                             <div class="clear"></div>
                         </div>
@@ -91,9 +86,9 @@ function fontZoom(size){
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <div class="footer"><%=Cache["EditorName"] %> 电话：<%=Cache["EditorPhone"] %>  传真：<%=Cache["EditorFax"] %> <br />
+    <div class="footer">  <%=Cache["EditorName"] %> 电话：<%=Cache["EditorPhone"] %>  传真：<%=Cache["EditorFax"] %> <br />
 邮箱：<%=Cache["EditorEmail"] %>   地址：<%=Cache["EditorAddrs"] %>  邮编：<%=Cache["EditorPostCode"] %> <br />  
-版权所有&copy;2009    <a href="http://www.eekku.com/" target="_blank">E酷工作室</a>   制作:刘付灵（Foolin）、朱松辉 [<a href="Admin/Login.aspx" target="_blank">管理登录</a>]
+版权所有&copy;2009  <%=Cache["PaperName"] %>     <a href="http://www.eekku.com/" target="_blank">E酷工作室</a>   制作:刘付灵（Foolin）、朱松辉 [<a href="Admin/Login.aspx" target="_blank">管理登录</a>]
 	</div>
 </div>
 </form>

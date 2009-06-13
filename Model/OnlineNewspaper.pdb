@@ -2918,8 +2918,8 @@ CARD 0 新宋体,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o13">
-<a:Rect>((-97768,157572), (-87601,179014))</a:Rect>
-<a:ListOfPoints>((-87601,157572),(-93832,178502),(-90376,174229))</a:ListOfPoints>
+<a:Rect>((-97769,157572), (-87279,179014))</a:Rect>
+<a:ListOfPoints>((-87279,157572),(-93832,178502),(-90376,174229))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3047,7 +3047,7 @@ TableComment 0 新宋体,8,N</a:FontList>
 </o:TableSymbol>
 <o:TableSymbol Id="o14">
 <a:ModificationDate>1244827791</a:ModificationDate>
-<a:Rect>((-94895,152097), (-85523,158821))</a:Rect>
+<a:Rect>((-95474,152097), (-84944,158821))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -3645,11 +3645,12 @@ ATT IDNT</a:History>
 <a:Code>AdminName</a:Code>
 <a:CreationDate>1244827790</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244827790</a:ModificationDate>
+<a:ModificationDate>1244857415</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {E6B91D86-B5B8-49F9-8B39-6A4FB9D814B8}
-DAT 1244827790</a:History>
-<a:DataType>char(20)</a:DataType>
+DAT 1244827790
+ATT DTTP</a:History>
+<a:DataType>varchar(20)</a:DataType>
 <a:Length>20</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
@@ -3973,11 +3974,12 @@ DAT 1244827790</a:History>
 <a:Code>FavName</a:Code>
 <a:CreationDate>1244827790</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244827790</a:ModificationDate>
+<a:ModificationDate>1244857403</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {C5222A08-B53B-45D0-850D-BCBFB70F6BAF}
-DAT 1244827791</a:History>
-<a:DataType>char(20)</a:DataType>
+DAT 1244827791
+ATT DTTP</a:History>
+<a:DataType>varchar(20)</a:DataType>
 <a:Length>20</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
@@ -3987,11 +3989,12 @@ DAT 1244827791</a:History>
 <a:Code>FavUrl</a:Code>
 <a:CreationDate>1244827790</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244827790</a:ModificationDate>
+<a:ModificationDate>1244857403</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {FC243ADE-C6B5-4CF2-B57D-F385AF67DBFD}
-DAT 1244827791</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244827791
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
@@ -4108,11 +4111,12 @@ DAT 1244827791</a:History>
 <a:Code>PaperName</a:Code>
 <a:CreationDate>1244827790</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244827790</a:ModificationDate>
+<a:ModificationDate>1244857387</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {38E39E6D-0D1B-4B86-934E-5736116F3387}
-DAT 1244827791</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244827791
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 <a:Mandatory>1</a:Mandatory>
 </o:Column>
@@ -4122,11 +4126,12 @@ DAT 1244827791</a:History>
 <a:Code>SiteName</a:Code>
 <a:CreationDate>1244827790</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244827790</a:ModificationDate>
+<a:ModificationDate>1244857387</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {B3B034BF-BE0F-45B9-8A48-62AC1705A805}
-DAT 1244827791</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244827791
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o97">
@@ -4135,11 +4140,12 @@ DAT 1244827791</a:History>
 <a:Code>SiteUrl</a:Code>
 <a:CreationDate>1244827790</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244827790</a:ModificationDate>
+<a:ModificationDate>1244857387</a:ModificationDate>
 <a:Modifier>Administrator</a:Modifier>
 <a:History>ORG {A8197828-1266-43CC-BD92-8E477007677B}
-DAT 1244827791</a:History>
-<a:DataType>char(255)</a:DataType>
+DAT 1244827791
+ATT DTTP</a:History>
+<a:DataType>varchar(255)</a:DataType>
 <a:Length>255</a:Length>
 </o:Column>
 <o:Column Id="o98">
