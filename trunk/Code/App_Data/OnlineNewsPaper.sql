@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2000                    */
-/* Created on:     2009-6-13 1:36:16                            */
+/* Created on:     2009-6-13 9:47:26                            */
 /*==============================================================*/
 
 
@@ -122,7 +122,7 @@ go
 /*==============================================================*/
 create table Admin (
    AdminID              int                  identity,
-   AdminName            char(20)             not null,
+   AdminName            varchar(20)          not null,
    Password             varchar(20)          not null,
    Power                int                  null,
    LoginCount           int                  null,
@@ -139,7 +139,6 @@ create table News (
    NewsID               int                  identity,
    PaperID              int                  null,
    PageID               int                  null,
-   Pap_PaperID          int                  null,
    Title                varchar(255)         not null,
    Author               varchar(20)          null,
    Content              text                 not null,
@@ -156,7 +155,7 @@ go
 /*==============================================================*/
 create index R2_FK on News (
 PageID ASC,
-Pap_PaperID ASC
+PaperID ASC
 )
 go
 
@@ -204,9 +203,9 @@ go
 /* Table: SystemConfig                                          */
 /*==============================================================*/
 create table SystemConfig (
-   PaperName            char(255)            not null,
-   SiteName             char(255)            null,
-   SiteUrl              char(255)            null,
+   PaperName            varchar(255)         not null,
+   SiteName             varchar(255)         null,
+   SiteUrl              varchar(255)         null,
    PaperInfo            text                 null,
    IsOpenRegister       bit                  null,
    EditorName           varchar(255)         null,
@@ -224,8 +223,8 @@ go
 create table UserFavorites (
    FavID                int                  identity,
    UserID               int                  null,
-   FavName              char(20)             not null,
-   FavUrl               char(255)            not null,
+   FavName              varchar(20)          not null,
+   FavUrl               varchar(255)         not null,
    FavTime              datetime             null,
    FavType              int                  null,
    constraint PK_USERFAVORITES primary key nonclustered (FavID)
@@ -257,7 +256,7 @@ create table Users (
 go
 
 alter table News
-   add constraint FK_NEWS_R2_PAPERPAG foreign key (PageID, Pap_PaperID)
+   add constraint FK_NEWS_R2_PAPERPAG foreign key (PageID, PaperID)
       references PaperPage (PageID, PaperID)
 go
 

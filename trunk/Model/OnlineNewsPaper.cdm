@@ -1182,8 +1182,8 @@ NAMA 0 新宋体,8,N</a:FontList>
 <o:RelationshipSymbol Id="o16">
 <a:CreationDate>1240817157</a:CreationDate>
 <a:ModificationDate>1242718968</a:ModificationDate>
-<a:Rect>((-93832,157572), (-87601,178502))</a:Rect>
-<a:ListOfPoints>((-93832,178502),(-87601,157572))</a:ListOfPoints>
+<a:Rect>((-93832,157572), (-86947,178502))</a:Rect>
+<a:ListOfPoints>((-93832,178502),(-86947,157572))</a:ListOfPoints>
 <a:ArrowStyle>4372</a:ArrowStyle>
 <a:LineColor>11184640</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1302,7 +1302,7 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <o:EntitySymbol Id="o18">
 <a:CreationDate>1240816689</a:CreationDate>
 <a:ModificationDate>1242717855</a:ModificationDate>
-<a:Rect>((-97135,151948), (-83283,158970))</a:Rect>
+<a:Rect>((-98873,151948), (-81545,158970))</a:Rect>
 <a:LineColor>11184640</a:LineColor>
 <a:FillColor>16777136</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2249,9 +2249,9 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>AdminName</a:Code>
 <a:CreationDate>1240816514</a:CreationDate>
 <a:Creator>416</a:Creator>
-<a:ModificationDate>1240816514</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
-<a:DataType>A20</a:DataType>
+<a:ModificationDate>1244857255</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
+<a:DataType>VA20</a:DataType>
 <a:Length>20</a:Length>
 </o:DataItem>
 <o:DataItem Id="o68">
@@ -2375,9 +2375,9 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>FavName</a:Code>
 <a:CreationDate>1240816794</a:CreationDate>
 <a:Creator>416</a:Creator>
-<a:ModificationDate>1240816794</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
-<a:DataType>A20</a:DataType>
+<a:ModificationDate>1244857294</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
+<a:DataType>VA20</a:DataType>
 <a:Length>20</a:Length>
 </o:DataItem>
 <o:DataItem Id="o96">
@@ -2386,9 +2386,9 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>FavUrl</a:Code>
 <a:CreationDate>1240816794</a:CreationDate>
 <a:Creator>416</a:Creator>
-<a:ModificationDate>1240816794</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
-<a:DataType>A255</a:DataType>
+<a:ModificationDate>1244857294</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
+<a:DataType>VA255</a:DataType>
 <a:Length>255</a:Length>
 </o:DataItem>
 <o:DataItem Id="o98">
@@ -2417,9 +2417,9 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>SiteName</a:Code>
 <a:CreationDate>1242717778</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244446497</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
-<a:DataType>A255</a:DataType>
+<a:ModificationDate>1244857277</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
+<a:DataType>VA255</a:DataType>
 <a:Length>255</a:Length>
 </o:DataItem>
 <o:DataItem Id="o106">
@@ -2428,9 +2428,9 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>SiteUrl</a:Code>
 <a:CreationDate>1242717778</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244446497</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
-<a:DataType>A255</a:DataType>
+<a:ModificationDate>1244857277</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
+<a:DataType>VA255</a:DataType>
 <a:Length>255</a:Length>
 </o:DataItem>
 <o:DataItem Id="o102">
@@ -2439,9 +2439,9 @@ EntityComment 0 新宋体,8,N</a:FontList>
 <a:Code>PaperName</a:Code>
 <a:CreationDate>1242717778</a:CreationDate>
 <a:Creator>Administrator</a:Creator>
-<a:ModificationDate>1244446497</a:ModificationDate>
-<a:Modifier>416</a:Modifier>
-<a:DataType>A255</a:DataType>
+<a:ModificationDate>1244857277</a:ModificationDate>
+<a:Modifier>Administrator</a:Modifier>
+<a:DataType>VA255</a:DataType>
 <a:Length>255</a:Length>
 </o:DataItem>
 <o:DataItem Id="o108">
