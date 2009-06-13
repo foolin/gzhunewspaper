@@ -48,6 +48,9 @@
             <td>  <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click"/>
                                 <a href="PageList.aspx">取消</a> <br /></td>
         </tr>
+        
+        <tr><td colspan="2">  <span style="color:Red;">请确保你的版面图片宽度大于360像素（px），否则将显示图片不对的错误！</span>
+            </td></tr>
     </table>   
 </div>
 </div>

@@ -120,7 +120,7 @@
 <script type="text/javascript" language="javascript">
 <!--
 var ic = new ImgCropper("bgDiv", "dragDiv", "<%=imgPageUrl %>", {
-    Width: 360, Height: 500, Color: "#000",
+    Color: "#000",
     Resize: true,
     Right: "rRight", Left: "rLeft", Up:	"rUp", Down: "rDown",
     RightDown: "rRightDown", LeftDown: "rLeftDown", RightUp: "rRightUp", LeftUp: "rLeftUp",
