@@ -127,7 +127,17 @@ public partial class Admin_NewsEdit : AdminBase
                 {
                     txtPageID.Items.Add(p.PageID.ToString());
                 }
+                if (arr != null || arr.Count > 0)
+                {
+                    PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(this.txtPaperID.SelectedValue.ToString()), int.Parse(this.txtPageID.SelectedValue.ToString()));
+                    imgPageUrl = "../" + page.PageImage.ToString();
+                }
             }
         }
+    }
+    protected void txtPageID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(this.txtPaperID.SelectedValue.ToString()), int.Parse(this.txtPageID.SelectedValue.ToString()));
+        imgPageUrl = "../" + page.PageImage.ToString();
     }
 }

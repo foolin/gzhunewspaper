@@ -64,7 +64,7 @@ function fontZoom(size){
                 <div class="search">
                         新闻搜索: <input type="text" id="keyword" />
                         <input class="btnSearch" onclick="Search()" type="button" value="搜索" />
-                        <span id="nowDate">当前日期：</span>
+                        <span id="nowDate">当前日期</span>
 
                 </div>
                 <div class="container">
@@ -99,5 +99,5 @@ function fontZoom(size){
 LoadData(); //载入数据
 -->
 </script>
-<!-- Web UI设计 刘付灵 E-mail:Foolin@126.com 2009年6月10日 -->
+<!-- Web UI & 前台程序设计：刘付灵 E-mail:Foolin@126.com 2009年6月11日 -->
 

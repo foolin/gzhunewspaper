@@ -224,13 +224,8 @@ a:hover{
 	background:#FFF;
 }
 
-#loading{
-	font-size:14px;
-	color:#09F;
-	margin-top:20px;
-	text-align:center;
-}
-
+#news .position{ text-align:left; padding-bottom:10px; color:Gray;}
+#news .position a{color:Gray;}
 
 #news .title{
 	margin:2px;
@@ -246,6 +241,10 @@ a:hover{
 	margin-bottom:5px;
 	padding-bottom:2px;
 	border-bottom:1px solid #ACD6FF;
+}
+#news .info a
+{
+	color:#999;
 }
 #news .content{
 	padding-left:5px;
