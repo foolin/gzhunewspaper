@@ -8,6 +8,7 @@
         <div class="content">
             <ul>
             <li><a href="AdminAdd.aspx">添加管理员</a></li>
+            <li><a href="AdminList.aspx">管理员列表</a></li>
             </ul>
         </div>
     </div>

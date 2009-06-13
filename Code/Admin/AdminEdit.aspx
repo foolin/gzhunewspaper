@@ -8,8 +8,8 @@
       <div class="title"><span class="titletxt">管理员面板</span></div>
         <div class="content">
             <ul>
-            <li><a href="PaperAdd.aspx">添加管理员</a></li>
-            <li><a href="PaperList.aspx">管理员列表</a></li>
+            <li><a href="AdminAdd.aspx">添加管理员</a></li>
+            <li><a href="AdminList.aspx">管理员列表</a></li>
             </ul>
         </div>
     </div>

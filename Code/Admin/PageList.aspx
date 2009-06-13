@@ -48,7 +48,7 @@
                                         </ItemTemplate>
                                     </asp:Repeater>
                                     <tr>
-                                        <td colspan="9"> 
+                                        <td colspan="5"> 
                                  第<asp:DropDownList ID="PaperList" runat="server"  OnSelectedIndexChanged="PaperList_SelectedIndexChanged" AutoPostBack="True">
                                                      <asp:ListItem Value="0">请选择</asp:ListItem>
                                                    </asp:DropDownList>期 &nbsp;&nbsp;
