@@ -47,6 +47,7 @@ public partial class Admin_NewsList : AdminBase
                 ArrayList arr = new PaperPageAgent().GetPaperPageList(paperID);
                 if (arr == null || arr.Count < 1)
                     WebAgent.ConfirmGo("期刊【" + paperID + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsAdd.aspx");
+                PageList.Items.Add("请选择");
                 foreach (PaperPage p in arr)
                 {
                     PageList.Items.Add(p.PageID.ToString());
@@ -62,8 +63,11 @@ public partial class Admin_NewsList : AdminBase
         int toPaper, toPage;
         int.TryParse(PaperList.SelectedValue, out toPaper);
         int.TryParse(PageList.SelectedValue, out toPage);
-        NewsAgent agent = new NewsAgent();
-        listNews.DataSource = agent.GetNewsList(toPaper, toPage);
+        NewsAgent news = new NewsAgent();
+        if(toPage == 0)
+            listNews.DataSource = news.GetNewsList(toPaper);
+        else
+            listNews.DataSource = news.GetNewsList(toPaper, toPage);
         listNews.DataBind();
     }
 }

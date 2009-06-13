@@ -28,8 +28,8 @@
     foreach (News news in arr)
     {
         position = news.PositionOfPage.ToString().Split('|');
-        left = int.Parse(position[0]);
-        top = int.Parse(position[1]);
+        left = int.Parse(position[0]) -2;
+        top = int.Parse(position[1]) -2;
         width = int.Parse(position[2]);
         height = int.Parse(position[3]);
         if (QS("NewsID") != "" && WebAgent.IsInt32(QS("NewsID")))
