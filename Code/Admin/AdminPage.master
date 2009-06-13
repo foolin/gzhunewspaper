@@ -24,7 +24,7 @@
             <li><a href="PaperList.aspx">校刊管理</a></li>
             <li><a href="PageList.aspx">校刊版面管理</a></li>
             <li><a href="NewsList.aspx">新闻管理</a></li>
-            <li><a href="UserList.aspx">用户管理</a></li>
+            <li><a href="#UserList.aspx">用户管理</a></li>
             <li><a href="AdminList.aspx">团队管理</a></li>
             <li><a href="SystemConfig.aspx">系统配置</a></li>
             <li><a href="Logout.aspx">注销登录</a></li>

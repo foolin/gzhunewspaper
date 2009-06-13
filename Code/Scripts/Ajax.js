@@ -94,7 +94,8 @@ function ShowPageNav(paperID,pageID){
 function ChangePaperName(paperID){
     var span = document.getElementById("paperID");
     span.innerHTML = "第" + paperID + "期";
-    document.getElementById("currentpaperID").innerHTML = "第" + paperID + "期:";
+    var paperID2 = document.getElementById("currentPaperID");
+    paperID2.innerHTML = "第" + paperID + "期:";
 /*
     var http = new HTTPRequest();
     http.onresponse = function(request){

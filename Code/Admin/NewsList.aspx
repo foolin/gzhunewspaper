@@ -22,19 +22,21 @@
                                         <th>
                                             ID</th>
                                         <th>
+                                            标题</th>
+                                        <th>
                                             期刊</th>
                                         <th>
                                             版面</th>
                                         <th>
-                                            标题</th>
-                                        <th>
                                             作者</th>
+                                       <!--
                                         <th>
                                             添加人</th>
                                         <th>
                                             时间</th>
+                                        -->
                                         <th>
-                                            浏览次数</th>
+                                            浏览</th>
                                         <th>
                                             操作</th>
                                     </tr>
@@ -44,17 +46,19 @@
                                                 <td>
                                                     <%#Eval("NewsID")%></td>
                                                 <td>
-                                                    第<%#Eval("PaperID")%>期</td>
-                                                <td>
-                                                    第<%#Eval("PageID")%>版</td>
-                                                <td>
                                                     <%#Eval("Title")%></td>
                                                 <td>
+                                                    <%#Eval("PaperID")%>期</td>
+                                                <td>
+                                                    <%#Eval("PageID")%>版</td>
+                                                <td>
                                                     <%#Eval("Author")%></td>
+                                                <!--
                                                 <td>
                                                     <%#Eval("AddUser")%></td>
                                                 <td>
                                                     <%#Convert.ToDateTime(Eval("AddTime")).ToShortDateString().ToString()%></td>
+                                                -->
                                                 <td>
                                                     <%#Eval("ViewCount") %></td>
                                                 <td>

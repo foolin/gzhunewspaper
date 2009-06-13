@@ -30,7 +30,7 @@
         <tr>
             <td>版面：</td>
             <td> 
-                第<asp:DropDownList ID="txtPageID" runat="server"></asp:DropDownList>版</td>
+                第<asp:DropDownList ID="txtPageID" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtPageID_SelectedIndexChanged"></asp:DropDownList>版</td>
         </tr>
         <tr>
             <td>标题：</td>
