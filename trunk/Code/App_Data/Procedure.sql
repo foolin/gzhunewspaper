@@ -252,9 +252,27 @@ if exists (select 1
 go
 if exists (select 1
             from  sysobjects
+           where  id = object_id('GetFirstPaperID')
+            and   xtype='P')
+   drop procedure GetFirstPaperID
+go
+if exists (select 1
+            from  sysobjects
            where  id = object_id('GetLastPaperID')
             and   xtype='P')
    drop procedure GetLastPaperID
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetPrePaperID')
+            and   xtype='P')
+   drop procedure GetPrePaperID
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetNextPaperID')
+            and   xtype='P')
+   drop procedure GetNextPaperID
 go
 
 
@@ -303,6 +321,16 @@ DELETE PaperPage WHERE PaperID = @PaperID
 DELETE NewsPaper WHERE PaperID = @PaperID
 GO
 
+CREATE PROCEDURE GetFirstPaperID
+AS
+BEGIN
+	DECLARE @PaperID INT
+	SELECT Top 1 @PaperID=PaperID FROM NewsPaper
+	IF(ISNULL(@PaperID, 0)=0)
+		RETURN 0
+	RETURN @PaperID
+END
+GO
 
 CREATE PROCEDURE GetLastPaperID
 AS
@@ -312,6 +340,28 @@ BEGIN
 	IF(ISNULL(@PaperID, 0)=0)
 		RETURN 0
 	RETURN @PaperID
+END
+GO
+
+CREATE PROCEDURE GetPrePaperID(@PaperID INT)
+AS
+BEGIN
+	DECLARE @PrePaperID INT
+	SELECT Top 1 @PrePaperID=PaperID FROM NewsPaper WHERE PaperID < @PaperID ORDER BY PaperID DESC
+	IF(ISNULL(@PrePaperID, 0)=0)
+		RETURN 0
+	RETURN @PrePaperID
+END
+GO
+
+CREATE PROCEDURE GetNextPaperID(@PaperID INT)
+AS
+BEGIN
+	DECLARE @NextPaperID INT
+	SELECT Top 1 @NextPaperID=PaperID FROM NewsPaper WHERE PaperID > @PaperID
+	IF(ISNULL(@NextPaperID, 0)=0)
+		RETURN 0
+	RETURN @NextPaperID
 END
 GO
 

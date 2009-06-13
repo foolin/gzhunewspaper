@@ -123,6 +123,19 @@ namespace Myweb.NewsPaper
             }
         }
 
+        /// <summary>
+        /// 获取最旧的期刊ID
+        /// </summary>
+        /// <returns></returns>
+        public int GetFirstPaperID()
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetFirstPaperID");
+            }
+
+        }
 
         /// <summary>
         /// 获取最新的期刊ID
@@ -134,6 +147,37 @@ namespace Myweb.NewsPaper
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteProcedure("GetLastPaperID");
+            }
+
+        }
+
+        /// <summary>
+        /// 获取上一期的ID
+        /// </summary>
+        /// <param name="currentPaperID">当前ID</param>
+        /// <returns></returns>
+        public int GetPrePaperID(int currentPaperID)
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetPrePaperID", this.NewParam("@PaperID", currentPaperID));
+            }
+
+        }
+
+
+        /// <summary>
+        /// 获取下一期的IE
+        /// </summary>
+        /// <param name="currentPaperID">当前ID</param>
+        /// <returns></returns>
+        public int GetNextPaperID(int currentPaperID)
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetNextPaperID", this.NewParam("@PaperID", currentPaperID));
             }
 
         }
