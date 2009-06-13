@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="NewsList.aspx.cs" Inherits="Admin_NewsList" Title="Untitled Page" %>
 <%@ Register TagPrefix="page" Namespace="Studio.Web"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="Location" Runat="Server">
+新闻管理
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentSide" Runat="Server">
     <!--栏目-->

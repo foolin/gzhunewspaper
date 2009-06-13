@@ -45,6 +45,16 @@ public partial class Admin_NewsList : AdminBase
                 PaperList.Items.Add(p.PaperID.ToString());
             }
             this.PaperList.Items.FindByValue(currentPaperID.ToString()).Selected = true;
+
+            PageList.Items.Clear();
+            ArrayList arr2 = new PaperPageAgent().GetPaperPageList(currentPaperID);
+            if (arr2 == null || arr.Count < 1)
+                WebAgent.ConfirmGo("期刊【" + currentPaperID + "】的版面为空，是否先添加版面？", "PageAdd.aspx", "NewsList.aspx");
+            PageList.Items.Add("请选择");
+            foreach (PaperPage p in arr2)
+            {
+                PageList.Items.Add(p.PageID.ToString());
+            }
         }
 
     }
