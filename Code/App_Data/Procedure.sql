@@ -574,12 +574,48 @@ BEGIN
 END
 GO
 
+/*
 CREATE PROCEDURE GetNewsListByKeyword(@Keyword VARCHAR(255))
 AS
 BEGIN
 	SELECT * FROM News
 	WHERE Title LIKE  '%' + @Keyword + '%'
 	ORDER BY NewsID DESC
+END
+GO
+*/
+
+CREATE PROCEDURE GetNewsListByKeyword(
+	@Keyword VARCHAR(255),
+	@PageSize INT,
+	@PageNo INT,
+	@RecordCount INT OUT
+)
+AS
+BEGIN
+	DECLARE @TempTable TABLE
+	(
+		AutoID INT IDENTITY(1,1) NOT NULL,
+		ArtID BIGINT NOT NULL
+	)
+
+	INSERT INTO @TempTable(ArtID)
+	SELECT NewsID FROM News
+	WHERE Title LIKE  '%' + @Keyword + '%'
+	ORDER BY NewsID DESC
+
+	SELECT @RecordCount=@@IDENTITY
+	SET @RecordCount=ISNULL(@RecordCount,0)
+
+	DECLARE @MaxID BIGINT
+	DECLARE @MinID BIGINT
+
+	SET @MinID = (@PageNo -1) * @PageSize +1
+	SET @MaxID = @PageNo * @PageSize
+
+	SELECT NewsID, PaperID, PageID, Title,Author, Content, PositionOfPage, AddUser, AddTime, ViewCount
+	FROM News, @TempTable
+	WHERE NewsID=ArtID  AND AutoID BETWEEN @MinID AND @MaxID
 END
 GO
 

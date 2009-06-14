@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title><%=Cache["SiteName"] %> - <%=Cache["SiteUrl"] %></title>
+<title><%=site.SiteName %> - <%=site.SiteUrl%></title>
 <link href="Css/Index.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="Scripts/Base.js"></script>
 <script language="javascript" type="text/javascript" src="Scripts/Ajax.js"></script>
@@ -23,7 +23,7 @@ function fontZoom(size){
 </head>
 
 <body>
-<form id="form1"  runat="server">
+<form id="form1" onsubmit="return Search();" runat="server">
 <div class="wrapper">
 	<div class="header">
             <div class="headLeft">
@@ -32,7 +32,7 @@ function fontZoom(size){
                         <li><a href="#" onclick="return HomePage.call(this);">
                             设为主页</a> |</li>
                         <li><a href="#" onclick="return Love();">加入收藏</a> |</li>
-                        <li><a href="AboutUs.html" target="_blank">关于我们</a></li>
+                        <li><a href="#AboutUs.html" target="_blank">关于我们</a></li>
                         </ul>
                 </div>
                 <div class="clear"></div>
@@ -47,7 +47,7 @@ function fontZoom(size){
             </div>
             <div class="headRight">
                     <div class="paperInfo">
-                        <%=Cache["PaperInfo"] %>
+                        <%=site.PaperInfo %>
                     </div>
             </div>
             <div class="clear"></div>
@@ -86,9 +86,9 @@ function fontZoom(size){
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <div class="footer">  <%=Cache["EditorName"] %> 电话：<%=Cache["EditorPhone"] %>  传真：<%=Cache["EditorFax"] %> <br />
-邮箱：<%=Cache["EditorEmail"] %>   地址：<%=Cache["EditorAddrs"] %>  邮编：<%=Cache["EditorPostCode"] %> <br />  
-版权所有&copy;2009  <%=Cache["PaperName"] %>     <a href="http://www.eekku.com/" target="_blank">E酷工作室</a>   制作:刘付灵（Foolin）、朱松辉 [<a href="Admin/Login.aspx" target="_blank">管理登录</a>]
+    <div class="footer">  <%=site.EditorName %> 电话：<%=site.EditorPhone %>  传真：<%=site.EditorFax %> <br />
+邮箱：<%=site.EditorEmail%>   地址：<%=site.EditorAddrs %>  邮编：<%=site.EditorPostCode %> <br />  
+版权所有&copy;2009  <%=site.PaperName %>     <a href="http://www.eekku.com/" target="_blank">E酷工作室</a>   制作:刘付灵（Foolin）、朱松辉 [<a href="Admin/Login.aspx" target="_blank">管理登录</a>]
 	</div>
 </div>
 </form>

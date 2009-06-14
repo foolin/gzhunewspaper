@@ -87,6 +87,7 @@ namespace Myweb.NewsPaper
             return list;
         }
 
+        /*
         /// <summary>
         /// 搜索关键字来获取新闻列表
         /// </summary>
@@ -99,6 +100,32 @@ namespace Myweb.NewsPaper
                 ds = db.GetDataSet(CommandType.StoredProcedure, "GetNewsListByKeyword",
                                     this.NewParam("@keyword", keyword));
             }
+            ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                News news = new News(row);
+                list.Add(news);
+            }
+            return list;
+        }
+         */
+
+
+
+        public ArrayList GetNewsList(string Keyword, int PageSize, int PageNo, out int Record)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 4, true);
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetNewsListByKeyword",
+                    this.NewParam("@Keyword", Keyword),
+                    this.NewParam("@PageSize", PageSize),
+                    this.NewParam("@PageNo", PageNo),
+                    record);
+                Record = (int)record.Value;
+            }
+
             ArrayList list = new ArrayList();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
