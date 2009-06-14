@@ -19,6 +19,7 @@ public partial class _Default :  SiteBase
     }
     protected override void OnPreRender(EventArgs e)
     {
+        selectPaper.Items.Clear();
         ArrayList arr = new NewsPaperAgent().GetNewsPaperList();
         if (arr == null || arr.Count < 1)
             selectPaper.Items.Add(new ListItem("暂无期刊", "0"));
@@ -35,4 +36,5 @@ public partial class _Default :  SiteBase
         }
 
     }
+
 }

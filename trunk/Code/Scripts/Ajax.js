@@ -1,4 +1,8 @@
-﻿
+﻿// File:    Ajax.js
+// Author:  Foolin
+// Created: 2009年6月10日13:32:49
+// Purpose: Get paper's data for Default.aspx by ajax
+
 //获取期刊和版面ID，再调用获取图片函数
 function GetPageImage(paras){
     var http = new HTTPRequest();
@@ -96,14 +100,6 @@ function ChangePaperName(paperID){
     span.innerHTML = "第" + paperID + "期";
     var paperID2 = document.getElementById("currentPaperID");
     paperID2.innerHTML = "第" + paperID + "期:";
-/*
-    var http = new HTTPRequest();
-    http.onresponse = function(request){
-        var span = document.getElementById("paperID");
-        span.innerHTML = "第" + request.responseText + "期";
-    }
-    http.send("Ajax/GetPaperID.aspx?PaperID=" + paperID);
-*/
 }
 
 //文章、新闻list
@@ -119,6 +115,12 @@ function GetNews(paras){
     else if(paras["NewsID"]){
           ShowNews(paras["NewsID"]);
     }
+    else if(paras["Keyword"] && paras["Page"]){
+        Search(paras["Keyword"], paras["Page"]);
+    }
+    else if(paras["Keyword"]){
+        Search(paras["Keyword"]);
+    }
     else if(paras["PaperID"] && paras["PageID"]){
             ShowNewsList(paras["PaperID"], paras["PageID"]);
     }
@@ -130,23 +132,6 @@ function GetNews(paras){
         }
         http.send("Ajax/GetPageID.aspx?PaperID=" + paras["PaperID"]);
     }
-    /*
-    else if(paras["word_news_id"] && paras["keyword"]){
-        if(!paras["page"]){
-            paras["page"] = "0";
-        }
-        showarticle(paras["word_news_id"],"keyword=" + paras["keyword"] + "&page=" + paras["page"]);
-    }
-    else if(paras["keyword"] && !paras["page"]){
-        Paging("gopage","0",paras["keyword"]);
-    }
-    else if(paras["keyword"] && paras["page"]){
-        Paging("gopage",paras["page"],paras["keyword"]);
-    }
-    else if(paras["page_id"]){
-        shownews(paras["page_id"]);
-    }
-    */
     else{
         http.onresponse = function(request){
             var p = request.responseText.split(',');
@@ -157,20 +142,21 @@ function GetNews(paras){
 }
 
 
+//显示新闻列表
 function ShowNewsList(paperID, pageID){
     var newsList = document .getElementById("news");
-    newsList.innerHTML = "<div style='height:500px'><p style='padding-top:50px;padding-left:50px'>加载中...</p></div>";
+    newsList.innerHTML = "<div id=\"loading\"><p style='padding-top:50px;padding-left:50px'>加载中...</p></div>";
     var http=new HTTPRequest();
     http.onresponse=function(request){
         newsList.innerHTML=request.responseText;
-        //document.getElementById("news").style.display = 'block';
     }
     http.send ("Ajax/GetNewsList.aspx?PaperID=" + paperID + "&PageID=" + pageID);
 }
 
+//显示新闻
 function ShowNews(newsID){
     var news = document.getElementById("news");
-    news.innerHTML = "<div style='height:500px'><p style='padding-top:50px;padding-left:50px'>加载中...</p></div>";
+    news.innerHTML = "<div id=\"loading\"><p style='padding-top:50px;padding-left:50px'>加载中...</p></div>";
     var http=new HTTPRequest();
         http.onresponse=function(request){
             
@@ -180,28 +166,4 @@ function ShowNews(newsID){
     return false;
 }
 
-function Paging(word,page,keyword){
-    var news=document .getElementById ("news");
-    news.innerHTML = "<div style='height:500px'><p style='padding-top:50px;padding-left:50px'>加载中...</p></div>";
-    var http=new HTTPRequest();
-    http.onresponse=function(request){
-        news.innerHTML =request.responseText;
-	if(document.getElementById("newslist")){
-            document.getElementById("newslist").style.display = 'block';
-        }
-    }
-    if(word=="pre"){
-        http.send ("http://weekly.hustnews.com/index/webajax/search.aspx?page=" + (page-1) + "&keyword=" + keyword,"","post");
-        window.location.href = "#keyword=" + keyword + "&page=" + (page-1) + "&gopage=true";
-    }
-    else if(word=="next"){
-        page++;
-        http.send("http://weekly.hustnews.com/index/webajax/search.aspx?page=" + page + "&keyword=" + keyword,"","post");
-        window.location.href = "#keyword=" + keyword + "&page=" + page + "&gopage=true";
-    }
-    else if(word=="gopage"){
-        http.send("http://weekly.hustnews.com/index/webajax/search.aspx?page=" + page + "&keyword=" + keyword,"","post");
-        window.location.href = "#keyword=" + keyword + "&page=" + page + "&gopage=true";
-    }
-    return false;
-}
+

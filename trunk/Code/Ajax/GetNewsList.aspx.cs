@@ -19,12 +19,7 @@ public partial class Ajax_GetNewsList : SiteBase
     }
     protected override void OnLoad(EventArgs e)
     {
-        if (QS("Keyword") != "")
-        {
-            listNews.DataSource = new NewsAgent().GetNewsList(QS("Keyword"));
-            listNews.DataBind();
-        }
-        else if (QS("PaperID") != "" && WebAgent.IsInt32(QS("PaperID"))
+        if (QS("PaperID") != "" && WebAgent.IsInt32(QS("PaperID"))
            && QS("PageID") != "" && WebAgent.IsInt32(QS("PageID")))
         {
             listNews.DataSource = new NewsAgent().GetNewsList(int.Parse(QS("PaperID")), int.Parse(QS("PageID")));
