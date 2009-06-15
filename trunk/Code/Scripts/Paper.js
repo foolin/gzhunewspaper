@@ -35,7 +35,7 @@ function Search(word, page){
         window.location.href = "#Keyword=" + unescape(word) + "&Page=" + page;
     }
     else if(word){
-        http.send("Ajax/search.aspx?Keyword=" + unescape(word));
+        http.send("Ajax/search.aspx?Keyword=" + escape(word));
     }
     else{
         if(keyword.value.replace(/(^\s*)|(\s*$)/g,"") == ""){
