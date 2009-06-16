@@ -127,7 +127,7 @@ a:hover{
 	cursor: pointer; position: absolute;
 }
 .imgNewsTitle{
-	position: absolute; z-index:22; display: none; font-size:12px; width:210px;	
+	position: absolute; z-index:22; display: none; font-size:14px; line-height:150%; width:210px;	
 }
 .imgNewsTitle .tips{margin-left:15px; text-align:left;}
 .imgNewsTitle .text{background-color:#E8F3FF;color:#09F; border:2px solid #33b9ff; padding:8px;text-align:center;
