@@ -20,6 +20,7 @@ public partial class Admin_PaperAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
+        this.txtPaperID.Text = (new NewsPaperAgent().GetLastPaperID() + 1).ToString();
         this.ShowFalse.Checked = true;
     }
 
@@ -46,8 +47,8 @@ public partial class Admin_PaperAdd : AdminBase
 
         NewsPaper paper = new NewsPaper();
         int toNum;
-        if (int.TryParse(this.txtPaperID.Text.ToString(), out toNum) == false)
-            WebAgent.AlertAndBack("期刊必须为数字");
+        if (int.TryParse(this.txtPaperID.Text.ToString(), out toNum) == false || toNum < 1)
+            WebAgent.AlertAndBack("期刊必须为数字，且必须为正整数！");
         else
         {
             paper.PaperID = toNum;
@@ -55,8 +56,8 @@ public partial class Admin_PaperAdd : AdminBase
                 WebAgent.AlertAndBack("已经存在该期刊号为[" + paper.PaperID + "]的期刊，请检查");
         }
         paper.PublishDate = DateTime.Parse(txtPublishDate.Text);
-        if (int.TryParse(this.txtNumOfPage.Text.ToString(), out toNum) == false)
-            WebAgent.AlertAndBack("版面数必须为数字");
+        if (int.TryParse(this.txtNumOfPage.Text.ToString(), out toNum) == false || toNum < 1)
+            WebAgent.AlertAndBack("版面数必须为数字，且必须为正整数！");
         paper.NumOfPage = toNum;
         if (this.ShowTrue.Checked != true && this.ShowFalse.Checked != true)
             WebAgent.AlertAndBack("请选择是否显示！");

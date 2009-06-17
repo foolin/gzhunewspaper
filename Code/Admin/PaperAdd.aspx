@@ -24,7 +24,7 @@
         <tr>
             <td>期数：</td>
             <td> 
-                <asp:TextBox ID="txtPaperID" runat="server"></asp:TextBox> （请填数字）</td>
+                <asp:TextBox ID="txtPaperID" style="color:Gray"  runat="server"></asp:TextBox> （默认值下一期，必须为数字）</td>
         </tr>
         <tr>
             <td>出版日期：</td>
@@ -52,7 +52,7 @@
             <td>立刻发布：</td>
             <td>
                 是<asp:RadioButton ID="ShowTrue" GroupName="IsShow" runat="server" />   
-                否<asp:RadioButton ID="ShowFalse" GroupName="IsShow" runat="server" /> （此功能是方便您添加完期刊新闻之后，然后再选择是否发布）</td>
+                否<asp:RadioButton ID="ShowFalse" GroupName="IsShow" runat="server" /> （建议填否，待添加完全部资料再发布。）</td>
         </tr>
         <tr>
             <td></td>
