@@ -44,6 +44,7 @@ function fontZoom(size){
                         <span class="paperNO">总<asp:Label ID="paperTotal" runat="server" Text=" 0 "></asp:Label>期 当前期数：<span id="paperID">第期</span>
                         </span>
                 </div>
+                
             </div>
             <div class="headRight">
                     <div class="paperInfo">
@@ -59,7 +60,12 @@ function fontZoom(size){
                     <!--图像显示区域--> 
                 </div>
                 </div>
-        </div>
+                
+                <div id="paperNavbar">
+				<a href="#">上一期</a> <a href="#">下一期</a> 当前：第5期/第1版  <a href="#">上一版</a> <a href="#">下一版</a>
+                </div>
+
+      </div>
         <div class="mainRight">
                 <div class="search">
                         新闻搜索: <input type="text" id="keyword" />

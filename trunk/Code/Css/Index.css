@@ -78,7 +78,7 @@ a:hover{
 	margin-top:20px;
 	padding-left:10px;
 	background:#ACD6FF;
-	width:370px;
+	width:364px;
 	height:30px;
 	line-height:30px;
 	font-size:14px;
@@ -86,6 +86,22 @@ a:hover{
 
 .paperNav .paperNO{
 	margin-left:15px;
+}
+
+#paperNavbar{
+	margin-left:10px;
+	margin-bottom:10px;
+	width:372px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	text-align:center;
+	background:#A2D0FF url(../images/PaperNavbar.jpg);
+	border:1px #88C4FF solid;
+}
+
+#paperNavbar a{
+	color:#09F;
 }
 
 .main{
