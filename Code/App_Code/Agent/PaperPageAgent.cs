@@ -180,6 +180,43 @@ namespace Myweb.NewsPaper
             }
 
         }
+
+        /// <summary>
+        /// 获取上一版面
+        /// </summary>
+        /// <param name="PaperID"></param>
+        /// <returns></returns>
+        public int GetPrePageID(int PaperID, int PageID)
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetPrePageID",
+                    this.NewParam("@PaperID", PaperID),
+                    this.NewParam("@PageID", PageID));
+            }
+
+        }
+
+        /// <summary>
+        /// 获取下一版面
+        /// </summary>
+        /// <param name="PaperID"></param>
+        /// <returns></returns>
+        public int GetNextPageID(int PaperID, int PageID)
+        {
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteProcedure("GetNextPageID",
+                    this.NewParam("@PaperID", PaperID),
+                    this.NewParam("@PageID", PageID));
+            }
+
+        }
+
+
+
     }
 
 }

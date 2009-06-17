@@ -102,6 +102,11 @@ a:hover{
 
 #paperNavbar a{
 	color:#09F;
+	font-weight:bold;
+}
+
+#paperNavbar a:hover{
+	color:#F00;
 }
 
 .main{

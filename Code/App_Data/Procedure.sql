@@ -417,6 +417,18 @@ if exists (select 1
             and   xtype='P')
    drop procedure GetFirstPageID
 go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetPrePageID')
+            and   xtype='P')
+   drop procedure GetLastPageID
+go
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('GetNextPageID')
+            and   xtype='P')
+   drop procedure GetFirstPageID
+go
 
 --创建存储过程--
 
@@ -492,6 +504,28 @@ BEGIN
 	IF(IsNull(@PageID,0) = 0)
 		RETURN 0
 	RETURN @PageID
+END
+GO
+
+CREATE PROCEDURE GetPrePageID(@PaperID INT, @PageID INT)
+AS
+BEGIN
+	DECLARE @PrePageID INT
+	SELECT Top 1 @PrePageID=PageID FROM PaperPage WHERE PaperID = @PaperID AND PageID < @PageID ORDER BY PageID DESC
+	IF(ISNULL(@PrePageID, 0)=0)
+		RETURN 0
+	RETURN @PrePageID
+END
+GO
+
+CREATE PROCEDURE GetNextPageID(@PaperID INT, @PageID INT)
+AS
+BEGIN
+	DECLARE @NextPageID INT
+	SELECT Top 1 @NextPageID=PageID FROM PaperPage WHERE PaperID = @PaperID AND PageID > @PageID
+	IF(ISNULL(@NextPageID, 0)=0)
+		RETURN 0
+	RETURN @NextPageID
 END
 GO
 
@@ -574,16 +608,6 @@ BEGIN
 END
 GO
 
-/*
-CREATE PROCEDURE GetNewsListByKeyword(@Keyword VARCHAR(255))
-AS
-BEGIN
-	SELECT * FROM News
-	WHERE Title LIKE  '%' + @Keyword + '%'
-	ORDER BY NewsID DESC
-END
-GO
-*/
 
 CREATE PROCEDURE GetNewsListByKeyword(
 	@Keyword VARCHAR(255),
