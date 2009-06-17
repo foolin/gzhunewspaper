@@ -51,12 +51,12 @@ public partial class Admin_PageAdd : AdminBase
 
         PaperPage page = new PaperPage();
         int toNum;
-        if (int.TryParse(this.txtPaperID.Text.ToString(), out toNum) == false)
-            WebAgent.AlertAndBack("期刊必须为数字");
+        if (int.TryParse(this.txtPaperID.Text.ToString(), out toNum) == false || toNum < 1)
+            WebAgent.AlertAndBack("期刊必须为数字，且必须为正整数！");
         else
             page.PaperID = toNum;
-        if (int.TryParse(this.txtPageID.Text.ToString(), out toNum) == false)
-            WebAgent.AlertAndBack("版面必须为数字");
+        if (int.TryParse(this.txtPageID.Text.ToString(), out toNum) == false || toNum < 1)
+            WebAgent.AlertAndBack("版面必须为数字，且必须为正整数！");
         page.PageID = toNum;
         if (page.PageID > (new NewsPaperAgent().GetNewsPaperInfo(page.PaperID).NumOfPage))
             WebAgent.AlertAndBack("版面号不能超过版面数");
