@@ -55,6 +55,7 @@ function GetPageNav(paras){
         http.onresponse = function(request){
             var p = request.responseText.split(',');
             ShowPageNav(p[0],p[1]);
+            ShowPaperNav(p[0],p[1]);
         }
         http.send("Ajax/GetPageId.aspx");
     }
@@ -62,16 +63,19 @@ function GetPageNav(paras){
         http.onresponse = function(request){
             var p = request.responseText.split(',');
             ShowPageNav(p[0],p[1]);
+            ShowPaperNav(p[0],p[1]);
         }
         http.send("Ajax/GetPageID.aspx?NewsID=" + paras["NewsID"]);
     }
     else if(paras["PaperID"] && paras["PageID"]){
-      ShowPageNav(paras["PaperID"], paras["PageID"]);
+        ShowPaperNav(paras["PaperID"], paras["PageID"]);
+        ShowPageNav(paras["PaperID"], paras["PageID"]);
     }
     else if(paras["PaperID"]){
         http.onresponse = function(request){
             var p = request.responseText.split(',');
             ShowPageNav(p[0],p[1]);
+            ShowPaperNav(p[0],p[1]);
         }
         http.send("Ajax/GetPageID.aspx?PaperID=" + paras["PaperID"]);
     }
@@ -79,18 +83,29 @@ function GetPageNav(paras){
         http.onresponse = function(request){
             var p = request.responseText.split(',');
             ShowPageNav(p[0],p[1]);
+            ShowPaperNav(p[0],p[1]);
         }
         http.send("Ajax/GetPageId.aspx");
     }
 }
 
-//获取版名
+//期刊导航
+function ShowPaperNav(paperID,pageID){
+    var http=new HTTPRequest();
+    http.onresponse=function(request){
+        var pageNav=document .getElementById ("paperNavbar");
+        pageNav.innerHTML =request.responseText;
+        ChangePaperName(paperID);
+    }
+    http.send("Ajax/GetPaperNav.aspx?PaperID=" + paperID + "&PageID=" + pageID,"","post")
+}
+
+//期刊版面导航
 function ShowPageNav(paperID,pageID){
     var http=new HTTPRequest();
     http.onresponse=function(request){
         var pageNav=document .getElementById ("pageNav");
         pageNav.innerHTML =request.responseText;
-        ChangePaperName(paperID);
     }
     http.send("Ajax/GetPageNav.aspx?PaperID=" + paperID + "&PageID=" + pageID,"","post")
 }
