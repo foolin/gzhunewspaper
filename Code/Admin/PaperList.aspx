@@ -26,6 +26,8 @@
                                         <th>
                                             版面数量</th>
                                         <th>
+                                            状态</th>
+                                        <th>
                                             操作</th>
                                     </tr>
                                     <asp:Repeater ID="listPaper" runat="server">
@@ -37,6 +39,8 @@
                                                     <%#Convert.ToDateTime(Eval("PublishDate")).ToLongDateString().ToString()%></td>
                                                 <td>
                                                     <%#Eval("NumOfPage") %></td>
+                                                <td>
+                                                    <%#SetStatus(Convert.ToBoolean(Eval("IsShow")), Convert.ToInt32(Eval("PaperID")))%></td>
                                                 <td>
                                                     <a href="PaperEdit.aspx?id=<%#Eval("PaperID") %>" title="修改期刊信息">修改</a>
                                                     <a href="PaperDel.aspx?id=<%#Eval("PaperID") %>" onclick="return confirm('注意：该期刊的所有版面和新闻数据都将会永久性删除！\n\n您确定要删除该期刊吗？')" title="删除">删除</a></td>
