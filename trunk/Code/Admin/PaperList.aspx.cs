@@ -22,4 +22,21 @@ public partial class Admin_PaperList : AdminBase
         listPaper.DataSource = new NewsPaperAgent().GetNewsPaperList();
         listPaper.DataBind();
     }
+
+    public string SetStatus(bool bl, int id)
+    {
+        string strStatue = "";
+
+        if (bl)
+        {
+            strStatue = "<a href=\"PaperSetStatus.aspx?id=" + id + "\"><font color=\"green\">已发布</font></a>";
+        }
+        else
+        {
+            strStatue = "<a href=\"PaperSetStatus.aspx?id=" + id + "\"><font color=\"red\">未发布</font></a>";
+        }
+
+        return strStatue;
+    }
+
 }

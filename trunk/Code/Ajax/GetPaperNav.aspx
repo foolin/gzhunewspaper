@@ -6,7 +6,7 @@
     }
     else
     {
-        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + prePaperID + "';LoadData();return false;\">上一期</a>  ");
+        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + prePaperID + "';LoadData();return false;\">上一期</a> ");
     }
 
     if (nextPaperID == currentPaperID)
@@ -15,7 +15,7 @@
     }
     else
     {
-        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + nextPaperID + "';LoadData();return false;\">下一期</a>  ");
+        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + nextPaperID + "';LoadData();return false;\">下一期</a> ");
     }
 %>
 
@@ -28,7 +28,7 @@
     }
     else
     {
-        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + currentPaperID + "&PageID=" + prePageID + "';LoadData();return false;\">上一版</a>  ");
+        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + currentPaperID + "&PageID=" + prePageID + "';LoadData();return false;\">上一版</a> ");
     }
 
     if (nextPageID == currentPageID)
@@ -37,6 +37,6 @@
     }
     else
     {
-        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + currentPaperID + "&PageID=" + nextPageID + "';LoadData();return false;\">下一版</a>  ");
+        Response.Write("<a href=\"#\" onclick=\"window.location.href='#PaperID=" + currentPaperID + "&PageID=" + nextPageID + "';LoadData();return false;\">下一版</a> ");
     }
 %> 
