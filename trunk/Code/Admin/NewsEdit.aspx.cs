@@ -18,6 +18,7 @@ public partial class Admin_NewsEdit : AdminBase
     public int posWidth = 50;
     public int posHeight = 50;
     public string imgPageUrl = "Images/NoPageImage.jpg";    //全局变量
+    public string divDrawArea = "";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -60,6 +61,21 @@ public partial class Admin_NewsEdit : AdminBase
             ///////
             PaperPage page = new PaperPageAgent().GetPaperPageInfo(news.PaperID, news.PageID);
             imgPageUrl = "../" + page.PageImage.ToString();
+
+
+            //重绘版面已画区域
+            int paperID = 0, pageID = 0, newsID = 0;
+            if (QS("PaperID") != "" && WebAgent.IsInt32(QS("PaperID")) && QS("PageID") != "" && WebAgent.IsInt32(QS("PageID")))
+            {
+                paperID = int.Parse(QS("PaperID"));
+                pageID = int.Parse(QS("PageID"));
+            }
+
+            if (QS("id") != "" && WebAgent.IsInt32(QS("id")))
+            {
+                newsID = int.Parse(QS("id"));
+            }
+            divDrawArea = GetHasDrawArea(paperID, pageID, newsID);
 
         }
     }
@@ -131,6 +147,7 @@ public partial class Admin_NewsEdit : AdminBase
                 {
                     PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(this.txtPaperID.SelectedValue.ToString()), int.Parse(this.txtPageID.SelectedValue.ToString()));
                     imgPageUrl = "../" + page.PageImage.ToString();
+                    divDrawArea = GetHasDrawArea(page.PaperID, page.PageID, 0);
                 }
             }
         }
@@ -139,5 +156,37 @@ public partial class Admin_NewsEdit : AdminBase
     {
         PaperPage page = new PaperPageAgent().GetPaperPageInfo(int.Parse(this.txtPaperID.SelectedValue.ToString()), int.Parse(this.txtPageID.SelectedValue.ToString()));
         imgPageUrl = "../" + page.PageImage.ToString();
+        divDrawArea = GetHasDrawArea(page.PaperID, page.PageID, 0);
+    }
+
+    protected string GetHasDrawArea(int paperID,int pageID, int newsID)
+    {
+        int left=0, top=0, width=0, height=0;
+        string[] position;
+        string strTemp = "\n";
+        if (newsID > 0)
+        {
+            News news = new NewsAgent().GetNewsInfo(newsID);
+            if (news != null)
+            {
+                paperID = news.PaperID;
+                pageID = news.PageID;
+            }
+        }
+        ArrayList arr = new NewsAgent().GetNewsList(paperID, pageID);
+        foreach (News news in arr)
+        {
+            if (news.NewsID != newsID)
+            {
+                position = news.PositionOfPage.ToString().Split('|');
+                left = int.Parse(position[0]) - 2;
+                top = int.Parse(position[1]) - 2;
+                width = int.Parse(position[2]);
+                height = int.Parse(position[3]);
+                strTemp = strTemp + "\t\t<div style=\"left: " + left + "px;top:" + top + "px; width:" + width + "px; height: " + height + "px; border:red 1px solid; cursor: pointer; position: absolute;\"></div>\n\n";
+            }
+        }
+        return strTemp;
+
     }
 }

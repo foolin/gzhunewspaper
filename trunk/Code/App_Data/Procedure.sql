@@ -317,6 +317,7 @@ GO
 
 CREATE PROCEDURE DeleteNewsPaper(@PaperID INT)
 AS
+DELETE News WHERE PaperID = @PaperID
 DELETE PaperPage WHERE PaperID = @PaperID
 DELETE NewsPaper WHERE PaperID = @PaperID
 GO
@@ -421,13 +422,13 @@ if exists (select 1
             from  sysobjects
            where  id = object_id('GetPrePageID')
             and   xtype='P')
-   drop procedure GetLastPageID
+   drop procedure GetPrePageID
 go
 if exists (select 1
             from  sysobjects
            where  id = object_id('GetNextPageID')
             and   xtype='P')
-   drop procedure GetFirstPageID
+   drop procedure GetNextPageID
 go
 
 --创建存储过程--
