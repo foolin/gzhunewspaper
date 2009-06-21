@@ -33,7 +33,7 @@ public partial class Admin_PaperList : AdminBase
         }
         else
         {
-            strStatue = "<a href=\"PaperSetStatus.aspx?id=" + id + "\"><font color=\"red\">未发布</font></a>";
+            strStatue = "<a href=\"PaperSetStatus.aspx?id=" + id + "\" onclick=\"return confirm('您确定要发布该期刊吗？')\"><font color=\"red\">未发布</font></a>";
         }
 
         return strStatue;

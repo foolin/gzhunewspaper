@@ -78,6 +78,10 @@
                               <div id="rUp"> </div>
                               <div id="rDown"></div>
                             </div>
+                            
+                            <!--初始化已画区域 --->
+                            <%=divDrawArea %>
+                            
                           </div></td>
                         <td align="center" valign="top">
                                 <div class="hr"></div>

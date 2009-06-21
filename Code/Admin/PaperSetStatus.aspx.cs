@@ -30,7 +30,7 @@ public partial class Admin_PaperSetStatus : AdminBase
         else
             paper.IsShow = false;
         if (new NewsPaperAgent().UpdateNewsPaperInfo(paper))
-            WebAgent.SuccAndGo("修改期刊状态成功", "PaperList.aspx");
+            Response.Redirect("PaperList.aspx");    //WebAgent.SuccAndGo("修改期刊状态成功", "PaperList.aspx");
         else
             WebAgent.AlertAndBack("修改期刊状态失败");
     }

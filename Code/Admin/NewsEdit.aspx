@@ -79,6 +79,10 @@
                               <div id="rUp"> </div>
                               <div id="rDown"></div>
                             </div>
+
+                            <!--初始化已画区域 --->
+                            <%=divDrawArea %>
+                            
                           </div></td>
                         <td align="center" valign="top">
                                 <div class="hr"></div>
@@ -135,7 +139,6 @@ function InitPosition(left, top, width, height){
     dragDiv.style.height = height + "px";
     ic.Init();
 }
-
 //初始化位置
 InitPosition(<%=posLeft %>, <%=posTop %>, <%=posWidth %>, <%=posHeight %>);
 
@@ -206,24 +209,6 @@ $("idView").onclick = function(){
     }
     ic.Init();
 }
-
-/*
-$("idImg").onclick = function(){
-    if(ic.Url == "http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_xx2.jpg"){
-        ic.Url = "http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_min.jpg";
-    }else{
-        ic.Url = "http://images.cnblogs.com/cnblogs_com/cloudgamer/143727/r_xx2.jpg";
-    }
-    ic.Init();
-}
-
-$("idPic").onclick = function(){
-    if($("idPicUrl").value){
-        ic.Url = $("idPicUrl").value;
-    }
-    ic.Init();
-}
-*/
 
 $("getPosition").onclick = function(){
     $("<%=txtPosition.ClientID %>").value = ic.GetPos().Left + "|" + ic.GetPos().Top + "|"  + ic.GetPos().Width + "|"  + ic.GetPos().Height;
