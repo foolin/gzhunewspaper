@@ -107,6 +107,7 @@ a:hover{
 
 #paperNavbar a:hover{
 	color:#F00;
+	padding:0px;
 }
 
 .main{
@@ -225,7 +226,7 @@ a:hover{
 .pageNav li a:hover{
 	background:#E6F2FF;
 	color:#39F;
-	padding:6px;
+	padding:5px;
 	text-decoration:none;
 }
 
@@ -233,7 +234,7 @@ a:hover{
 	background:#6FB7FF;
 	background:#E6F2FF;
 	color:#39F;
-	padding:6px;
+	padding:5px;
 	text-decoration:none;
 }
 	
