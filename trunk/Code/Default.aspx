@@ -11,7 +11,7 @@
 <script language="javascript" type="text/javascript" src="Scripts/Paper.js"></script>
 <script type="text/javascript" language="javascript">
 <!--
-//时间,每秒刷新
+//时间,每秒刷新   
 setInterval("$('nowDate').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
 function fontZoom(size){
 	document.getElementById('content').style.fontSize=size+'px';
