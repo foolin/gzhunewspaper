@@ -175,9 +175,6 @@ function step3(){
 	$("step3").style.display = "block";
 	$("cancel").style.display = "none";
 	$("hasInstall").style.display = "none";
-	if(paras != null && paras["state"])
-	{
-	}
 	window.location.href='#step=step3';
 	return false; 
 }
@@ -265,10 +262,13 @@ window.onload = initStep;
 			<div class="state">
             <dl>
             	<dt> 系统安装状态 </dt>
+            	<dd> 初始帐号和密码：  <span class="success"><%= Session["AdminAndPwd"]%></span></dd>
+            	<dd> 当前安装目录：  <%= Session["InstallPath"]%></dd>
             	<dd> 测试连接数据库：  <%= Session["ConnectState"]%></dd>
-                <dd> 生成数据库配置文件：  <%= Session["CreateConfigState"]%></dd>
+                <dd> 生成配置文件：  <%= Session["CreateConfigState"]%></dd>
                 <dd> 创建数据库表：  <%= Session["CreateTableState"]%> </dd>
                 <dd> 创建数据库存储过程：  <%= Session["CreateProcState"]%></dd>
+                <dd> 锁定安装文件：  <%= Session["LockInstallState"]%></dd>
                 <!--<dd> 初始化管理员账号： </dd>-->
                 <dd>   <span class="warn">！注意：</span> 如果出现有安装错误，请按照安装说明书进行自行配置系统。非常感谢您使用本系统！祝你旅途愉快！</dd>
                 <dd class="btn"> <input type="button" value="完成" onclick="hasInstall();"   /> </dd>
@@ -298,9 +298,11 @@ window.onload = initStep;
         	<div class="ourinfo">
             <div class="error">如果需要重新安装，请手工删除Install/目录下的Install.lock文件，然后运行本页面！【<a href="Default.aspx">点击刷新</a>】</div>
            <p>
-                <%= Session["AdminAndPwd"]%>
+                >><%= Session["AdminAndPwd"]%><br />
             	>> <a href="../Default.aspx">进入首页</a> <br />
               	>> <a href="../Admin/Login.aspx">进入后台管理</a>
+                
+                <div class="warn">!注意：如果打开首页出错，表明Web.config文件没有权限修改，请自行按照说明进行手动配置系统。</div>
            </p>
         	<br />
             &nbsp;&nbsp;<b>Author: Foolin </b><br />
