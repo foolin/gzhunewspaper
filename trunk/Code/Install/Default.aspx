@@ -7,190 +7,16 @@
     <title>E酷校报管理系统-安装</title>
 <style type="text/css">
 <!--
-body{
-	font-family:"微软雅黑",Georgia, "Times New Roman", Times, serif;
-	font-size:14px;
-}
 
-.wrap{
-	text-align:center;
-}
-
-.footer{
-	line-height:22px;
-	text-align:center;
-	padding-top:30px;
-}
-.footer p{margin:5px;}
-
-.title{
-	font-size:24px;
-	font-weight:bold;
-	text-align:center;
-	padding-top:20px;
-	padding-bottom:20px;
-}
-.btn{
-	text-align:center;
-	padding:10px;
-}
-.btn input{
-	padding:6px;
-	font-size:14px;
-}
-
-
-#step1{ display:block; text-align:left;}
-.license {
-	margin:0px auto;
-	line-height:22px;
-	height:450px;
-	width:70%;
-	padding:10px 20px;
-	border:#EBEBEB 8px solid;
-	overflow:scroll;
-	scrollbar-face-color:#EEE ;
-	scrollbar-shadow-color: #ffffff; 
-	scrollbar-highlight-color:#ffffff; 
-	scrollbar-3dlight-color: #ffffff;  
-	scrollbar-darkshadow-color: #ffffff; 
-	scrollbar-track-color:#ffffff; 
-	scrollbar-arrow-color: ffffff;
-	background:#F9F9F9;
-}
-
-
-#step2 { display:none;}
-.form{margin:0px auto; border:#EBEBEB 5px solid;}
-table.form { width:550px;}
-table.form tr{background:#F3F3F3;}
-table.form td{ padding:5px;}
-td.name { text-align:right;}
-td.inputtxt { width:75%; text-align:left; color:#666;}
-.inputtxt input{ width:250px; height:22px; line-height:22px;}
-
-
-#step3 { display:none;}
-.state{ margin:0px auto; border:#EBEBEB 5px solid; width:500px; text-align:left;}
-.state dl{ margin:2px; background:#F3F3F3; padding:10px;}
-.state dl dt{ text-align:center; font-size:16px; font-weight:bold; background:#FFF; line-height:35px; margin-bottom:10px;}
-.state dl dd{ line-height:25px; border-bottom:2px #FFF solid; margin-left:0px; padding-left:10px; }
-.success{ color:green;}
-.warn{ color:#00F;}
-.error{ color:#F00;}
-
-
-#cancel { display:none;}
-.cancel{ margin:0px auto;  text-align:left; border:#EBEBEB 5px solid; width:60%; line-height:25px; padding:3px;}
-.ourinfo{ background:#F9F9F9; padding:20px 10px;}
-
-#hasInstall { display:none;}
-.box{ margin:0px auto;  text-align:left; border:#EBEBEB 5px solid; width:60%; line-height:25px; padding:3px;}
 -->
 </style>
-<script language="javascript" type="text/javascript" src="Scripts/Base.js"></script>
+<script language="javascript" type="text/javascript" src="inc/js.js"></script>
 <script type="text/javascript" language="javascript">
 <!--
-function $(o){ return typeof(o)=="string" ? document.getElementById(o) : o;}
-//获取URL
-function GetUrl(ProtoString){
-    var paraString =  ProtoString.split('#');
-    if(!paraString[1]){
-        return null;
-    }
-    var paras = paraString[1].split('&');
-    var allParas = new Array(paras.length);
-    for(var i = 0; i<paras.length; i++){
-           allParas[GetPara(paras[i])[0]] = GetPara(paras[i])[1];
-    }
-    return allParas;
-}
-
-//获取Para
-function GetPara(word){
-    if(!word){
-        return null;
-    }
-    var onePara = word.split('=');
-    return onePara;
-}
-
-function initStep(){
-    var url = document.location.href;
-    var paras = new Array();
-    paras = GetUrl(url);
-	if(paras == null)
-		step1();
-	else if(paras["step"]){
-		switch(paras["step"]){
-			case "step1":
-				step1(); break;
-			case "step2":
-				step2(); break;
-			case "step3":
-				step3(); break;
-			case "hasInstall":
-				hasInstall(); break;
-			case "cancel":
-				cancel(); break;
-			default:
-				step1(); break;
-		}
-	}
-	else
-		step1();
-		
-}
-
-function cancel(){
-	$("step1").style.display = "none";
-	$("step2").style.display = "none";
-	$("step3").style.display = "none";
-	$("cancel").style.display = "block";
-	$("hasInstall").style.display = "none";
-	window.location.href='#step=cancel';return false; 
-}
-
-function step1(){
-	$("step1").style.display = "block";
-	$("step2").style.display = "none";
-	$("step3").style.display = "none";
-	$("cancel").style.display = "none";
-	$("hasInstall").style.display = "none";
-	window.location.href='#step=step1';return false; 
-}
-
-function step2(){
-	$("step1").style.display = "none";
-	$("step2").style.display = "block";
-	$("step3").style.display = "none";
-	$("cancel").style.display = "none";
-	$("hasInstall").style.display = "none";
-	window.location.href='#step=step2';return false; 
-}
-
-function step3(){
-	$("step1").style.display = "none";
-	$("step2").style.display = "none";
-	$("step3").style.display = "block";
-	$("cancel").style.display = "none";
-	$("hasInstall").style.display = "none";
-	window.location.href='#step=step3';
-	return false; 
-}
-
-function hasInstall(){
-	$("step1").style.display = "none";
-	$("step2").style.display = "none";
-	$("step3").style.display = "none";
-	$("cancel").style.display = "none";
-	$("hasInstall").style.display = "block";
-	window.location.href='#step=hasInstall';return false; 
-}
-
 window.onload = initStep;
 //-->
 </script>
+<link href="inc/install.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -265,12 +91,13 @@ window.onload = initStep;
             	<dd> 初始帐号和密码：  <span class="success"><%= Session["AdminAndPwd"]%></span></dd>
             	<dd> 当前安装目录：  <%= Session["InstallPath"]%></dd>
             	<dd> 测试连接数据库：  <%= Session["ConnectState"]%></dd>
-                <dd> 生成配置文件：  <%= Session["CreateConfigState"]%></dd>
-                <dd> 创建数据库表：  <%= Session["CreateTableState"]%> </dd>
-                <dd> 创建数据库存储过程：  <%= Session["CreateProcState"]%></dd>
-                <dd> 锁定安装文件：  <%= Session["LockInstallState"]%></dd>
-                <!--<dd> 初始化管理员账号： </dd>-->
-                <dd>   <span class="warn">！注意：</span> 如果出现有安装错误，请按照安装说明书进行自行配置系统。非常感谢您使用本系统！祝你旅途愉快！</dd>
+              <dd> 生成配置文件：  <%= Session["CreateConfigState"]%></dd>
+              <dd> 创建数据库表：  <%= Session["CreateTableState"]%> </dd>
+              <dd> 创建存储过程：  <%= Session["CreateProcState"]%></dd>
+              <dd> 锁定安装文件：  <%= Session["LockInstallState"]%></dd>
+              <dd> &nbsp;</dd>
+                <dd>   <span class="warn">！注意：</span> 如果出现有安装错误，请按照安装说明书进行自行配置系统。</dd>
+               <dd> <span class="warn">建议：</span>为了本系统安全，防止外人入侵，建议把Install安装目录删除。非常感谢您使用本系统！祝你旅途愉快！</dd>
                 <dd class="btn"> <input type="button" value="完成" onclick="hasInstall();"   /> </dd>
             </dl>
             </div>
@@ -280,10 +107,10 @@ window.onload = initStep;
     	<div class="title">您已经取消了本次系统的安装！</div>
         <div class="cancel">
         	<div class="ourinfo">
-            &nbsp;&nbsp;<b>Author: Foolin </b><br />
+            &nbsp;&nbsp;<b>Author: Foolin(刘付灵) </b><br />
             	&nbsp;&nbsp;&nbsp;&nbsp; QQ：970026999<br />
                 &nbsp;&nbsp;&nbsp;&nbsp; E-mail：Foolin@126.com<br /><br />
-            &nbsp;&nbsp;<b>Author: 叮当</b><br />
+            &nbsp;&nbsp;<b>Author: 叮当（朱松辉）</b><br />
             	&nbsp;&nbsp;&nbsp;&nbsp; QQ：371796533<br />
                 &nbsp;&nbsp;&nbsp;&nbsp; E-mail：zhushgo@msn.com<br /><br />
             网址：http://www.eekku.com （E酷工作室）<br /><br />
@@ -295,7 +122,6 @@ window.onload = initStep;
     <div id="hasInstall">
     	<div class="title">你已经安装了本系统！</div>
         <div class="box">
-        	<div class="ourinfo">
             <div class="error">如果需要重新安装，请手工删除Install/目录下的Install.lock文件，然后运行本页面！【<a href="Default.aspx">点击刷新</a>】</div>
            <p>
                 >><%= Session["AdminAndPwd"]%><br />
@@ -305,10 +131,11 @@ window.onload = initStep;
                 <div class="warn">!注意：如果打开首页出错，表明Web.config文件没有权限修改，请自行按照说明进行手动配置系统。</div>
            </p>
         	<br />
-            &nbsp;&nbsp;<b>Author: Foolin </b><br />
+        	<div class="ourinfo">
+            &nbsp;&nbsp;<b>Author: Foolin(刘付灵) </b><br />
             	&nbsp;&nbsp;&nbsp;&nbsp; QQ：970026999<br />
                 &nbsp;&nbsp;&nbsp;&nbsp; E-mail：Foolin@126.com<br /><br />
-            &nbsp;&nbsp;<b>Author: 叮当</b><br />
+            &nbsp;&nbsp;<b>Author: 叮当（朱松辉）</b><br />
             	&nbsp;&nbsp;&nbsp;&nbsp; QQ：371796533<br />
                 &nbsp;&nbsp;&nbsp;&nbsp; E-mail：zhushgo@msn.com<br /><br />
             网址：http://www.eekku.com （E酷工作室）<br />
@@ -325,3 +152,4 @@ window.onload = initStep;
     </form>
 </body>
 </html>
+<!-- 本安装过程制作：刘付灵   E-mail:Foolin@126.com   2009年7月28日15:14:40 -->
