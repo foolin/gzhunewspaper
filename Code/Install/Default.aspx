@@ -97,7 +97,7 @@ window.onload = initStep;
               <dd> 锁定安装文件：  <%= Session["LockInstallState"]%></dd>
               <dd> &nbsp;</dd>
                 <dd>   <span class="warn">！注意：</span> 如果出现有安装错误，请按照安装说明书进行自行配置系统。</dd>
-               <dd> <span class="warn">建议：</span>为了本系统安全，防止外人入侵，建议把Install安装目录删除。非常感谢您使用本系统！祝你旅途愉快！</dd>
+               <dd> <span class="warn">建议：</span>为了本系统安全，防止外人入侵，建议立刻把Install目录重命名（名字越少人猜到越好），或者直接删除。非常感谢您使用本系统！祝你旅途愉快！</dd>
                 <dd class="btn"> <input type="button" value="完成" onclick="hasInstall();"   /> </dd>
             </dl>
             </div>
