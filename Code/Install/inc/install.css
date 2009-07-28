@@ -1,0 +1,85 @@
+/**************************/
+/* Author：Foolin         */
+/* E-mail:Foolin@126.com  */
+/* Create on: 2009-7-26   */
+/**************************/
+body{
+	font-family:"微软雅黑",Georgia, "Times New Roman", Times, serif;
+	font-size:14px;
+}
+p{margin:5px;}
+
+.wrap{
+	text-align:center;
+}
+
+.footer{
+	line-height:22px;
+	text-align:center;
+	padding-top:30px;
+}
+.footer p{margin:5px;}
+
+.title{
+	font-size:24px;
+	font-weight:bold;
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.btn{
+	text-align:center;
+	padding:10px;
+}
+.btn input{
+	padding:6px;
+	font-size:14px;
+}
+
+
+#step1{ display:block; text-align:left;}
+.license {
+	margin:0px auto;
+	line-height:22px;
+	height:450px;
+	width:700px;
+	padding:10px 20px;
+	border:#EBEBEB 8px solid;
+	overflow:scroll;
+	scrollbar-face-color:#EEE ;
+	scrollbar-shadow-color: #ffffff; 
+	scrollbar-highlight-color:#ffffff; 
+	scrollbar-3dlight-color: #ffffff;  
+	scrollbar-darkshadow-color: #ffffff; 
+	scrollbar-track-color:#ffffff; 
+	scrollbar-arrow-color: ffffff;
+	background:#F9F9F9;
+}
+
+
+#step2 { display:none;}
+.form{margin:0px auto; border:#EBEBEB 5px solid;}
+table.form { width:550px;}
+table.form tr{background:#F3F3F3;}
+table.form td{ padding:5px;}
+td.name { text-align:right;}
+td.inputtxt { width:75%; text-align:left; color:#666;}
+.inputtxt input{ width:250px; height:22px; line-height:22px;}
+
+
+#step3 { display:none;}
+.state{ margin:0px auto; border:#EBEBEB 5px solid; width:650px; text-align:left;}
+.state dl{ margin:2px; background:#F3F3F3; padding:10px;}
+.state dl dt{ text-align:center; font-size:16px; font-weight:bold; background:#FFF; line-height:35px; margin-bottom:10px;}
+.state dl dd{ line-height:25px; border-bottom:2px #FFF solid; margin-left:0px; padding-left:10px; }
+.success{ color:green;}
+.warn{ color:#00F;}
+.error{ color:#F00;}
+
+
+#cancel { display:none;}
+.cancel{ margin:0px auto;  text-align:left; border:#EBEBEB 5px solid; width:600px; line-height:25px; padding:3px;}
+.ourinfo{ background:#F9F9F9; padding:20px 10px;}
+
+#hasInstall { display:none;}
+.box{ margin:0px auto;  text-align:left; border:#EBEBEB 5px solid;background:#F9F9F9; width:700px; line-height:25px; padding:3px;}

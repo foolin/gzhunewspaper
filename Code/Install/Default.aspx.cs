@@ -23,12 +23,17 @@ public partial class Install_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        /*
         string install = Request.QueryString["hasinstall"];
         if (install == null || install == "")
         {
             if (File.Exists(Server.MapPath("Install.lock")))
                 Response.Redirect("Default.aspx?hasinstall=true&#step=hasInstall");
         }
+         */
+
+        if (File.Exists(Server.MapPath("Install.lock")))
+            Response.Redirect("HasInstall.html");
 
 
     }
@@ -233,8 +238,8 @@ public partial class Install_Default : System.Web.UI.Page
 
         string connstr = "server=" + DBserver.Text + ";database= " + DBname.Text + ";uid=" + DBuid.Text + ";pwd=" + DBpwd.Text;
         string installPath = path.Text.ToString();
-        //connstr = connstr.Replace("\\", "\\\\");
-        //connstr = connstr.Replace("\\", "##");
+        StreamWriter sw = null;     //写入配置文件和锁定文件用到的对象。
+
 
         if (TestDBConnent(connstr))
         {
@@ -253,12 +258,56 @@ public partial class Install_Default : System.Web.UI.Page
             Session["CreateConfigState"] = "<span class=\"success\">√成功</span>";
              */
 
-            if (ExecuteScript(Server.MapPath("inc/data.sql"), connstr))
+
+            //写入配置文件
+            try
+            {
+                string strWebConfig = FileAgent.ReadText(Server.MapPath("inc/WebConfig.xml"), Encoding.Default);
+                strWebConfig = strWebConfig.Replace("{$=DBString}", connstr);
+                strWebConfig = strWebConfig.Replace("{$=InstallDir}", installPath);
+                sw = new StreamWriter(Server.MapPath("../Web.Config"), false, Encoding.Default);
+                sw.WriteLine(strWebConfig);
+                Session["CreateConfigState"] = "<span class=\"success\">√成功</span>";
+                //FileAgent.WriteText("c:\\Unlock.txt", "###UnLock###", false, Encoding.Default);
+            }
+            catch (Exception ex)
+            {
+                //WebAgent.Alert("写入文件失败！");
+                Session["CreateConfigState"] = "<span class=\"error\">×写入Web.Config配置文件失败！<br />请检查根目录Web.Config配置文件是否具有写入权限。或者按照安装说明自行配置该文件！</span>";
+                //throw new Exception("ExecuteScript Failed: ", ex);
+            }
+            finally
+            {
+                if (sw != null) sw.Close();
+            }
+
+            //写入锁定文件
+            try
+            {
+                sw = new StreamWriter(Server.MapPath("Install.lock"), false, Encoding.Default);
+                sw.WriteLine("E酷工作室 Authro:Foolin E-mail:Foolin@126.com www.eekku.com");
+                Session["LockInstallState"] = "<span class=\"success\">√成功</span> ";
+                //FileAgent.WriteText("c:\\Unlock.txt", "###UnLock###", false, Encoding.Default);
+            }
+            catch (Exception ex)
+            {
+                //WebAgent.Alert("写入文件失败！");
+                Session["LockInstallState"] = "<span class=\"error\">锁定安装文件失败，为了系统的安全，请自行删除Install目录及所有文件！</span> ";
+                //throw new Exception("ExecuteScript Failed: ", ex);
+            }
+            finally
+            {
+                if (sw != null) sw.Close();
+            }
+
+
+            //创建数据库表文件
+            if (ExecuteScript(Server.MapPath("inc/CreateTables.sql"), connstr))
             {
                 //WebAgent.Alert("创建数据库表成功！");
                 Session["CreateTableState"] = "<span class=\"success\">√成功</span>";
                 //执行创建存储过程
-                if (ExecuteScript(Server.MapPath("inc/proc.sql"), connstr))
+                if (ExecuteScript(Server.MapPath("inc/CreateProc.sql"), connstr))
                 {
 
                     //提示安装成功！
@@ -269,75 +318,29 @@ public partial class Install_Default : System.Web.UI.Page
                     //写入已经安装文件
                     //FileAgent.WriteText(Server.MapPath("Install.lock"), "E酷工作室 Authro:Foolin E-mail:Foolin@126.com www.eekku.com", false, Encoding.Default);
 
-
-                    StreamWriter sw = null;
-
-                    //写入配置文件
-                    try
-                    {
-                        string strWebConfig = FileAgent.ReadText(Server.MapPath("inc/WebConfig.xml"), Encoding.Default);
-                        strWebConfig = strWebConfig.Replace("{$=DBString}", connstr);
-                        strWebConfig = strWebConfig.Replace("{$=InstallDir}", installPath);
-                        sw = new StreamWriter(Server.MapPath("../Web.Config"), false, Encoding.Default);
-                        sw.WriteLine(strWebConfig);
-                        Session["CreateConfigState"] = "<span class=\"success\">√成功</span>";
-                        //FileAgent.WriteText("c:\\Unlock.txt", "###UnLock###", false, Encoding.Default);
-                    }
-                    catch (Exception ex)
-                    {
-                        //WebAgent.Alert("写入文件失败！");
-                        Session["CreateConfigState"] = "<span class=\"error\">×写入Web.Config配置文件失败！<br />请检查根目录Web.Config配置文件是否具有写入权限。或者按照安装说明自行配置该文件！</span>";
-                        //throw new Exception("ExecuteScript Failed: ", ex);
-                    }
-                    finally
-                    {
-                        if (sw != null) sw.Close();
-                    }
-
-                    //写入锁定文件
-                    try
-                    {
-                        sw = new StreamWriter(Server.MapPath("Install.lock"), false, Encoding.Default);
-                        sw.WriteLine("E酷工作室 Authro:Foolin E-mail:Foolin@126.com www.eekku.com");
-                        Session["LockInstallState"] = "<span class=\"success\">√成功</span> ";
-                        //FileAgent.WriteText("c:\\Unlock.txt", "###UnLock###", false, Encoding.Default);
-                    }
-                    catch (Exception ex)
-                    {
-                        //WebAgent.Alert("写入文件失败！");
-                        Session["LockInstallState"] = "<span class=\"error\">锁定安装文件失败，为了系统的安全，请自行删除Install目录及所有文件！</span> ";
-                        //throw new Exception("ExecuteScript Failed: ", ex);
-                    }
-                    finally
-                    {
-                        if(sw!=null) sw.Close();
-                    }
-
                     HttpContext.Current.Response.Write("<script language='javascript'>window.location.href='#step=step3';</script>");
                     //Response.Redirect("?hasinstall=true&#step=step3");
                 }
                 else
                 {
                     //WebAgent.Alert("创建存储过程失败！");
-                    Session["CreateProcState"] = "<span class=\"error\">× 失败！请按照安装说明自行在数据库中执行运行SQL脚本。</span>";
-
+                    Session["CreateProcState"] = "<span class=\"error\">× 失败！请按照安装说明自行在数据库中执行【App_Data/CreateProcedure.sql】脚本。</span>";
+                    Session["AdminAndPwd"] = "<span class=\"error\">×错误！未初始化帐号和密码！请按照安装说明，自行在数据库中执行【App_Data/CreateProcedure.sql】脚本。 </span>";
+                    HttpContext.Current.Response.Write("<script language='javascript'>window.location.href='#step=step3';</script>");
                 }
             }
             else
             {
                 //WebAgent.Alert("创建数据库表失败！");
-                Session["CreateTableState"] = "<span class=\"error\">× 失败！请按照安装说明自行在数据库中执行运行SQL脚本。</span>";
-                Session["CreateProcState"] = "<span class=\"error\">× 失败！请按照安装说明自行在数据库中执行运行SQL脚本。</span>";
+                Session["CreateTableState"] = "<span class=\"error\">× 失败！请按照安装说明，自行在数据库中执行【App_Data/CreateTables.sql】脚本。</span>";
+                Session["CreateProcState"] = "<span class=\"error\">× 失败！请按照安装说明，自行在数据库中执行【App_Data/CreateProcedure.sql】脚本。</span>";
+                Session["AdminAndPwd"] = "<span class=\"error\">×错误！未初始化帐号和密码！请按照安装说明，自行在数据库中执行【App_Data/CreateProcedure.sql】脚本。 </span>";
+                HttpContext.Current.Response.Write("<script language='javascript'>window.location.href='#step=step3';</script>");
             }
         }
         else
         {
             WebAgent.AlertAndBack("连接数据库失败！请检查连接数据库配置填写是否正确！");
-            Session["ConnectState"] = "<<pan class=\"success\"> × 失败！</span>";
-            Session["CreateConfigState"] = "<span class=\"error\">× 失败！</span>";
-            Session["CreateTableState"] = "<span class=\"error\">× 失败！</span>";
-            Session["CreateProcState"] = "<span class=\"error\">× 失败！</span>";
-
         }
 
     }
